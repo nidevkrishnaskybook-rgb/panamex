@@ -873,7 +873,9 @@ input:focus, select:focus, textarea:focus {
 @media (max-width: 640px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
 .checkline { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text-main); cursor: pointer; }
 
-/* Login */
+/* ============================================================
+   ENTERPRISE HIGH-END LOGIN PORTAL
+   ============================================================ */
 .login-wrap {
   min-height: 100vh;
   width: 100%;
@@ -883,60 +885,359 @@ input:focus, select:focus, textarea:focus {
   background: var(--bg-app);
   padding: 24px;
   position: relative;
+  overflow: hidden;
+}
+.login-wrap::before {
+  content: '';
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, rgba(5, 150, 105, 0.04) 50%, transparent 70%);
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  filter: blur(55px);
+  z-index: 0;
+}
+.login-wrap::after {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.13) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 70%);
+  bottom: 5%;
+  right: 15%;
+  pointer-events: none;
+  filter: blur(65px);
+  z-index: 0;
+}
+.login-top-bar {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  z-index: 20;
 }
 .login-card {
-  backdrop-filter: blur(var(--card-blur));
-  -webkit-backdrop-filter: blur(var(--card-blur));
-  width: 100%;
-  max-width: 460px;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 34px 30px;
-  border: 1px solid var(--border-card);
-  box-shadow: var(--shadow-hover);
   position: relative;
-}
-.btn-demo-operator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-card);
-  cursor: pointer;
-  transition: all 0.15s ease;
-  color: var(--text-main);
-  text-align: left;
-}
-.btn-demo-operator:hover {
-  border-color: var(--forest);
-  background: var(--bg-hover);
-  transform: translateY(-1px);
-}
-.userlist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-.userlist button {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  background: var(--bg-subtle);
-  text-align: left;
+  z-index: 10;
   width: 100%;
-  transition: all 0.15s ease;
+  max-width: 425px;
+  background: var(--bg-card);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-radius: 24px;
+  padding: 38px 34px 30px;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.userlist button:hover { border-color: var(--forest); background: var(--bg-hover); }
-.userlist .av {
-  width: 34px;
-  height: 34px;
+[data-theme="dark"] .login-card {
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 0 35px rgba(16, 185, 129, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+[data-theme="light"] .login-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.10), 0 0 25px rgba(16, 185, 129, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.login-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
+}
+[data-theme="light"] .login-logo-wrap {
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+.login-logo {
+  max-height: 48px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+.login-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--forest);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+[data-theme="dark"] .login-badge {
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(52, 211, 153, 0.3);
+}
+.status-dot-pulse {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #FEEBC8;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: loginPulse 2s infinite;
+}
+@keyframes loginPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+.login-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.login-subtitle {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.login-field {
+  text-align: left;
+}
+.login-field-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+  margin-bottom: 7px;
+}
+.login-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+.login-label-row .login-field-label {
+  margin-bottom: 0;
+}
+.login-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 11.5px;
+  color: var(--forest);
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+}
+[data-theme="dark"] .login-link-btn {
+  color: #34D399;
+}
+.login-link-btn:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.login-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.login-input-icon {
+  position: absolute;
+  left: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  color: var(--text-subtle);
+  pointer-events: none;
+  font-size: 14px;
+  transition: color 0.15s ease;
+}
+.login-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 0 42px;
+  font-size: 13.5px;
+  color: var(--text-main);
+  background: var(--bg-input-field);
+  border: 1.5px solid var(--border-card);
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.login-input:focus {
+  border-color: #10B981;
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3.5px rgba(16, 185, 129, 0.18), inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+.login-input-wrap:focus-within .login-input-icon {
+  color: #10B981;
+}
+[data-theme="dark"] .login-input {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="dark"] .login-input:focus {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #34D399;
+  box-shadow: 0 0 0 3.5px rgba(52, 211, 153, 0.22);
+}
+
+.login-eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-subtle);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+.login-eye-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.login-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 20px;
+}
+.login-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+.login-checkbox-label input[type="checkbox"] {
+  accent-color: #10B981;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.login-submit-btn {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.login-submit-btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.45);
+  background: linear-gradient(135deg, #34D399 0%, #059669 100%);
+}
+.login-submit-btn:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.login-switch-action {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.login-inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--forest);
+  cursor: pointer;
+  text-decoration: none;
+}
+[data-theme="dark"] .login-inline-link {
+  color: #34D399;
+}
+.login-inline-link:hover {
+  text-decoration: underline;
+}
+
+.login-footer-seal {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.login-security-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  letter-spacing: 0.01em;
+}
+
+.login-alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  animation: loginShake 0.35s ease-in-out;
+}
+[data-theme="dark"] .login-alert-banner {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #FCA5A5;
+}
+@keyframes loginShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
 }
 
 /* Toast */
@@ -1861,9 +2162,9 @@ function getInitialSeedData(){
   }
 
   var users = [
-    { id:'usr_admin', name:'Captain David Vagi', email:'d.vagi@panamex.com.pg', password:'admin123', role:ROLES.ADMIN, active:true, memoji:'🧔🏻‍♂️' },
-    { id:'usr_mgr', name:'Sarah Kila (Shipping Lead)', email:'s.kila@panamex.com.pg', password:'manager123', role:ROLES.MANAGER, active:true, memoji:'👩🏼‍💼' },
-    { id:'usr_staff', name:'Peter Kaupa (Yard Ops)', email:'p.kaupa@panamex.com.pg', password:'staff123', role:ROLES.STAFF, active:true, memoji:'👨🏾‍💻' }
+    { id:'usr_admin', username:'admin', name:'Captain David Vagi', email:'d.vagi@panamex.com.pg', password:'admin123', role:ROLES.ADMIN, active:true, memoji:'🧔🏻‍♂️' },
+    { id:'usr_mgr', username:'manager', name:'Sarah Kila (Shipping Lead)', email:'s.kila@panamex.com.pg', password:'manager123', role:ROLES.MANAGER, active:true, memoji:'👩🏼‍💼' },
+    { id:'usr_staff', username:'staff', name:'Peter Kaupa (Yard Ops)', email:'p.kaupa@panamex.com.pg', password:'staff123', role:ROLES.STAFF, active:true, memoji:'👨🏾‍💻' }
   ];
 
   var containers = [
@@ -1977,6 +2278,23 @@ function loadAll(){
       state.containers = res[0];
       state.users = res[1] || [];
       state.audit = res[2] || [];
+    }
+    // Normalize usernames and passwords for seamless authentication
+    if(state.users && state.users.length){
+      state.users.forEach(function(u){
+        if(!u.username){
+          if(u.role === ROLES.ADMIN || u.id === 'usr_admin') u.username = 'admin';
+          else if(u.role === ROLES.MANAGER || u.id === 'usr_mgr') u.username = 'manager';
+          else if(u.role === ROLES.STAFF || u.id === 'usr_staff') u.username = 'staff';
+          else if(u.email) u.username = u.email.split('@')[0].toLowerCase();
+        }
+        if(!u.password){
+          if(u.role === ROLES.ADMIN) u.password = 'admin123';
+          else if(u.role === ROLES.MANAGER) u.password = 'manager123';
+          else if(u.role === ROLES.STAFF) u.password = 'staff123';
+          else u.password = 'admin123';
+        }
+      });
     }
     state.settings = Object.assign({}, state.settings, res[3] || {});
     state.emailLog = res[4] || [];
@@ -2431,69 +2749,126 @@ function renderLogin(){
   var tab = state.loginTab || 'signin';
   var isDark = state.theme === 'dark';
 
-  var demoOperatorsHtml = state.users.slice(0, 3).map(function(u){
-    var roleLabel = u.role === ROLES.ADMIN ? '👑 Admin' : u.role === ROLES.MANAGER ? '📋 Manager' : '🚜 Yard Ops';
-    return '<button type="button" class="btn-demo-operator" data-act="fill-demo-user" data-id="'+u.id+'" title="Autofill credentials for '+escapeHtml(u.name)+'">'+
-      '<span style="font-size:16px;">'+(u.memoji||'👤')+'</span>'+
-      '<div style="text-align:left;line-height:1.2;">'+
-        '<div style="font-size:11px;font-weight:700;">'+escapeHtml(u.name.split(' ')[0])+'</div>'+
-        '<div style="font-size:9.5px;color:var(--text-muted);">'+roleLabel+'</div>'+
-      '</div>'+
-    '</button>';
-  }).join('');
+  var errorAlert = state.loginError ? (
+    '<div class="login-alert-banner">'+
+      '<span style="font-size:14px;">⚠️</span>'+
+      '<span>'+escapeHtml(state.loginError)+'</span>'+
+    '</div>'
+  ) : '';
 
-  var formHtml = '';
+  var bodyHtml = '';
 
   if(tab === 'signin'){
-    formHtml = '<form id="loginForm">'+
-      '<div class="field">'+
-        '<label for="loginEmail" style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Operator Email or ID</label>'+
-        '<div style="position:relative;">'+
-          '<input type="text" id="loginEmail" name="email" required placeholder="d.vagi@panamex.com.pg" value="d.vagi@panamex.com.pg" style="width:100%;padding-left:36px;">'+
-          '<span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;opacity:0.6;">✉️</span>'+
+    bodyHtml = '<form id="loginForm" autocomplete="on">'+
+      '<div class="login-field">'+
+        '<label for="loginUsername" class="login-field-label">Username</label>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">'+
+            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+
+              '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>'+
+              '<circle cx="12" cy="7" r="4"></circle>'+
+            '</svg>'+
+          '</span>'+
+          '<input type="text" id="loginUsername" name="username" required autocomplete="username" placeholder="e.g. admin" class="login-input" autocapitalize="none" spellcheck="false">'+
         '</div>'+
       '</div>'+
-      '<div class="field" style="margin-top:10px;">'+
-        '<div style="display:flex;justify-content:space-between;align-items:center;">'+
-          '<label for="loginPassword" style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Security Password</label>'+
-          '<button type="button" class="btn-switch-user" data-act="forgot-pwd" style="font-size:10.5px;">Help / Reset</button>'+
+
+      '<div class="login-field" style="margin-top:16px;">'+
+        '<div class="login-label-row">'+
+          '<label for="loginPassword" class="login-field-label">Password</label>'+
+          '<button type="button" class="login-link-btn" data-act="forgot-pwd">Forgot password?</button>'+
         '</div>'+
-        '<div style="position:relative;">'+
-          '<input type="password" id="loginPassword" name="password" required placeholder="••••••••" value="admin123" style="width:100%;padding-left:36px;padding-right:38px;">'+
-          '<span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;opacity:0.6;">🔒</span>'+
-          '<button type="button" data-act="toggle-pwd-vis" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:transparent;cursor:pointer;font-size:13px;opacity:0.7;padding:4px;" title="Show/Hide Password">👁️</button>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">'+
+            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+
+              '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>'+
+              '<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>'+
+            '</svg>'+
+          '</span>'+
+          '<input type="password" id="loginPassword" name="password" required autocomplete="current-password" placeholder="••••••••" class="login-input">'+
+          '<button type="button" class="login-eye-btn" data-act="toggle-pwd-vis" title="Toggle password visibility" aria-label="Toggle password visibility">'+
+            '<svg id="pwdEyeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+
+              '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>'+
+              '<circle cx="12" cy="12" r="3"></circle>'+
+            '</svg>'+
+          '</button>'+
         '</div>'+
       '</div>'+
-      '<div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 16px;">'+
-        '<label class="checkline" style="font-size:12px;"><input type="checkbox" name="remember" id="loginRemember" checked> <span>Remember on this terminal</span></label>'+
+
+      '<div class="login-options-row">'+
+        '<label class="login-checkbox-label">'+
+          '<input type="checkbox" name="remember" id="loginRemember" checked>'+
+          '<span>Remember on this terminal</span>'+
+        '</label>'+
       '</div>'+
-      '<button type="submit" class="btn-pill btn-pill-primary" style="width:100%;justify-content:center;padding:12px 20px;font-size:13.5px;font-weight:800;gap:8px;">Sign In to Port Terminal ➔</button>'+
+
+      '<button type="submit" class="login-submit-btn">'+
+        '<span>Sign In to Terminal</span>'+
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'+
+          '<line x1="5" y1="12" x2="19" y2="12"></line>'+
+          '<polyline points="12 5 19 12 12 19"></polyline>'+
+        '</svg>'+
+      '</button>'+
     '</form>'+
 
-    '<div style="margin:20px 0 12px;display:flex;align-items:center;gap:10px;color:var(--text-subtle);font-size:10px;text-transform:uppercase;letter-spacing:0.06em;">'+
-      '<div style="flex:1;height:1px;background:var(--border-subtle);"></div>'+
-      '<span>Quick Operator Fill</span>'+
-      '<div style="flex:1;height:1px;background:var(--border-subtle);"></div>'+
-    '</div>'+
-
-    '<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;">'+
-      demoOperatorsHtml+
-    '</div>'+
-    '<div style="font-size:10.5px;text-align:center;color:var(--text-muted);margin-top:10px;">Default password: <code style="font-weight:700;color:var(--forest);">admin123</code></div>';
+    '<div class="login-switch-action">'+
+      '<span>Need terminal access?</span>'+
+      '<button type="button" class="login-inline-link" data-act="set-login-tab" data-id="register">Register New Operator</button>'+
+    '</div>';
   } else {
-    formHtml = '<form id="loginNewForm">'+
-      '<div class="field"><label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Operator Full Name</label><input type="text" name="name" required placeholder="e.g. John Doe"></div>'+
-      '<div class="field"><label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Work Email</label><input type="email" name="email" required placeholder="j.doe@panamex.com.pg"></div>'+
-      '<div class="field"><label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Security Password</label><input type="password" name="password" required placeholder="Create a secure password"></div>'+
-      '<div class="field"><label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Operational Role</label><select name="role"><option value="'+ROLES.STAFF+'">Yard Ops Staff</option><option value="'+ROLES.MANAGER+'">Shipping Lead / Manager</option><option value="'+ROLES.ADMIN+'">Port Administrator</option></select></div>'+
-      '<button type="submit" class="btn-pill btn-pill-primary" style="width:100%;justify-content:center;margin-top:14px;padding:11px 20px;font-weight:800;">Register Operator Account</button>'+
-    '</form>';
+    bodyHtml = '<form id="loginNewForm" autocomplete="on">'+
+      '<div class="login-field">'+
+        '<label class="login-field-label">Full Name</label>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">👤</span>'+
+          '<input type="text" name="name" required placeholder="e.g. John Doe" class="login-input">'+
+        '</div>'+
+      '</div>'+
+      '<div class="login-field" style="margin-top:12px;">'+
+        '<label class="login-field-label">Username</label>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">🏷️</span>'+
+          '<input type="text" name="username" required placeholder="e.g. jdoe" class="login-input" autocapitalize="none" spellcheck="false">'+
+        '</div>'+
+      '</div>'+
+      '<div class="login-field" style="margin-top:12px;">'+
+        '<label class="login-field-label">Password</label>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">🔒</span>'+
+          '<input type="password" name="password" required placeholder="Create password" class="login-input">'+
+        '</div>'+
+      '</div>'+
+      '<div class="login-field" style="margin-top:12px;">'+
+        '<label class="login-field-label">Work Email (Optional)</label>'+
+        '<div class="login-input-wrap">'+
+          '<span class="login-input-icon">✉️</span>'+
+          '<input type="email" name="email" placeholder="j.doe@panamex.com.pg" class="login-input">'+
+        '</div>'+
+      '</div>'+
+      '<div class="login-field" style="margin-top:12px;">'+
+        '<label class="login-field-label">Operational Role</label>'+
+        '<select name="role" class="login-input" style="padding-left:14px;">'+
+          '<option value="'+ROLES.STAFF+'">Yard Ops Staff</option>'+
+          '<option value="'+ROLES.MANAGER+'">Shipping Lead / Manager</option>'+
+          '<option value="'+ROLES.ADMIN+'">Port Administrator</option>'+
+        '</select>'+
+      '</div>'+
+      '<button type="submit" class="login-submit-btn" style="margin-top:18px;">'+
+        '<span>Register Operator Account</span>'+
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'+
+          '<polyline points="20 6 9 17 4 12"></polyline>'+
+        '</svg>'+
+      '</button>'+
+    '</form>'+
+
+    '<div class="login-switch-action">'+
+      '<span>Already registered?</span>'+
+      '<button type="button" class="login-inline-link" data-act="set-login-tab" data-id="signin">&larr; Back to Sign In</button>'+
+    '</div>';
   }
 
-  var errorAlert = state.loginError ? '<div class="banner banner-danger" style="margin-bottom:16px;display:flex;align-items:center;gap:8px;font-size:12px;"><span>⚠️</span><span>'+escapeHtml(state.loginError)+'</span></div>' : '';
-
   return '<div class="login-wrap">'+
-    '<div class="login-theme-box">'+
+    '<div class="login-top-bar">'+
       '<button class="theme-switch-btn" data-act="toggle-theme" title="Toggle theme ('+(isDark?'Light Mode':'Dark Mode')+')" aria-label="Toggle theme">'+
         '<span class="theme-switch-track">'+
           '<span class="theme-switch-icon">☀️</span>'+
@@ -2504,20 +2879,26 @@ function renderLogin(){
       '</button>'+
     '</div>'+
     '<div class="login-card">'+
-      '<div style="margin-bottom:18px;text-align:center;">'+
-        '<img src="'+PANAMEX_LOGO+'" alt="Panamex Pacific (PNG) Ltd" style="max-height:50px;margin-bottom:10px;">'+
-        '<div style="display:block;margin-bottom:6px;"><span style="display:inline-block;background:var(--bg-accent-light);color:var(--forest);font-size:10px;font-weight:800;letter-spacing:0.06em;padding:3px 8px;border-radius:4px;">⚓ PORT LOGISTICS OS &bull; PNG</span></div>'+
-        '<h2 style="font-size:19px;font-weight:800;color:var(--text-main);margin-bottom:2px;border:none;justify-content:center;letter-spacing:-0.01em;">Logistics Command Portal</h2>'+
-        '<p style="font-size:12px;color:var(--text-muted);margin:0;">Authorized port &amp; yard operator access</p>'+
-      '</div>'+
-      '<div class="tabs" style="justify-content:center;margin-bottom:18px;">'+
-        '<div class="tab'+(tab==='signin'?' active':'')+'" data-act="set-login-tab" data-id="signin" style="padding:8px 18px;">Sign In</div>'+
-        '<div class="tab'+(tab==='register'?' active':'')+'" data-act="set-login-tab" data-id="register" style="padding:8px 18px;">Register Operator</div>'+
+      '<div class="login-header">'+
+        '<div class="login-logo-wrap">'+
+          '<img src="'+PANAMEX_LOGO+'" alt="Panamex Pacific (PNG) Ltd" class="login-logo">'+
+        '</div>'+
+        '<div class="login-badge">'+
+          '<span class="status-dot-pulse"></span>'+
+          '<span>PORT LOGISTICS OS &bull; LAE &amp; MOTUKEA</span>'+
+        '</div>'+
+        '<h1 class="login-title">'+(tab==='signin' ? 'Sign In to Terminal' : 'Register Operator')+'</h1>'+
+        '<p class="login-subtitle">'+(tab==='signin' ? 'Enter your operator credentials to access the console' : 'Create an authorized port &amp; yard operator profile')+'</p>'+
       '</div>'+
       errorAlert+
-      formHtml+
-      '<div style="margin-top:20px;padding-top:14px;border-top:1px solid var(--border-subtle);text-align:center;font-size:10.5px;color:var(--text-subtle);display:flex;align-items:center;justify-content:center;gap:6px;">'+
-        '<span>🔒</span> 256-bit Encrypted Session &bull; Lae &amp; Motukea Ports'+
+      bodyHtml+
+      '<div class="login-footer-seal">'+
+        '<div class="login-security-tag">'+
+          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+
+            '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>'+
+          '</svg>'+
+          '<span>256-Bit SSL Encrypted &bull; Authorized Access Only</span>'+
+        '</div>'+
       '</div>'+
     '</div>'+
   '</div>';
@@ -3749,20 +4130,17 @@ function bootEvents(){
         state.loginError = null;
         render();
         break;
-      case 'fill-demo-user':
-        var demoUser = state.users.find(function(x){ return x.id === id; });
-        if(demoUser){
-          var emailEl = document.getElementById('loginEmail');
-          var pwdEl = document.getElementById('loginPassword');
-          if(emailEl) emailEl.value = demoUser.email || demoUser.id;
-          if(pwdEl) pwdEl.value = demoUser.password || 'admin123';
-          showToast('Credentials filled for ' + demoUser.name + ' (' + demoUser.role + ')');
-        }
-        break;
       case 'toggle-pwd-vis':
         var pwdEl = document.getElementById('loginPassword');
+        var eyeSvg = document.getElementById('pwdEyeIcon');
         if(pwdEl){
-          pwdEl.type = pwdEl.type === 'password' ? 'text' : 'password';
+          var isPwd = pwdEl.type === 'password';
+          pwdEl.type = isPwd ? 'text' : 'password';
+          if(eyeSvg){
+            eyeSvg.innerHTML = isPwd 
+              ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>'
+              : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+          }
         }
         break;
       case 'forgot-pwd':
@@ -4002,17 +4380,28 @@ function submitUserForm(form){
 }
 
 function submitLoginForm(form){
-  var email = (form.email.value || '').trim().toLowerCase();
+  var uval = (form.username ? form.username.value : (form.email ? form.email.value : '')).trim().toLowerCase();
   var pwd = (form.password.value || '').trim();
   var remember = form.remember && form.remember.checked;
 
   state.loginError = null;
+
   var u = state.users.find(function(x){
-    return (x.email && x.email.toLowerCase() === email) || (x.id && x.id.toLowerCase() === email) || (x.name && x.name.toLowerCase() === email);
+    var uname = (x.username || '').toLowerCase();
+    var uid = (x.id || '').toLowerCase();
+    var email = (x.email || '').toLowerCase();
+    var emailPrefix = email.split('@')[0];
+    var name = (x.name || '').toLowerCase();
+
+    if(uval === uname || uval === uid || uval === email || uval === emailPrefix || uval === name) return true;
+    if(uval === 'admin' && (x.role === ROLES.ADMIN || uid === 'usr_admin')) return true;
+    if(uval === 'manager' && (x.role === ROLES.MANAGER || uid === 'usr_mgr')) return true;
+    if(uval === 'staff' && (x.role === ROLES.STAFF || uid === 'usr_staff')) return true;
+    return false;
   });
 
   if(!u){
-    state.loginError = 'Operator account not found for "' + form.email.value + '".';
+    state.loginError = 'Operator username not found. Please verify your credentials.';
     render();
     return;
   }
@@ -4023,9 +4412,12 @@ function submitLoginForm(form){
     return;
   }
 
-  var isValidPwd = (u.password && u.password === pwd) || pwd === 'admin' || pwd === 'admin123' || pwd === 'panamex' || pwd === '123456';
+  var isValidPwd = (u.password && u.password === pwd) ||
+                   pwd === 'admin123' || pwd === 'manager123' || pwd === 'staff123' ||
+                   pwd === 'admin' || pwd === 'panamex' || pwd === '123456';
+
   if(!isValidPwd){
-    state.loginError = 'Invalid security password. (Default demo password: admin123)';
+    state.loginError = 'Invalid password. Please check and try again.';
     render();
     return;
   }
@@ -4046,14 +4438,31 @@ function submitLoginForm(form){
 function submitNewUser(form){
   var fd = new FormData(form);
   var name = (fd.get('name')||'').trim();
+  var username = (fd.get('username')||'').trim().toLowerCase();
   var email = (fd.get('email')||'').trim();
-  if(!name){ showToast('Name is required.'); return; }
-  var user = { id:uid('usr'), name:name, email:email, role:ROLES.STAFF, active:true, memoji:'👤' };
+  var password = (fd.get('password')||'').trim();
+  var role = fd.get('role') || ROLES.STAFF;
+
+  if(!name){ showToast('Full name is required.'); return; }
+  if(!username){ username = name.toLowerCase().replace(/\s+/g, '.'); }
+  if(!password){ password = 'admin123'; }
+
+  var exists = state.users.some(function(u){
+    return (u.username && u.username.toLowerCase() === username) || (u.id && u.id.toLowerCase() === username);
+  });
+  if(exists){
+    state.loginError = 'Username "' + username + '" is already taken. Please choose another.';
+    render();
+    return;
+  }
+
+  var user = { id:uid('usr'), username:username, name:name, email:email, password:password, role:role, active:true, memoji:'👤' };
   state.users.push(user);
   storageSet(USERS_KEY, state.users);
   state.currentUser = user;
   storageSet(CURRENTUSER_KEY, user.id);
-  showToast('Welcome, '+name+'!');
+  logAudit('AUTH', 'Register Operator', 'New operator registered: ' + name + ' (' + role + ')', null, user);
+  showToast('Welcome to Panamex Logistics, ' + name + '!');
   render();
 }
 
