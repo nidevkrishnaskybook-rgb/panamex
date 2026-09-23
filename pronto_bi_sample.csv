@@ -1,0 +1,12 @@
+PRONTO BI,,,,,,,L12 - Stock In Transit - PNG Summary (SGP-USD) by Order in Sum...
+Order No.,Order Date,Customer Reference,Vessel,Voyage No,Load Port,ETD,Discharge Port,ETA,Shipping Company,Notes,Brand
+12345,7/31/2026,12345,BALDUR,617,AUCKLAND,9/10/2026,PORT MORESBY,9/7/2026,SOFRANA,1 X 40HC FCL,Bluebird
+12346,6/2/2026,PNG12345,TONGA CHIEF,2638S,SURABAYA,8/17/2026,LAE,9/10/2026,NGPL,25 X 20'FCL,Raw Material
+12346,6/2/2026,PNG12345,TONGA CHIEF,2638S,SURABAYA,8/17/2026,LAE,9/10/2026,NGPL,2 Pallets,Raw Material
+Overall - Total,,,,,,,,,,,
+Friday, 11-Sep-2026 6:00:15 AM User:,,,,,,,1,,,,th IBM Cognos
+PRONTO BI,,,,,,,L12 - Pending Orders PNG Summary by Order in Su...
+Order No.,Order Date,Customer Reference,Vessel,Voyage No,Load Port,ETD,Discharge Port,ETA,Shipping Company,Notes,Brand
+12345,7/31/2026,12345,BALDUR,617,AUCKLAND,9/10/2026,PORT MORESBY,9/7/2026,SOFRANA,1 X 40HC FCL,Bluebird
+12346,6/2/2026,PNG12345,TONGA CHIEF,2638S,SURABAYA,8/17/2026,LAE,9/10/2026,NGPL,25 X 20'FCL,Raw Material
+Overall - Total,,,,,,,,,,,

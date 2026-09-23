@@ -2128,6 +2128,534 @@ input:focus, select:focus, textarea:focus {
   color: #34D399;
 }
 
+/* Stage 1, 2, 3 Pipeline Workflow & Advance Buttons */
+.stage-pipeline-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+.stage-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 9px;
+  border: 1.5px solid transparent;
+  background: var(--bg-subtle);
+  color: var(--text-main);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.stage-tab-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-card);
+}
+.stage-tab-btn.active {
+  background: var(--forest);
+  color: #FFFFFF;
+  border-color: var(--forest);
+  box-shadow: 0 2px 8px rgba(23, 69, 45, 0.25);
+}
+.stage-tab-btn.active.stage-1 {
+  background: #4F46E5;
+  border-color: #4F46E5;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+.stage-tab-btn.active.stage-2 {
+  background: #059669;
+  border-color: #059669;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+}
+.stage-tab-btn.active.stage-3 {
+  background: #4B5563;
+  border-color: #4B5563;
+  box-shadow: 0 2px 8px rgba(75, 85, 99, 0.3);
+}
+.stage-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.08);
+}
+.stage-tab-btn.active .stage-tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+.stage-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.stage-dot-1 { background: #6366F1; }
+.stage-dot-2 { background: #10B981; }
+.stage-dot-3 { background: #9CA3AF; }
+
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.stage-badge-1 {
+  background: #EEF2FF;
+  color: #4338CA;
+  border: 1px solid #C7D2FE;
+}
+.stage-badge-2 {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+.stage-badge-3 {
+  background: #F3F4F6;
+  color: #4B5563;
+  border: 1px solid #E5E7EB;
+}
+[data-theme="dark"] .stage-badge-1 {
+  background: rgba(99, 102, 241, 0.2);
+  color: #C7D2FE;
+  border-color: rgba(99, 102, 241, 0.4);
+}
+[data-theme="dark"] .stage-badge-2 {
+  background: rgba(16, 185, 129, 0.2);
+  color: #A7F3D0;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+[data-theme="dark"] .stage-badge-3 {
+  background: rgba(156, 163, 175, 0.16);
+  color: #D1D5DB;
+  border-color: rgba(156, 163, 175, 0.28);
+}
+
+.btn-stage-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn-stage-action.to-stage-2 {
+  background: #EEF2FF;
+  color: #4338CA;
+  border-color: #C7D2FE;
+}
+.btn-stage-action.to-stage-2:hover {
+  background: #4F46E5;
+  color: #FFFFFF;
+  border-color: #4F46E5;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+}
+.btn-stage-action.to-stage-3 {
+  background: #ECFDF5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}
+.btn-stage-action.to-stage-3:hover {
+  background: #059669;
+  color: #FFFFFF;
+  border-color: #059669;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3);
+}
+[data-theme="dark"] .btn-stage-action.to-stage-2 {
+  background: rgba(99, 102, 241, 0.22);
+  color: #C7D2FE;
+  border-color: rgba(99, 102, 241, 0.45);
+}
+[data-theme="dark"] .btn-stage-action.to-stage-2:hover {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
+[data-theme="dark"] .btn-stage-action.to-stage-3 {
+  background: rgba(16, 185, 129, 0.22);
+  color: #A7F3D0;
+  border-color: rgba(16, 185, 129, 0.45);
+}
+[data-theme="dark"] .btn-stage-action.to-stage-3:hover {
+  background: #059669;
+  color: #FFFFFF;
+}
+
+.stage-closed-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+[data-theme="dark"] .stage-closed-chip {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+/* ============================================================
+   ADVANCED STAGE PROCEDURE MODAL STYLES (ENTERPRISE TIMELINE)
+   ============================================================ */
+.modal-stage-procedure {
+  max-width: 680px;
+  width: 95%;
+  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.modal-stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+.modal-stage-title-wrap h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  letter-spacing: -0.01em;
+}
+.modal-stage-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-weight: 500;
+}
+.modal-stage-body {
+  padding: 20px 24px;
+  max-height: calc(85vh - 140px);
+  overflow-y: auto;
+}
+
+/* 3-Step Stepper Timeline */
+.stage-stepper-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+.stepper-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.stepper-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  position: relative;
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+.stepper-info {
+  display: flex;
+  flex-direction: column;
+}
+.stepper-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+.stepper-subtitle {
+  font-size: 11px;
+  color: var(--text-subtle);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+/* Stepper States */
+.stepper-item.is-done .stepper-circle {
+  background: #10B981;
+  border-color: #10B981;
+  color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+.stepper-item.is-done .stepper-title {
+  color: #10B981;
+}
+.stepper-item.is-done .stepper-subtitle {
+  color: var(--text-muted);
+}
+
+.stepper-item.is-current .stepper-circle {
+  background: linear-gradient(135deg, #10B981, #059669);
+  border-color: #34D399;
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.5);
+}
+.stepper-item.is-current .stepper-title {
+  color: var(--text-main);
+  font-weight: 800;
+}
+.stepper-item.is-current .stepper-subtitle {
+  color: #10B981;
+  font-weight: 700;
+}
+
+.stepper-connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border-card);
+  border-radius: 2px;
+  min-width: 16px;
+}
+.stepper-connector.is-done {
+  background: linear-gradient(90deg, #10B981, #059669);
+}
+
+/* Container Info Strip - Exact 4 Columns */
+.stage-info-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.info-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.info-lbl {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.info-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Callout Description Banner */
+.stage-callout-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.callout-icon {
+  font-size: 18px;
+  line-height: 1.3;
+}
+.callout-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+.callout-text strong {
+  color: #10B981;
+}
+
+/* Form Section Header & Rows */
+.stage-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.stage-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.stage-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stage-form-field label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.stage-form-field input,
+.stage-form-field select {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-card);
+  background: var(--bg-input-field);
+  color: var(--text-main);
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+.stage-form-field input:focus,
+.stage-form-field select:focus {
+  outline: none;
+  border-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
+}
+[data-theme="dark"] .stage-form-field input[type="date"] {
+  color-scheme: dark;
+}
+.form-section-sep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 2px;
+}
+.form-section-sep span {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.form-section-sep::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+/* Status Banners for Stage 3 */
+.stage-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.stage-status-banner.ok {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid rgba(16, 185, 129, 0.35);
+  color: #065F46;
+}
+.stage-status-banner.overdue {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1.5px solid rgba(239, 68, 68, 0.35);
+  color: #991B1B;
+}
+[data-theme="dark"] .stage-status-banner.ok {
+  color: #34D399;
+}
+[data-theme="dark"] .stage-status-banner.overdue {
+  color: #F87171;
+}
+
+/* Footer Buttons */
+.modal-stage-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+.btn-stage-cancel {
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-card);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-stage-cancel:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+.btn-stage-confirm {
+  height: 42px;
+  padding: 0 26px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s ease;
+}
+.btn-stage-confirm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+}
+.btn-stage-confirm:active {
+  transform: translateY(0);
+}
+
 </style>
 </head>
 <body>
@@ -2162,7 +2690,7 @@ var NAV = [
   {id:'settings', label:'Settings', icon:'⚙️', section:'GENERAL', roles:[ROLES.ADMIN]}
 ];
 
-var CONTAINERS_KEY = 'containers-v1';
+var CONTAINERS_KEY = 'containers-v2';
 var USERS_KEY = 'users-v1';
 var AUDIT_KEY = 'audit-log-v1';
 var SETTINGS_KEY = 'app-settings-v1';
@@ -2288,97 +2816,16 @@ function getInitialSeedData(){
     { id:'usr_staff', username:'staff', name:'Peter Kaupa (Yard Ops)', email:'p.kaupa@panamex.com.pg', password:'staff123', role:ROLES.STAFF, active:true, memoji:'👨🏾‍💻' }
   ];
 
-  var containers = [
-    {
-      id:'cnt_1', jobNo:'J-24-1048', billNo:'SW240891', containerNo:'SWIU8492015', pplNo:'PPL-8821',
-      vesselName:'Coral Chief', voyageNo:'v.2403N', shippingLine:'Swire Shipping', productDescription:'Canned Mackerel 425g (1,800 ctns)',
-      jobRegisterDate:rel(-14), fullDischargeDate:rel(-10), draftApprovalDate:rel(-11), naqiaPtlDate:rel(-8),
-      whChargesPaidDate:rel(-7), doIssueDate:rel(-6), gpIssueDate:rel(-5), portFreeDays:5,
-      eta:rel(-12), clearanceDate:rel(-4), freeDays:14, dueDate:rel(2), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.PANAMEX, statusLocked:false, status:STATUS.SOON
-    },
-    {
-      id:'cnt_2', jobNo:'J-24-1048', billNo:'SW240891', containerNo:'SWIU9182341', pplNo:'PPL-8821',
-      vesselName:'Coral Chief', voyageNo:'v.2403N', shippingLine:'Swire Shipping', productDescription:'Canned Mackerel 425g (1,800 ctns)',
-      jobRegisterDate:rel(-14), fullDischargeDate:rel(-10), draftApprovalDate:rel(-11), naqiaPtlDate:rel(-8),
-      whChargesPaidDate:rel(-7), doIssueDate:rel(-6), gpIssueDate:rel(-5), portFreeDays:5,
-      eta:rel(-12), clearanceDate:rel(-4), freeDays:14, dueDate:rel(2), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.PANAMEX, statusLocked:false, status:STATUS.SOON
-    },
-    {
-      id:'cnt_3', jobNo:'J-24-1052', billNo:'MSC921820', containerNo:'MSKU7162940', pplNo:'PPL-8830',
-      vesselName:'Highland Chief', voyageNo:'v.2408', shippingLine:'MSC Mediterranean', productDescription:'Refined Cooking Oil (FMCG)',
-      jobRegisterDate:rel(-20), fullDischargeDate:rel(-16), draftApprovalDate:rel(-17), naqiaPtlDate:rel(-14),
-      whChargesPaidDate:rel(-13), doIssueDate:rel(-12), gpIssueDate:rel(-11), portFreeDays:5,
-      eta:rel(-18), clearanceDate:rel(-10), freeDays:14, dueDate:rel(-4), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.AGENT, statusLocked:false, status:STATUS.OVER
-    },
-    {
-      id:'cnt_4', jobNo:'J-24-1052', billNo:'MSC921820', containerNo:'MSKU8391024', pplNo:'PPL-8830',
-      vesselName:'Highland Chief', voyageNo:'v.2408', shippingLine:'MSC Mediterranean', productDescription:'Refined Cooking Oil (FMCG)',
-      jobRegisterDate:rel(-20), fullDischargeDate:rel(-16), draftApprovalDate:rel(-17), naqiaPtlDate:rel(-14),
-      whChargesPaidDate:rel(-13), doIssueDate:rel(-12), gpIssueDate:rel(-11), portFreeDays:5,
-      eta:rel(-18), clearanceDate:rel(-10), freeDays:14, dueDate:rel(-4), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.AGENT, statusLocked:false, status:STATUS.OVER
-    },
-    {
-      id:'cnt_5', jobNo:'J-24-1059', billNo:'PIL-LAE-401', containerNo:'PILU4419203', pplNo:'PPL-8845',
-      vesselName:'Kota Halus', voyageNo:'v.0121S', shippingLine:'PIL Lines', productDescription:'Washing Powder & Detergent',
-      jobRegisterDate:rel(-6), fullDischargeDate:rel(-2), draftApprovalDate:rel(-3), naqiaPtlDate:rel(-1),
-      whChargesPaidDate:'', doIssueDate:'', gpIssueDate:'', portFreeDays:5,
-      eta:rel(-4), clearanceDate:'', freeDays:14, dueDate:rel(10), emptyReturnDate:'', eirDate:'',
-      location:'', statusLocked:false, status:STATUS.PENDING
-    },
-    {
-      id:'cnt_6', jobNo:'J-24-1035', billNo:'ME-99120', containerNo:'TCLU9018231', pplNo:'PPL-8802',
-      vesselName:'Sofrana Surville', voyageNo:'v.2411', shippingLine:'Mariana Express', productDescription:'Dry Noodles & Seasoning',
-      jobRegisterDate:rel(-27), fullDischargeDate:rel(-24), draftApprovalDate:rel(-25), naqiaPtlDate:rel(-22),
-      whChargesPaidDate:rel(-21), doIssueDate:rel(-20), gpIssueDate:rel(-19), portFreeDays:5,
-      eta:rel(-25), clearanceDate:rel(-18), freeDays:14, dueDate:rel(-11), emptyReturnDate:rel(-2), eirDate:rel(-2),
-      location:'', statusLocked:false, status:STATUS.RETURNED
-    },
-    {
-      id:'cnt_7', jobNo:'J-24-1065', billNo:'ANL-88124', containerNo:'ANLU1902845', pplNo:'PPL-8851',
-      vesselName:'ANL Gippsland', voyageNo:'v.0412E', shippingLine:'ANL Container Line', productDescription:'Wheat Flour & Bakery Premix (1,200 bags)',
-      jobRegisterDate:rel(-5), fullDischargeDate:rel(-2), draftApprovalDate:rel(-3), naqiaPtlDate:rel(-1),
-      whChargesPaidDate:rel(-1), doIssueDate:'', gpIssueDate:'', portFreeDays:5,
-      eta:rel(-3), clearanceDate:'', freeDays:14, dueDate:rel(11), emptyReturnDate:'', eirDate:'',
-      location:'', statusLocked:false, status:STATUS.PENDING
-    },
-    {
-      id:'cnt_8', jobNo:'J-24-1070', billNo:'MSK-992140', containerNo:'MSKU4401928', pplNo:'PPL-8860',
-      vesselName:'Maersk Semakau', voyageNo:'v.2405W', shippingLine:'Maersk Line', productDescription:'Sanitary Paper & Hygiene Products',
-      jobRegisterDate:rel(-15), fullDischargeDate:rel(-12), draftApprovalDate:rel(-13), naqiaPtlDate:rel(-10),
-      whChargesPaidDate:rel(-9), doIssueDate:rel(-8), gpIssueDate:rel(-7), portFreeDays:5,
-      eta:rel(-14), clearanceDate:rel(-6), freeDays:14, dueDate:rel(4), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.PANAMEX, statusLocked:false, status:STATUS.SOON
-    },
-    {
-      id:'cnt_9', jobNo:'J-24-1075', billNo:'SW240950', containerNo:'SWIU3301924', pplNo:'PPL-8872',
-      vesselName:'Papuan Chief', voyageNo:'v.2409N', shippingLine:'Swire Shipping', productDescription:'Tinned Meat & Tomato Paste',
-      jobRegisterDate:rel(-18), fullDischargeDate:rel(-15), draftApprovalDate:rel(-16), naqiaPtlDate:rel(-13),
-      whChargesPaidDate:rel(-12), doIssueDate:rel(-11), gpIssueDate:rel(-10), portFreeDays:5,
-      eta:rel(-16), clearanceDate:rel(-8), freeDays:10, dueDate:rel(-1), emptyReturnDate:'', eirDate:'',
-      location:LOCATIONS.AGENT, statusLocked:false, status:STATUS.OVER
-    },
-    {
-      id:'cnt_10', jobNo:'J-24-1030', billNo:'PIL-POM-310', containerNo:'PILU8810293', pplNo:'PPL-8798',
-      vesselName:'Kota Hening', voyageNo:'v.0921N', shippingLine:'PIL Lines', productDescription:'Laundry Bar Soaps & Toiletries',
-      jobRegisterDate:rel(-30), fullDischargeDate:rel(-27), draftApprovalDate:rel(-28), naqiaPtlDate:rel(-25),
-      whChargesPaidDate:rel(-24), doIssueDate:rel(-23), gpIssueDate:rel(-22), portFreeDays:5,
-      eta:rel(-28), clearanceDate:rel(-20), freeDays:14, dueDate:rel(-14), emptyReturnDate:rel(-16), eirDate:rel(-16),
-      location:'', statusLocked:false, status:STATUS.RETURNED
-    }
-  ];
-
-  var audit = [
-    { id:'aud_1', ts:new Date().toISOString(), userName:'Captain David Vagi', userRole:ROLES.ADMIN, action:'create', containerNo:'SWIU8492015', changes:[{field:'Container', from:'—', to:'Registered under Job J-24-1048'}] }
-  ];
+  var containers = [];
+  var audit = [];
 
   return { users:users, containers:containers, audit:audit };
 }
 
 function loadAll(){
+  try {
+    localStorage.removeItem('containers-v1');
+  } catch(e){}
   Promise.all([
     storageGet(CONTAINERS_KEY),
     storageGet(USERS_KEY),
@@ -2387,19 +2834,24 @@ function loadAll(){
     storageGet(EMAILLOG_KEY),
     storageGet(CURRENTUSER_KEY)
   ]).then(function(res){
-    if(!res[0] || !res[0].length){
+    var rawCnt = res[0] || [];
+    // Completely wipe any legacy demo / sample containers
+    state.containers = rawCnt.filter(function(c){
+      return !(/^cnt_\d+$/.test(c.id || '') || (c.jobNo && String(c.jobNo).indexOf('J-24-10') === 0));
+    });
+    storageSet(CONTAINERS_KEY, state.containers);
+
+    if(!res[1] || !res[1].length){
       var seed = getInitialSeedData();
-      state.containers = seed.containers;
       state.users = seed.users;
-      state.audit = seed.audit;
-      storageSet(CONTAINERS_KEY, state.containers);
       storageSet(USERS_KEY, state.users);
-      storageSet(AUDIT_KEY, state.audit);
     } else {
-      state.containers = res[0];
       state.users = res[1] || [];
-      state.audit = res[2] || [];
     }
+    state.audit = (res[2] || []).filter(function(a){
+      return !(/^aud_1$/.test(a.id || ''));
+    });
+    storageSet(AUDIT_KEY, state.audit);
     // Normalize usernames and passwords for seamless authentication
     if(state.users && state.users.length){
       state.users.forEach(function(u){
@@ -2511,16 +2963,30 @@ function daysHeld(c){
 }
 
 function computePortDueDate(c){
-  if(!c.fullDischargeDate) return null;
+  var baseDate = c.fullDischargeDate || c.eta;
+  if(!baseDate) return null;
   var pfd = (c.portFreeDays===''||c.portFreeDays===undefined||c.portFreeDays===null) ? state.settings.portFreeDays : c.portFreeDays;
-  return addDays(c.fullDischargeDate, pfd);
+  return addDays(baseDate, pfd);
 }
 function computePortStatus(c){
+  // 1. If container has been cleared or returned, port phase is completed!
+  if(c.clearanceDate || c.emptyReturnDate){
+    var due = computePortDueDate(c);
+    if(due && c.clearanceDate){
+      return diffDays(c.clearanceDate, due) > 0 ? PORT_STATUS.CLEARED_LATE : PORT_STATUS.CLEARED_OK;
+    }
+    return PORT_STATUS.CLEARED_OK;
+  }
+
+  // 2. If not cleared yet:
   var due = computePortDueDate(c);
   if(!due) return PORT_STATUS.AWAITING;
-  if(c.clearanceDate){
-    return diffDays(c.clearanceDate, due) > 0 ? PORT_STATUS.CLEARED_LATE : PORT_STATUS.CLEARED_OK;
+
+  // If base date is ETA and vessel hasn't arrived yet (today < eta), vessel is still at sea
+  if(!c.fullDischargeDate && c.eta && diffDays(todayStr(), c.eta) < 0){
+    return PORT_STATUS.AWAITING;
   }
+
   var d = diffDays(due, todayStr());
   if(d < 0) return PORT_STATUS.OVER;
   if(d <= Number(state.settings.alertDays||3)) return PORT_STATUS.SOON;
@@ -2580,7 +3046,7 @@ function can(action){
    AUDIT TRAIL LOGGING & DIFF ENGINE
    ============================================================ */
 var CONTAINER_FIELD_LABELS = {
-  jobNo:'Job No.', billNo:'Bill No.', containerNo:'Container No.', pplNo:'PPL #',
+  jobNo:'Job No.', billNo:'Bill No.', containerNo:'Container No.', containerType:'Container Type / Details', pplNo:'PPL #',
   vesselName:'Vessel Name', voyageNo:'Voyage No.', eta:'ETA',
   jobRegisterDate:'Job Register Date', draftApprovalDate:'Draft Approval Date',
   fullDischargeDate:'Full Discharge Date', naqiaPtlDate:'NAQIA PTL Approved Date',
@@ -2738,7 +3204,7 @@ function filteredContainers(){
     if(f.stage && computeStage(c)!==f.stage) return false;
     if(f.overdueOnly && effectiveStatus(c)!==STATUS.OVER) return false;
     if(q){
-      var hay = [c.jobNo,c.billNo,c.containerNo,c.shippingLine,c.productDescription,c.pplNo,c.vesselName,c.voyageNo].join(' ').toLowerCase();
+      var hay = [c.jobNo,c.billNo,c.containerNo,c.containerType,c.notes,c.shippingLine,c.productDescription,c.pplNo,c.vesselName,c.voyageNo].join(' ').toLowerCase();
       if(hay.indexOf(q)===-1) return false;
     }
     return true;
@@ -2788,6 +3254,7 @@ function reportRowsForExport(rows){
   return rows.map(function(c){
     return {
       'Job No.':c.jobNo||'', 'Bill No.':c.billNo||'', 'Container No.':c.containerNo||'',
+      'Container Type / Details':c.containerType||c.notes||'',
       'PPL #':c.pplNo||'', 'Vessel Name':c.vesselName||'', 'Voyage No.':c.voyageNo||'',
       'Shipping Line':c.shippingLine||'', 'Stage':computeStage(c),
       'ETA':c.eta||'', 'Full Discharge Date':c.fullDischargeDate||'',
@@ -2836,11 +3303,11 @@ function exportReportPdf(){
     doc.setFontSize(10); doc.setFont('helvetica','normal');
     doc.text('Period: '+res.range.label+'   |   Generated: '+fmtDate(todayStr())+'   |   Operator: '+(state.currentUser?state.currentUser.name:''), 40, 58);
     var body = res.rows.map(function(c){
-      return [c.jobNo||'', c.containerNo||'', c.vesselName||'', c.shippingLine||'', computeStage(c), fmtDate(c.fullDischargeDate), fmtDate(c.clearanceDate), fmtDate(c.dueDate||computeDueDate(c)), fmtDate(c.emptyReturnDate), effectiveStatus(c), locationLabel(c)];
+      return [c.jobNo||'', c.containerNo||'', c.containerType||c.notes||'', c.vesselName||'', c.shippingLine||'', computeStage(c), fmtDate(c.fullDischargeDate), fmtDate(c.clearanceDate), fmtDate(c.dueDate||computeDueDate(c)), fmtDate(c.emptyReturnDate), effectiveStatus(c), locationLabel(c)];
     });
     doc.autoTable({
       startY: 72,
-      head:[['Job No.','Container No.','Vessel','Line','Stage','Discharge','Clearance','Due Date','Returned','Status','Location']],
+      head:[['Job No.','Container No.','Type / Notes','Vessel','Line','Stage','Discharge','Clearance','Due Date','Returned','Status','Location']],
       body: body,
       styles:{fontSize:7.5, cellPadding:3.5},
       headStyles:{fillColor:[18, 56, 36]}
@@ -2848,6 +3315,598 @@ function exportReportPdf(){
     doc.save('Panamex-Report-'+res.range.label.replace(/\s+/g,'-')+'.pdf');
     showToast('PDF report downloaded.');
   }).catch(function(){ showToast('Could not load PDF export library.'); });
+}
+
+/* ============================================================
+   EXCEL IMPORT & COLUMN NORMALIZATION
+   ============================================================ */
+function parseExcelDate(val){
+  if(val === null || val === undefined || val === '') return '';
+  if(val instanceof Date && !isNaN(val.getTime())){
+    var y = val.getFullYear();
+    var m = String(val.getMonth() + 1).padStart(2, '0');
+    var d = String(val.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + d;
+  }
+  if(typeof val === 'number'){
+    var dateObj = new Date(Math.round((val - 25569) * 86400 * 1000));
+    if(!isNaN(dateObj.getTime())){
+      var y2 = dateObj.getFullYear();
+      var m2 = String(dateObj.getMonth() + 1).padStart(2, '0');
+      var d2 = String(dateObj.getDate()).padStart(2, '0');
+      return y2 + '-' + m2 + '-' + d2;
+    }
+  }
+  if(typeof val === 'string'){
+    var s = val.trim();
+    if(!s) return '';
+    if(/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+    if(/^\d{4}-\d{2}-\d{2}T/.test(s)) return s.slice(0, 10);
+    var m = s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/);
+    if(m){
+      var n1 = parseInt(m[1], 10);
+      var n2 = parseInt(m[2], 10);
+      var yr = m[3];
+      var mon, day;
+      if(n1 > 12){
+        day = n1; mon = n2;
+      } else if(n2 > 12){
+        mon = n1; day = n2;
+      } else {
+        mon = n1; day = n2;
+      }
+      return yr + '-' + String(mon).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    }
+    var parsed = new Date(s);
+    if(!isNaN(parsed.getTime()) && parsed.getFullYear() > 1990 && parsed.getFullYear() < 2100){
+      var y3 = parsed.getFullYear();
+      var m3 = String(parsed.getMonth() + 1).padStart(2, '0');
+      var d3 = String(parsed.getDate()).padStart(2, '0');
+      return y3 + '-' + m3 + '-' + d3;
+    }
+  }
+  return '';
+}
+
+function extractProntoOrStandardRows(sheet){
+  var grid = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+  if(!grid || !grid.length) return [];
+
+  function isHeaderRow(row){
+    if(!Array.isArray(row)) return false;
+    var matches = 0;
+    var headerKeywords = [
+      'orderno', 'orderdate', 'customerreference', 'vessel', 'voyageno', 'loadport',
+      'etd', 'dischargeport', 'eta', 'shippingcompany', 'notes', 'brand',
+      'containerno', 'jobno', 'billno', 'shippingline', 'productdescription', 'ppl'
+    ];
+    row.forEach(function(cell){
+      var str = String(cell).toLowerCase().replace(/[^a-z0-9]/g, '');
+      if(!str) return;
+      if(headerKeywords.some(function(k){ return str === k || str.indexOf(k) !== -1; })){
+        matches++;
+      }
+    });
+    return matches >= 2;
+  }
+
+  var headerIndices = [];
+  for(var r = 0; r < grid.length; r++){
+    if(isHeaderRow(grid[r])) headerIndices.push(r);
+  }
+
+  if(!headerIndices.length){
+    return XLSX.utils.sheet_to_json(sheet, { defval: '' });
+  }
+
+  var extractedObjects = [];
+  var seenKeys = {};
+
+  for(var h = 0; h < headerIndices.length; h++){
+    var headerRowIdx = headerIndices[h];
+    var rawHeaders = grid[headerRowIdx];
+    var colNames = rawHeaders.map(function(hCell){ return String(hCell || '').trim(); });
+    var nextHeaderIdx = (h + 1 < headerIndices.length) ? headerIndices[h + 1] : grid.length;
+
+    for(var rowIdx = headerRowIdx + 1; rowIdx < nextHeaderIdx; rowIdx++){
+      var rowData = grid[rowIdx];
+      if(!Array.isArray(rowData)) continue;
+
+      var hasData = rowData.some(function(cell){ return cell !== null && cell !== undefined && String(cell).trim() !== ''; });
+      if(!hasData) continue;
+
+      var firstCellStr = String(rowData[0] || '').trim().toLowerCase();
+      var combinedRowText = rowData.map(function(c){ return String(c || ''); }).join(' ').toLowerCase();
+
+      // Skip summary / footer / title rows
+      if(firstCellStr.indexOf('overall') !== -1 ||
+         firstCellStr.indexOf('total') !== -1 ||
+         firstCellStr.indexOf('summary') !== -1 ||
+         firstCellStr.indexOf('pronto bi') !== -1 ||
+         combinedRowText.indexOf('overall - total') !== -1 ||
+         combinedRowText.indexOf('ibm cognos') !== -1 ||
+         /^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)/i.test(firstCellStr)){
+        continue;
+      }
+
+      var rowObj = {};
+      var validCells = 0;
+      for(var c = 0; c < colNames.length; c++){
+        var colName = colNames[c];
+        if(!colName) continue;
+        var cellVal = (c < rowData.length) ? rowData[c] : '';
+        rowObj[colName] = cellVal;
+        if(cellVal !== '' && cellVal !== null && cellVal !== undefined) validCells++;
+      }
+
+      if(validCells === 0) continue;
+
+      var rowKey = JSON.stringify(rowObj);
+      if(!seenKeys[rowKey]){
+        seenKeys[rowKey] = true;
+        extractedObjects.push(rowObj);
+      }
+    }
+  }
+
+  return extractedObjects;
+}
+
+function normalizeImportedRow(rawRow){
+  var item = {
+    jobNo: '', billNo: '', containerNo: '', containerType: '', notes: '', pplNo: '', vesselName: '', voyageNo: '',
+    shippingLine: 'Swire Shipping', productDescription: '', eta: '', jobRegisterDate: '',
+    draftApprovalDate: '', fullDischargeDate: '', naqiaPtlDate: '', whChargesPaidDate: '',
+    doIssueDate: '', gpIssueDate: '', portFreeDays: state.settings.portFreeDays,
+    clearanceDate: '', freeDays: 14, emptyReturnDate: '', eirDate: '',
+    location: '', statusLocked: false, status: ''
+  };
+
+  var keyMap = {
+    orderno: 'jobNo', order: 'jobNo', ordernumber: 'jobNo', orderref: 'jobNo', ordernum: 'jobNo',
+    jobno: 'jobNo', job: 'jobNo', jobnumber: 'jobNo', jobref: 'jobNo', fileno: 'jobNo', file: 'jobNo',
+    orderdate: 'jobRegisterDate',
+    billno: 'billNo', blno: 'billNo', bl: 'billNo', billoflading: 'billNo', bol: 'billNo',
+    containerno: 'containerNo', container: 'containerNo', containernumber: 'containerNo', cntrno: 'containerNo', cntr: 'containerNo', unitno: 'containerNo', equipmentno: 'containerNo',
+    containertype: 'containerType', type: 'containerType', cntrtype: 'containerType', size: 'containerType', sizetype: 'containerType',
+    equipmenttype: 'containerType', containertypeorstatus: 'containerType',
+    pplno: 'pplNo', ppl: 'pplNo', pplmanifest: 'pplNo', manifestno: 'pplNo',
+    vesselname: 'vesselName', vessel: 'vesselName', ship: 'vesselName',
+    voyageno: 'voyageNo', voyage: 'voyageNo', voy: 'voyageNo', voyno: 'voyageNo',
+    shippingline: 'shippingLine', carrier: 'shippingLine', line: 'shippingLine', agent: 'shippingLine',
+    shippingcompany: 'shippingLine', shippingco: 'shippingLine',
+    productdescription: 'productDescription', product: 'productDescription', cargo: 'productDescription', commodity: 'productDescription', description: 'productDescription', goods: 'productDescription',
+    brand: 'brand', notes: 'notes', remarks: 'notes', containernotes: 'notes',
+    eta: 'eta', arrivaldate: 'eta', arrival: 'eta',
+    fulldischargedate: 'fullDischargeDate', dischargedate: 'fullDischargeDate', discharge: 'fullDischargeDate',
+    jobregisterdate: 'jobRegisterDate', registerdate: 'jobRegisterDate', regdate: 'jobRegisterDate',
+    draftapprovaldate: 'draftApprovalDate', draftapproval: 'draftApprovalDate',
+    naqiaptldate: 'naqiaPtlDate', naqia: 'naqiaPtlDate', ptl: 'naqiaPtlDate',
+    whchargespaiddate: 'whChargesPaidDate', whcharges: 'whChargesPaidDate', whpaid: 'whChargesPaidDate',
+    doissuedate: 'doIssueDate', doissue: 'doIssueDate', dodate: 'doIssueDate',
+    gpissuedate: 'gpIssueDate', gpissue: 'gpIssueDate', gpdate: 'gpIssueDate',
+    portfreedays: 'portFreeDays', wharffreedays: 'portFreeDays',
+    clearancedate: 'clearanceDate', customsclearance: 'clearanceDate', clearance: 'clearanceDate',
+    freedays: 'freeDays', freedaysallowance: 'freeDays',
+    emptyreturndate: 'emptyReturnDate', emptyreturn: 'emptyReturnDate', returndate: 'emptyReturnDate',
+    eirdate: 'eirDate', eir: 'eirDate',
+    location: 'location', yard: 'location', yardlocation: 'location',
+    dischargeport: 'location', portofdischarge: 'location', pod: 'location',
+    status: 'status'
+  };
+
+  Object.keys(rawRow).forEach(function(rawKey){
+    var cleanedKey = String(rawKey).toLowerCase().replace(/[^a-z0-9]/g, '');
+    var mappedProp = keyMap[cleanedKey];
+    if(mappedProp){
+      var val = rawRow[rawKey];
+      if(val !== undefined && val !== null && val !== ''){
+        if(/date|eta/i.test(mappedProp)){
+          item[mappedProp] = parseExcelDate(val);
+        } else if(mappedProp === 'freeDays' || mappedProp === 'portFreeDays'){
+          var num = parseInt(val, 10);
+          item[mappedProp] = isNaN(num) ? item[mappedProp] : num;
+        } else if(mappedProp === 'notes' || mappedProp === 'containerType'){
+          var trimmedVal = String(val).trim();
+          item.containerType = trimmedVal;
+          item.notes = trimmedVal;
+        } else {
+          item[mappedProp] = String(val).trim();
+        }
+      }
+    }
+  });
+
+  // Handle Customer Reference -> PPL number (only numeric values allowed; ignore if alphabets/characters present)
+  var custRefVal = null;
+  Object.keys(rawRow).forEach(function(k){
+    var cleanK = String(k).toLowerCase().replace(/[^a-z0-9]/g, '');
+    if(cleanK === 'customerreference' || cleanK === 'customerref' || cleanK === 'custref'){
+      custRefVal = rawRow[k];
+    }
+  });
+
+  if(custRefVal !== null && custRefVal !== undefined && String(custRefVal).trim() !== ''){
+    var custRefStr = String(custRefVal).trim();
+    // Strip all alphabets/characters and extract only the numbers
+    var digitsOnly = custRefStr.replace(/[^0-9]/g, '');
+    if(digitsOnly){
+      item.pplNo = digitsOnly;
+    } else {
+      item.pplNo = '';
+    }
+  }
+
+  // Preserve Brand as product cargo description and keep container details/notes
+  var brandVal = (item.brand || '').trim();
+  var notesVal = (item.containerType || item.notes || '').trim();
+  item.containerType = notesVal;
+  item.notes = notesVal;
+
+  if(brandVal){
+    item.productDescription = brandVal + (item.productDescription && item.productDescription !== brandVal ? ' - ' + item.productDescription : '');
+  }
+  delete item.brand;
+
+  item.dueDate = computeDueDate(item);
+  item.status = item.status || computeStatus(item);
+  return item;
+}
+
+function handleExcelFileImport(file){
+  if(!file) return;
+  showToast('Reading Excel file: ' + file.name + '…');
+  ensureXLSX().then(function(){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try {
+        var data = new Uint8Array(e.target.result);
+        var wb = XLSX.read(data, {type:'array', cellDates:true});
+        if(!wb.SheetNames || !wb.SheetNames.length){
+          showToast('No sheets found in Excel file.');
+          return;
+        }
+        var sheet = wb.Sheets[wb.SheetNames[0]];
+        var rawRows = extractProntoOrStandardRows(sheet);
+        if(!rawRows.length){
+          showToast('No data rows found under header in sheet: ' + wb.SheetNames[0]);
+          return;
+        }
+        var parsed = rawRows.map(normalizeImportedRow).filter(function(r){
+          return r.containerNo || r.jobNo || r.billNo || r.vesselName;
+        });
+        if(!parsed.length){
+          showToast('Could not find Container/Order rows. Please check column headers.');
+          return;
+        }
+
+        // Ensure unique container numbers and handle multiple containers under same jobNo
+        var jobCounts = {};
+        parsed.forEach(function(item){
+          var j = (item.jobNo || '').trim().toUpperCase();
+          if(j) jobCounts[j] = (jobCounts[j] || 0) + 1;
+        });
+
+        var jobTrackers = {};
+        var seenNos = {};
+        parsed.forEach(function(item, idx){
+          if(!item.containerNo){
+            var j = (item.jobNo || '').trim();
+            var jKey = j.toUpperCase();
+            if(j){
+              if(jobCounts[jKey] > 1){
+                jobTrackers[jKey] = (jobTrackers[jKey] || 0) + 1;
+                item.containerNo = 'ORD-' + j + '-' + jobTrackers[jKey];
+              } else {
+                item.containerNo = 'ORD-' + j;
+              }
+            } else {
+              item.containerNo = item.billNo || ('CNTR-' + (idx + 1));
+            }
+          }
+          var base = item.containerNo.trim().toUpperCase();
+          if(seenNos[base]){
+            seenNos[base]++;
+            item.containerNo = item.containerNo + '-' + seenNos[base];
+          } else {
+            seenNos[base] = 1;
+          }
+        });
+
+        if(!state.modal || state.modal.type !== 'container'){
+          state.modal = { type:'container', id:null, mode:'single' };
+        }
+        state.modal.importedRows = parsed;
+        state.modal.importedIndex = 0;
+        state.modal.importedFileName = file.name;
+        render();
+        showToast('✅ ' + parsed.length + ' order/container record(s) loaded! Fields auto-filled.');
+      } catch(err){
+        console.error('Excel parse error:', err);
+        showToast('Failed to parse Excel: ' + (err.message || 'Unknown error'));
+      }
+    };
+    reader.onerror = function(){
+      showToast('Error reading file.');
+    };
+    reader.readAsArrayBuffer(file);
+  }).catch(function(){
+    showToast('Could not load Excel processing library.');
+  });
+}
+
+function syncCurrentFormToImportedRow(){
+  if(!state.modal || !state.modal.importedRows || !state.modal.importedRows.length) return;
+  var form = document.getElementById('containerForm');
+  if(!form) return;
+  var fd = new FormData(form);
+  var idx = state.modal.importedIndex || 0;
+  var target = state.modal.importedRows[idx];
+  if(!target) return;
+  
+  target.jobNo = (fd.get('jobNo') || '').trim();
+  target.billNo = (fd.get('billNo') || '').trim();
+  target.containerNo = (fd.get('containerNo') || '').trim();
+  target.containerType = (fd.get('containerType') || '').trim();
+  target.notes = target.containerType;
+  target.pplNo = (fd.get('pplNo') || '').trim();
+  target.vesselName = (fd.get('vesselName') || '').trim();
+  target.voyageNo = (fd.get('voyageNo') || '').trim();
+  target.shippingLine = (fd.get('shippingLine') || '').trim();
+  target.productDescription = (fd.get('productDescription') || '').trim();
+  target.jobRegisterDate = fd.get('jobRegisterDate') || '';
+  target.fullDischargeDate = fd.get('fullDischargeDate') || '';
+  target.draftApprovalDate = fd.get('draftApprovalDate') || '';
+  target.naqiaPtlDate = fd.get('naqiaPtlDate') || '';
+  target.whChargesPaidDate = fd.get('whChargesPaidDate') || '';
+  target.doIssueDate = fd.get('doIssueDate') || '';
+  target.gpIssueDate = fd.get('gpIssueDate') || '';
+  target.portFreeDays = fd.get('portFreeDays') || state.settings.portFreeDays;
+  target.eta = fd.get('eta') || '';
+  target.clearanceDate = fd.get('clearanceDate') || '';
+  target.freeDays = fd.get('freeDays') || 14;
+  target.emptyReturnDate = fd.get('emptyReturnDate') || '';
+  target.eirDate = fd.get('eirDate') || '';
+  target.location = fd.get('location') || '';
+  target.dueDate = computeDueDate(target);
+  target.status = computeStatus(target);
+}
+
+function saveAllImportedContainers(){
+  if(!state.modal || !state.modal.importedRows || !state.modal.importedRows.length) return;
+  var list = state.modal.importedRows;
+  var nowIso = new Date().toISOString();
+  var addedCount = 0;
+  var updatedCount = 0;
+  list.forEach(function(row){
+    var existing = state.containers.find(function(x){
+      if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
+        return true;
+      }
+      if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+        var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+        var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+        if(xType && rType && xType === rType) return true;
+      }
+      return false;
+    });
+    if(existing){
+      Object.assign(existing, row, {
+        id: existing.id,
+        updatedAt: nowIso,
+        updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+      });
+      existing.dueDate = computeDueDate(existing);
+      existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
+      updatedCount++;
+    } else {
+      var newItem = Object.assign({}, row, {
+        id: uid('cnt'),
+        createdAt: nowIso,
+        createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+        updatedAt: nowIso,
+        updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+      });
+      newItem.dueDate = computeDueDate(newItem);
+      newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
+      state.containers.unshift(newItem);
+      addedCount++;
+    }
+  });
+  storageSet(CONTAINERS_KEY, state.containers);
+  pushAudit({
+    action: 'bulk-excel-import',
+    containerNo: state.modal.importedFileName || 'Excel Sheet',
+    changes: [{ field: 'Excel Imported', from: '—', to: addedCount + ' added, ' + updatedCount + ' updated' }]
+  });
+  showToast('🎉 Successfully imported ' + list.length + ' containers (' + addedCount + ' added, ' + updatedCount + ' updated)!');
+  state.modal = null;
+  checkAndLogAlertEmails();
+  render();
+}
+
+function handleDirectExcelImport(file){
+  if(!file) return;
+  showToast('Reading Excel file: ' + file.name + '…');
+  ensureXLSX().then(function(){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try {
+        var data = new Uint8Array(e.target.result);
+        var wb = XLSX.read(data, {type:'array', cellDates:true});
+        if(!wb.SheetNames || !wb.SheetNames.length){
+          showToast('No sheets found in Excel file.');
+          return;
+        }
+        var sheet = wb.Sheets[wb.SheetNames[0]];
+        var rawRows = extractProntoOrStandardRows(sheet);
+        if(!rawRows.length){
+          showToast('No data rows found under header in sheet: ' + wb.SheetNames[0]);
+          return;
+        }
+        var parsed = rawRows.map(normalizeImportedRow).filter(function(r){
+          return r.containerNo || r.jobNo || r.billNo || r.vesselName;
+        });
+        if(!parsed.length){
+          showToast('Could not find Container/Order rows. Please check column headers.');
+          return;
+        }
+
+        // Ensure unique container numbers and handle multiple containers under same jobNo
+        var jobCounts = {};
+        parsed.forEach(function(item){
+          var j = (item.jobNo || '').trim().toUpperCase();
+          if(j) jobCounts[j] = (jobCounts[j] || 0) + 1;
+        });
+
+        var jobTrackers = {};
+        var seenNos = {};
+        parsed.forEach(function(item, idx){
+          if(!item.containerNo){
+            var j = (item.jobNo || '').trim();
+            var jKey = j.toUpperCase();
+            if(j){
+              if(jobCounts[jKey] > 1){
+                jobTrackers[jKey] = (jobTrackers[jKey] || 0) + 1;
+                item.containerNo = 'ORD-' + j + '-' + jobTrackers[jKey];
+              } else {
+                item.containerNo = 'ORD-' + j;
+              }
+            } else {
+              item.containerNo = item.billNo || ('CNTR-' + (idx + 1));
+            }
+          }
+          var base = item.containerNo.trim().toUpperCase();
+          if(seenNos[base]){
+            seenNos[base]++;
+            item.containerNo = item.containerNo + '-' + seenNos[base];
+          } else {
+            seenNos[base] = 1;
+          }
+
+          if(item.location){
+            var locUpper = item.location.toUpperCase();
+            if(locUpper.indexOf('PANAMEX') !== -1 || locUpper.indexOf('MORESBY') !== -1 || locUpper.indexOf('POM') !== -1){
+              item.location = LOCATIONS.PANAMEX;
+            } else if(locUpper.indexOf('AGENT') !== -1 || locUpper.indexOf('LAE') !== -1 || locUpper.indexOf('WHARF') !== -1 || locUpper.indexOf('PORT') !== -1){
+              item.location = LOCATIONS.AGENT;
+            }
+          }
+        });
+
+        var nowIso = new Date().toISOString();
+        var addedCount = 0;
+        var updatedCount = 0;
+
+        parsed.forEach(function(row){
+          var existing = state.containers.find(function(x){
+            if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
+              return true;
+            }
+            if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+              var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+              var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+              if(xType && rType && xType === rType) return true;
+            }
+            return false;
+          });
+          if(existing){
+            Object.assign(existing, row, {
+              id: existing.id,
+              updatedAt: nowIso,
+              updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+            });
+            existing.dueDate = computeDueDate(existing);
+            existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
+            updatedCount++;
+          } else {
+            var newItem = Object.assign({}, row, {
+              id: uid('cnt'),
+              createdAt: nowIso,
+              createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+              updatedAt: nowIso,
+              updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+            });
+            newItem.dueDate = computeDueDate(newItem);
+            newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
+            state.containers.unshift(newItem);
+            addedCount++;
+          }
+        });
+
+        storageSet(CONTAINERS_KEY, state.containers);
+        pushAudit({
+          action: 'bulk-excel-import',
+          containerNo: file.name,
+          changes: [{ field: 'Excel Direct Import', from: '—', to: addedCount + ' added, ' + updatedCount + ' updated' }]
+        });
+
+        state.view = 'containers';
+        state.modal = null;
+        checkAndLogAlertEmails();
+        render();
+        showToast('🎉 Successfully imported ' + parsed.length + ' container(s) directly into ledger!');
+      } catch(err){
+        console.error('Direct Excel parse error:', err);
+        showToast('Failed to parse Excel: ' + (err.message || 'Unknown error'));
+      }
+    };
+    reader.onerror = function(){
+      showToast('Error reading file.');
+    };
+    reader.readAsArrayBuffer(file);
+  }).catch(function(err){
+    console.error(err);
+    showToast('Could not load Excel processing library.');
+  });
+}
+
+function downloadContainerTemplateExcel(){
+  ensureXLSX().then(function(){
+    var sampleRows = [
+      {
+        'Job No.': 'J-24-2001',
+        'Bill No.': 'SW249001',
+        'Container No.': 'SWIU7654321',
+        'PPL #': 'PPL-9001',
+        'Vessel Name': 'Coral Chief',
+        'Voyage No.': 'v.2405N',
+        'Shipping Line': 'Swire Shipping',
+        'Product Description': 'Canned Food & Beverages',
+        'ETA': todayStr(),
+        'Full Discharge Date': todayStr(),
+        'Port Free Days': 5,
+        'Clearance Date': '',
+        'Free Days': 14,
+        'Empty Return Date': '',
+        'Location': 'Panamex Yard (9 Mile)'
+      },
+      {
+        'Job No.': 'J-24-2002',
+        'Bill No.': 'MSC889900',
+        'Container No.': 'MSKU1234567',
+        'PPL #': 'PPL-9002',
+        'Vessel Name': 'Highland Chief',
+        'Voyage No.': 'v.2409',
+        'Shipping Line': 'MSC Mediterranean',
+        'Product Description': 'Refined Cooking Oil',
+        'ETA': todayStr(),
+        'Full Discharge Date': todayStr(),
+        'Port Free Days': 5,
+        'Clearance Date': '',
+        'Free Days': 14,
+        'Empty Return Date': '',
+        'Location': 'Agent Yard'
+      }
+    ];
+    var wb = XLSX.utils.book_new();
+    var ws = XLSX.utils.json_to_sheet(sampleRows);
+    XLSX.utils.book_append_sheet(wb, ws, 'Import_Template');
+    XLSX.writeFile(wb, 'Panamex-Containers-Import-Template.xlsx');
+    showToast('Sample template downloaded.');
+  }).catch(function(){
+    showToast('Could not generate Excel template.');
+  });
 }
 
 /* ============================================================
@@ -3677,6 +4736,7 @@ function renderDashboard(){
     '</div>'+
     '<div class="page-actions-group">'+
       (can('edit') ? '<button class="btn-pill btn-pill-primary" data-act="open-add-container">+ Add Container</button>' : '')+
+      (can('edit') ? '<button class="btn-pill btn-pill-secondary" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel</button>' : '')+
       '<button class="btn-pill btn-pill-secondary" data-act="export-containers-xlsx">Export Excel</button>'+
     '</div>'+
   '</div>';
@@ -3801,7 +4861,9 @@ function containerMiniTable(list, emptyMsg){
     var loc = locationLabel(c);
     return '<tr>'+
       '<td><span class="mono-tag">'+escapeHtml(c.jobNo)+'</span></td>'+
-      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span></td>'+
+      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span>' +
+        ((c.containerType||c.notes) ? '<div style="margin-top:2px;"><span style="font-size:10.5px;color:#4338CA;font-weight:700;">📦 ' + escapeHtml(c.containerType||c.notes) + '</span></div>' : '') +
+      '</td>'+
       '<td>'+escapeHtml(c.shippingLine||'—')+'</td>'+
       '<td>'+fmtDate(c.dueDate||computeDueDate(c))+'</td>'+
       '<td><span class="pill '+pillClass(s)+'">'+s+'</span></td>'+
@@ -3818,7 +4880,9 @@ function portMiniTable(list, emptyMsg){
     var ps = computePortStatus(c);
     return '<tr>'+
       '<td><span class="mono-tag">'+escapeHtml(c.jobNo)+'</span></td>'+
-      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span></td>'+
+      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span>' +
+        ((c.containerType||c.notes) ? '<div style="margin-top:2px;"><span style="font-size:10.5px;color:#4338CA;font-weight:700;">📦 ' + escapeHtml(c.containerType||c.notes) + '</span></div>' : '') +
+      '</td>'+
       '<td>'+escapeHtml(c.shippingLine||'—')+'</td>'+
       '<td>'+fmtDate(c.fullDischargeDate)+'</td>'+
       '<td>'+fmtDate(computePortDueDate(c))+'</td>'+
@@ -3844,11 +4908,41 @@ function renderContainers(){
   }
 
   var head = '<tr>'+
-    th('Job No.','jobNo')+th('Bill No.','billNo')+th('Container No.','containerNo')+th('PPL #','pplNo')+
+    th('Job No.','jobNo')+th('Bill No.','billNo')+th('Container No.','containerNo')+th('Container Details / Type','containerType')+th('PPL #','pplNo')+
     th('Vessel','vesselName')+th('Voyage','voyageNo')+th('Line','shippingLine')+'<th>Stage</th>'+
     th('ETA','eta')+th('Full Discharge','fullDischargeDate')+'<th>Port Due</th><th>Port Status</th>'+
     th('Clearance','clearanceDate')+th('Free Days','freeDays',true)+th('Due Date','dueDate')+
     th('Returned','emptyReturnDate')+th('EIR','eirDate')+'<th>Status</th><th>Location</th><th></th></tr>';
+
+  var totalCount = state.containers.length;
+  var stage1Count = state.containers.filter(function(c){ return computeStage(c)===STAGE.SHIPPING; }).length;
+  var stage2Count = state.containers.filter(function(c){ return computeStage(c)===STAGE.CONTROL; }).length;
+  var stage3Count = state.containers.filter(function(c){ return computeStage(c)===STAGE.RETURNED; }).length;
+
+  var currentStage = f.stage || '';
+
+  var stageTabsHtml = '<div class="stage-pipeline-tabs">' +
+    '<button type="button" class="stage-tab-btn' + (currentStage==='' ? ' active' : '') + '" data-act="set-stage-tab" data-stage="" title="Show all containers">' +
+      '<span style="font-size:14px;">📋</span>' +
+      '<span class="stage-tab-text">All Containers</span>' +
+      '<span class="stage-tab-count">' + totalCount + '</span>' +
+    '</button>' +
+    '<button type="button" class="stage-tab-btn' + (currentStage===STAGE.SHIPPING ? ' active stage-1' : '') + '" data-act="set-stage-tab" data-stage="' + escapeHtml(STAGE.SHIPPING) + '" title="Stage 1: Awaiting discharge & customs clearance">' +
+      '<span class="stage-dot stage-dot-1"></span>' +
+      '<span class="stage-tab-text">Stage 1: Shipping (Pre-Clearance)</span>' +
+      '<span class="stage-tab-count">' + stage1Count + '</span>' +
+    '</button>' +
+    '<button type="button" class="stage-tab-btn' + (currentStage===STAGE.CONTROL ? ' active stage-2' : '') + '" data-act="set-stage-tab" data-stage="' + escapeHtml(STAGE.CONTROL) + '" title="Stage 2: Cleared and in Yard Control (Demurrage free days active)">' +
+      '<span class="stage-dot stage-dot-2"></span>' +
+      '<span class="stage-tab-text">Stage 2: Yard Control</span>' +
+      '<span class="stage-tab-count">' + stage2Count + '</span>' +
+    '</button>' +
+    '<button type="button" class="stage-tab-btn' + (currentStage===STAGE.RETURNED ? ' active stage-3' : '') + '" data-act="set-stage-tab" data-stage="' + escapeHtml(STAGE.RETURNED) + '" title="Stage 3: Empty container returned to depot">' +
+      '<span class="stage-dot stage-dot-3"></span>' +
+      '<span class="stage-tab-text">Stage 3: Returned &amp; Closed</span>' +
+      '<span class="stage-tab-count">' + stage3Count + '</span>' +
+    '</button>' +
+  '</div>';
 
   var rows = list.map(function(c){
     var st = effectiveStatus(c);
@@ -3857,15 +4951,40 @@ function renderContainers(){
     var portDue = computePortDueDate(c);
     var portSt = computePortStatus(c);
 
+    var stageBadge = '';
+    var advanceBtn = '';
+
+    if(stage === STAGE.SHIPPING){
+      stageBadge = '<span class="stage-badge stage-badge-1" title="Stage 1: Inbound Shipping &amp; Port Formalities"><span class="stage-dot stage-dot-1"></span>Stage 1: Shipping</span>';
+      if(can('edit')){
+        advanceBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Advance to Stage 2: Customs Clearance &amp; Move to Yard">🚚 Move to Stage 2</button>';
+      }
+    } else if(stage === STAGE.CONTROL){
+      stageBadge = '<span class="stage-badge stage-badge-2" title="Stage 2: Yard Control &amp; Demurrage Active"><span class="stage-dot stage-dot-2"></span>Stage 2: Yard Control</span>';
+      if(can('edit')){
+        advanceBtn = '<button type="button" class="btn-stage-action to-stage-3" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage3" title="Advance to Stage 3: Return Empty &amp; Close Demurrage">📦 Move to Stage 3</button>';
+      }
+    } else {
+      stageBadge = '<span class="stage-badge stage-badge-3" title="Stage 3: Empty Container Returned"><span class="stage-dot stage-dot-3"></span>Stage 3: Returned</span>';
+      advanceBtn = '<span class="stage-closed-chip">✅ Closed</span>';
+    }
+
+    var typeBadge = (c.containerType || c.notes)
+      ? '<span class="mono-tag" style="background:#EEF2FF;color:#3730A3;font-weight:700;font-size:11px;border:1px solid #C7D2FE;padding:2px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;" title="Container Details / Notes"><span style="font-size:10px;">📦</span>' + escapeHtml(c.containerType || c.notes) + '</span>'
+      : '<span style="color:var(--text-subtle);">—</span>';
+
     return '<tr>'+
       '<td><span class="mono-tag">'+escapeHtml(c.jobNo)+'</span></td>'+
       '<td><span class="mono-tag" style="background:#F3F4F6;color:var(--text-muted);">'+escapeHtml(c.billNo||'—')+'</span></td>'+
-      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span></td>'+
+      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span>' +
+        ((c.containerType || c.notes) ? '<div style="margin-top:3px;"><span class="mono-tag" style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;border:1px solid #FDE68A;">📦 ' + escapeHtml(c.containerType || c.notes) + '</span></div>' : '') +
+      '</td>'+
+      '<td>'+typeBadge+'</td>'+
       '<td>'+escapeHtml(c.pplNo||'—')+'</td>'+
       '<td>'+escapeHtml(c.vesselName||'—')+'</td>'+
       '<td>'+escapeHtml(c.voyageNo||'—')+'</td>'+
       '<td>'+escapeHtml(c.shippingLine||'—')+'</td>'+
-      '<td><span class="pill '+stagePillClass(stage)+'">'+stage+'</span></td>'+
+      '<td>'+stageBadge+'</td>'+
       '<td>'+fmtDate(c.eta)+'</td>'+
       '<td>'+fmtDate(c.fullDischargeDate)+'</td>'+
       '<td>'+(portDue?fmtDate(portDue):'—')+'</td>'+
@@ -3878,12 +4997,24 @@ function renderContainers(){
       '<td><span class="pill '+pillClass(st)+'">'+st+'</span></td>'+
       '<td>'+(loc==='—'?'<span style="color:var(--text-subtle);">—</span>':'<span class="pill '+locationPillClass(loc)+'">'+escapeHtml(loc)+'</span>')+'</td>'+
       '<td class="rowactions">'+
-        '<button class="iconbtn" data-act="edit-container" data-id="'+c.id+'" title="Edit">✏️</button>'+
+        advanceBtn+
+        '<button class="iconbtn" data-act="edit-container" data-id="'+c.id+'" title="Edit Full Details">✏️</button>'+
         (can('delete') ? '<button class="iconbtn" data-act="delete-container-confirm" data-id="'+c.id+'" title="Delete">🗑️</button>' : '')+
       '</td></tr>';
   }).join('');
 
-  if(!rows) rows = '<tr><td colspan="20" style="text-align:center;padding:36px;color:var(--text-muted);">No containers match the current filters. <button class="btn-switch-user" data-act="clear-filters">Reset filters</button></td></tr>';
+  if(!rows){
+    if(!state.containers || !state.containers.length){
+      rows = '<tr><td colspan="21" style="text-align:center;padding:50px 20px;color:var(--text-muted);">' +
+        '<div style="font-size:36px;margin-bottom:12px;">🚢</div>' +
+        '<div style="font-size:16px;font-weight:700;color:var(--text-main);margin-bottom:6px;">All Containers Ledger is Empty</div>' +
+        '<div style="font-size:13px;margin-bottom:18px;">Click <strong>Import Excel</strong> to import your Pronto BI spreadsheet directly, or click <strong>+ Add Container</strong>.</div>' +
+        '<button class="btn-pill btn-pill-primary" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel File</button>' +
+        '</td></tr>';
+    } else {
+      rows = '<tr><td colspan="21" style="text-align:center;padding:36px;color:var(--text-muted);">No containers match the current filters. <button class="btn-switch-user" data-act="clear-filters">Reset filters</button></td></tr>';
+    }
+  }
 
   var statusOpts = Object.keys(STATUS).map(function(k){ return '<option value="'+STATUS[k]+'"'+(f.status===STATUS[k]?' selected':'')+'>'+STATUS[k]+'</option>'; }).join('');
   var lineOpts = lines.map(function(l){ return '<option value="'+escapeHtml(l)+'"'+(f.line===l?' selected':'')+'>'+escapeHtml(l)+'</option>'; }).join('');
@@ -3895,9 +5026,11 @@ function renderContainers(){
       '<div class="panel-title">All Containers Ledger <span class="badge-counter">'+list.length+'</span></div>'+
       '<div class="page-actions-group">'+
         (can('edit') ? '<button class="btn-pill btn-pill-primary btn-pill-sm" data-act="open-add-container">+ Add Container</button>' : '')+
+        (can('edit') ? '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel</button>' : '')+
         '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="export-containers-xlsx">Export Excel</button>'+
       '</div>'+
     '</div>'+
+    stageTabsHtml+
     '<div class="filters-bar">'+
       '<div class="field grow"><label>Search</label><input type="text" data-filter="q" value="'+escapeHtml(f.q)+'" placeholder="Job No, Bill No, Container No, Vessel, PPL, Product..."></div>'+
       '<div class="field"><label>Stage</label><select data-filter="stage"><option value="">All Stages</option>'+stageOpts+'</select></div>'+
@@ -4195,6 +5328,7 @@ function renderModal(){
   if(state.modal.type==='confirmDelete') return renderConfirmDeleteModal(state.modal.id);
   if(state.modal.type==='user') return renderUserModal(state.modal.id);
   if(state.modal.type==='auditDetail') return renderAuditDetailModal(state.modal.id);
+  if(state.modal.type==='advanceStage') return renderAdvanceStageModal(state.modal.id, state.modal.targetStage);
   return '';
 }
 
@@ -4202,15 +5336,54 @@ function renderContainerModal(id){
   var c = id ? state.containers.filter(function(x){return x.id===id;})[0] : null;
   var isNew = !c;
   var mode = isNew ? (state.modal.mode || 'single') : 'single';
-  c = c || { jobNo:'',billNo:'',containerNo:'',pplNo:'',vesselName:'',voyageNo:'',eta:'',
+
+  var importedRow = (isNew && state.modal && state.modal.importedRows && state.modal.importedRows.length)
+    ? state.modal.importedRows[state.modal.importedIndex || 0]
+    : null;
+
+  var defaultValues = { jobNo:'',billNo:'',containerNo:'',containerType:'',notes:'',pplNo:'',vesselName:'',voyageNo:'',eta:'',
     jobRegisterDate:'',draftApprovalDate:'',fullDischargeDate:'',naqiaPtlDate:'',whChargesPaidDate:'',doIssueDate:'',gpIssueDate:'',
     portFreeDays:state.settings.portFreeDays, clearanceDate:'',freeDays:14,emptyReturnDate:'',eirDate:'',shippingLine:'Swire Shipping',
     productDescription:'',statusLocked:false,status:computeStatus({}),location:'' };
 
-  var tabsHtml = isNew ? '<div class="tabs" style="margin-bottom:16px;">'+
-    '<div class="tab'+(mode==='single'?' active':'')+'" data-act="set-add-mode" data-id="single">Single Container</div>'+
-    '<div class="tab'+(mode==='bulk'?' active':'')+'" data-act="set-add-mode" data-id="bulk">Bulk Add (Multiple Containers)</div>'+
+  c = c || (importedRow ? Object.assign({}, defaultValues, importedRow) : defaultValues);
+
+  var tabsHtml = isNew ? '<div class="tabs" style="margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">'+
+    '<div style="display:flex; gap:6px;">'+
+      '<div class="tab'+(mode==='single'?' active':'')+'" data-act="set-add-mode" data-id="single">Single Container</div>'+
+      '<div class="tab'+(mode==='bulk'?' active':'')+'" data-act="set-add-mode" data-id="bulk">Bulk Add (Multiple Containers)</div>'+
+    '</div>'+
+    '<div style="display:flex; align-items:center; gap:8px;">'+
+      '<input type="file" id="modalExcelFileInput" accept=".xlsx,.xls,.csv" style="display:none;">'+
+      '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="trigger-modal-excel" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; background:var(--mint-light); color:var(--forest); border:1.5px solid var(--mint); padding:6px 14px; cursor:pointer;" title="Upload Excel spreadsheet to auto-fill fields">'+
+        '📊 Import Excel (.xlsx)'+
+      '</button>'+
+      '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="download-sample-template" style="display:inline-flex; align-items:center; gap:4px; font-size:11px; padding:6px 10px; cursor:pointer;" title="Download sample template">'+
+        '📥 Template'+
+      '</button>'+
+    '</div>'+
   '</div>' : '';
+
+  var importedBanner = '';
+  if(isNew && state.modal && state.modal.importedRows && state.modal.importedRows.length){
+    var irList = state.modal.importedRows;
+    var irIdx = state.modal.importedIndex || 0;
+    importedBanner = '<div class="import-banner" style="background:linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border:1.5px solid #10B981; border-radius:12px; padding:12px 16px; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; box-shadow:0 2px 8px rgba(16,185,129,0.12);">' +
+      '<div style="display:flex; align-items:center; gap:10px;">' +
+        '<div style="font-size:24px;">📊</div>' +
+        '<div>' +
+          '<div style="font-size:13px; font-weight:800; color:#065F46;">Excel Data Loaded: ' + escapeHtml(state.modal.importedFileName || 'Uploaded Spreadsheet') + '</div>' +
+          '<div style="font-size:12px; color:#047857;">Showing container <strong>' + (irIdx + 1) + ' of ' + irList.length + '</strong> in fields below &bull; <code>' + escapeHtml(c.containerNo || c.jobNo || 'Entry') + '</code>' + ((c.containerType || c.notes) ? ' &bull; <strong style="color:#065F46;">📦 ' + escapeHtml(c.containerType || c.notes) + '</strong>' : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex; align-items:center; gap:8px;">' +
+        (irList.length > 1 ? '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="prev-imported-row" ' + (irIdx <= 0 ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : '') + '>◀ Prev Row</button>' +
+        '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="next-imported-row" ' + (irIdx >= irList.length - 1 ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : '') + '>Next Row ▶</button>' +
+        '<button type="button" class="btn-pill btn-pill-primary btn-pill-sm" data-act="save-all-imported" style="background:#065F46; border-color:#065F46; font-weight:700;">✨ Save All ' + irList.length + ' Containers</button>' : '') +
+        '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="clear-imported" title="Clear Excel Data" style="color:#B91C1C; font-weight:700;">✕ Clear</button>' +
+      '</div>' +
+    '</div>';
+  }
 
   var statusOpts = Object.keys(STATUS).map(function(k){
     return '<option value="'+STATUS[k]+'"'+((c.status||computeStatus(c))===STATUS[k]?' selected':'')+'>'+STATUS[k]+'</option>';
@@ -4222,11 +5395,22 @@ function renderContainerModal(id){
 
   var portDue = computePortDueDate(c);
 
+  var bulkNumbers = (state.modal && state.modal.importedRows)
+    ? state.modal.importedRows.map(function(r){ return r.containerNo; }).filter(Boolean).join('\n')
+    : '';
+
   return '<div class="overlay"><div class="modal">'+
-    '<div class="modal-head"><h3>'+(isNew?(mode==='bulk'?'Bulk Add Containers':'Add Container Entry'):'Edit Container '+escapeHtml(c.containerNo))+'</h3><button class="circle-btn" data-act="close-modal">✕</button></div>'+
+    '<div class="modal-head">'+
+      '<div><h3>'+(isNew?(mode==='bulk'?'Bulk Add Containers':'Add Container Entry'):'Edit Container '+escapeHtml(c.containerNo))+'</h3></div>'+
+      '<div style="display:flex;align-items:center;gap:10px;">'+
+        (isNew ? '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="trigger-modal-excel" style="display:inline-flex;align-items:center;gap:6px;background:var(--mint-light);color:var(--forest);border:1.5px solid var(--mint);font-weight:700;cursor:pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Import Excel</button>' : '')+
+        '<button class="circle-btn" data-act="close-modal">✕</button>'+
+      '</div>'+
+    '</div>'+
     '<form id="containerForm">'+
     '<div class="modal-body">'+
       tabsHtml+
+      importedBanner+
       '<input type="hidden" name="id" value="'+(c.id||'')+'">'+
       '<input type="hidden" name="formMode" value="'+mode+'">'+
 
@@ -4238,9 +5422,10 @@ function renderContainerModal(id){
             field('Shipping Line','text','shippingLine',c.shippingLine)+
           '</div>'+
           '<div class="field" style="margin-top:14px;"><label>Container Numbers * (Separate by new line or comma)</label>'+
-            '<textarea name="containerNumbers" rows="5" placeholder="SWIU1234567\nMSKU7654321" required></textarea>'+
+            '<textarea name="containerNumbers" rows="5" placeholder="SWIU1234567\nMSKU7654321" required>'+escapeHtml(bulkNumbers)+'</textarea>'+
           '</div>'+
           '<div class="grid2" style="margin-top:10px;">'+
+            field('Container Type / Details (Notes)','text','containerType',c.containerType||c.notes||'')+
             field('Product Cargo Description','text','productDescription',c.productDescription)+
           '</div>'
         : '<div class="grid3">'+
@@ -4248,7 +5433,8 @@ function renderContainerModal(id){
             field('Bill of Lading No.','text','billNo',c.billNo)+
             field('Container No. *','text','containerNo',c.containerNo,true)+
           '</div>'+
-          '<div class="grid2" style="margin-top:10px;">'+
+          '<div class="grid3" style="margin-top:10px;">'+
+            field('Container Type / Details (Notes)','text','containerType',c.containerType||c.notes||'')+
             field('Shipping Line','text','shippingLine',c.shippingLine)+
             field('Product Cargo Description','text','productDescription',c.productDescription)+
           '</div>'
@@ -4369,6 +5555,291 @@ function renderAuditDetailModal(id){
   '</div></div>';
 }
 
+function renderAdvanceStageModal(id, targetStage){
+  var c = state.containers.filter(function(x){ return x.id === id; })[0];
+  if(!c) return '';
+
+  var isToStage2 = (targetStage === 'stage2');
+  var today = todayStr();
+
+  // Stepper timeline HTML
+  var stepHtml = '';
+  if(isToStage2){
+    stepHtml = '<div class="stage-stepper-track">' +
+      '<div class="stepper-item is-done">' +
+        '<div class="stepper-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 1</span>' +
+          '<span class="stepper-subtitle">Shipping &amp; Port</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stepper-connector is-done"></div>' +
+      '<div class="stepper-item is-current">' +
+        '<div class="stepper-circle">2</div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 2</span>' +
+          '<span class="stepper-subtitle">Yard Control</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stepper-connector"></div>' +
+      '<div class="stepper-item is-next">' +
+        '<div class="stepper-circle">3</div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 3</span>' +
+          '<span class="stepper-subtitle">Returned</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  } else {
+    stepHtml = '<div class="stage-stepper-track">' +
+      '<div class="stepper-item is-done">' +
+        '<div class="stepper-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 1</span>' +
+          '<span class="stepper-subtitle">Shipping &amp; Port</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stepper-connector is-done"></div>' +
+      '<div class="stepper-item is-done">' +
+        '<div class="stepper-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 2</span>' +
+          '<span class="stepper-subtitle">Yard Control</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="stepper-connector is-done"></div>' +
+      '<div class="stepper-item is-current">' +
+        '<div class="stepper-circle">3</div>' +
+        '<div class="stepper-info">' +
+          '<span class="stepper-title">Stage 3</span>' +
+          '<span class="stepper-subtitle">Returned</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // 4-Column Balanced Info Strip
+  var infoStripHtml = '<div class="stage-info-strip">' +
+    '<div class="info-cell">' +
+      '<span class="info-lbl">Container Number</span>' +
+      '<div>' +
+        '<span class="mono-tag" style="background:#E0E7FF;color:#3730A3;font-size:12px;">' + escapeHtml(c.containerNo || c.jobNo) + '</span>' +
+        ((c.containerType || c.notes) ? '<div style="margin-top:3px;"><span class="mono-tag" style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;">📦 ' + escapeHtml(c.containerType || c.notes) + '</span></div>' : '') +
+      '</div>' +
+    '</div>' +
+    '<div class="info-cell">' +
+      '<span class="info-lbl">Job / Order No.</span>' +
+      '<span class="info-val">' + escapeHtml(c.jobNo || '—') + '</span>' +
+    '</div>' +
+    '<div class="info-cell">' +
+      '<span class="info-lbl">Vessel &amp; Voyage</span>' +
+      '<span class="info-val" title="' + escapeHtml(c.vesselName || '') + '">' + escapeHtml(c.vesselName || '—') + (c.voyageNo ? ' (' + escapeHtml(c.voyageNo) + ')' : '') + '</span>' +
+    '</div>' +
+    '<div class="info-cell">' +
+      '<span class="info-lbl">Shipping Carrier</span>' +
+      '<span class="info-val" title="' + escapeHtml(c.shippingLine || '') + '">' + escapeHtml(c.shippingLine || '—') + '</span>' +
+    '</div>' +
+  '</div>';
+
+  var bodyContentHtml = '';
+
+  if(isToStage2){
+    var locationOpts = [
+      LOCATIONS.PANAMEX,
+      LOCATIONS.AGENT
+    ].map(function(l){
+      return '<option value="' + escapeHtml(l) + '"' + ((c.location || LOCATIONS.PANAMEX) === l ? ' selected' : '') + '>' + escapeHtml(l) + '</option>';
+    }).join('');
+
+    bodyContentHtml = stepHtml +
+      infoStripHtml +
+      '<div class="stage-callout-card">' +
+        '<div class="callout-icon">🚚</div>' +
+        '<div class="callout-text">' +
+          '<strong>Stage 2 Transition:</strong> Customs clearance completes port formalities and transfers container custody to the yard. Demurrage free days countdown begins from clearance date.' +
+        '</div>' +
+      '</div>' +
+      '<div class="stage-form-group">' +
+        '<div class="stage-form-row">' +
+          '<div class="stage-form-field">' +
+            '<label>Customs Clearance Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="clearanceDate" required value="' + (c.clearanceDate || today) + '">' +
+          '</div>' +
+          '<div class="stage-form-field">' +
+            '<label>Yard Allocation <span style="color:#EF4444;">*</span></label>' +
+            '<select name="location" required>' + locationOpts + '</select>' +
+          '</div>' +
+        '</div>' +
+        '<div class="stage-form-row">' +
+          '<div class="stage-form-field">' +
+            '<label>Free Days Allowance <span style="color:#EF4444;">*</span></label>' +
+            '<input type="number" name="freeDays" required value="' + (c.freeDays || 14) + '" min="1" max="90" placeholder="e.g. 14">' +
+          '</div>' +
+          '<div class="stage-form-field">' +
+            '<label>Full Discharge Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="fullDischargeDate" required value="' + (c.fullDischargeDate || '') + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="form-section-sep"><span>Port Formalities &amp; Release Dates <span style="color:#EF4444;">*</span></span></div>' +
+        '<div class="stage-form-row">' +
+          '<div class="stage-form-field">' +
+            '<label>Draft Approval Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="draftApprovalDate" required value="' + (c.draftApprovalDate || '') + '">' +
+          '</div>' +
+          '<div class="stage-form-field">' +
+            '<label>Delivery Order (DO) Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="doIssueDate" required value="' + (c.doIssueDate || '') + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="stage-form-row">' +
+          '<div class="stage-form-field">' +
+            '<label>Gate Pass (GP) Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="gpIssueDate" required value="' + (c.gpIssueDate || '') + '">' +
+          '</div>' +
+          '<div class="stage-form-field">' +
+            '<label>NAQIA PTL Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="naqiaPtlDate" required value="' + (c.naqiaPtlDate || '') + '">' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  } else {
+    var calculatedDue = c.dueDate || computeDueDate(c);
+    var overdueDays = calculatedDue ? diffDays(today, calculatedDue) : 0;
+    var statusBanner = '';
+    if(overdueDays > 0){
+      statusBanner = '<div class="stage-status-banner overdue">' +
+        '<div style="font-size:20px;">⚠️</div>' +
+        '<div><strong>Demurrage Incurred:</strong> Container is currently <strong>' + overdueDays + ' day(s) overdue</strong> past free days (' + fmtDate(calculatedDue) + '). Demurrage charges apply.</div>' +
+      '</div>';
+    } else {
+      var daysLeft = calculatedDue ? diffDays(calculatedDue, today) : 0;
+      statusBanner = '<div class="stage-status-banner ok">' +
+        '<div style="font-size:20px;">✅</div>' +
+        '<div><strong>Within Free Days:</strong> Returned safely with <strong>' + daysLeft + ' day(s) remaining</strong> (Due: ' + (calculatedDue ? fmtDate(calculatedDue) : '—') + '). Zero demurrage penalty!</div>' +
+      '</div>';
+    }
+
+    bodyContentHtml = stepHtml +
+      infoStripHtml +
+      statusBanner +
+      '<div class="stage-callout-card">' +
+        '<div class="callout-icon">📦</div>' +
+        '<div class="callout-text">' +
+          '<strong>Stage 3 Transition:</strong> Records empty container drop-off at shipping depot and EIR confirmation. The detention and demurrage clock stops permanently.' +
+        '</div>' +
+      '</div>' +
+      '<div class="stage-form-group">' +
+        '<div class="stage-form-row">' +
+          '<div class="stage-form-field">' +
+            '<label>Empty Return Date <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="emptyReturnDate" required value="' + (c.emptyReturnDate || today) + '">' +
+          '</div>' +
+          '<div class="stage-form-field">' +
+            '<label>Depot EIR Date / Receipt <span style="color:#EF4444;">*</span></label>' +
+            '<input type="date" name="eirDate" required value="' + (c.eirDate || today) + '">' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  return '<div class="overlay"><div class="modal modal-stage-procedure">' +
+    '<div class="modal-stage-header">' +
+      '<div class="modal-stage-title-wrap">' +
+        '<h3>' +
+          (isToStage2 ? '🚚 Move to Stage 2: Yard Control' : '📦 Move to Stage 3: Empty Returned') +
+        '</h3>' +
+        '<div class="modal-stage-subtitle">Stage Workflow Procedure &bull; ' + escapeHtml(c.containerNo || c.jobNo) + '</div>' +
+      '</div>' +
+      '<button class="circle-btn" data-act="close-modal">✕</button>' +
+    '</div>' +
+    '<form id="advanceStageForm" data-id="' + c.id + '" data-target="' + targetStage + '">' +
+      '<div class="modal-stage-body">' +
+        bodyContentHtml +
+      '</div>' +
+      '<div class="modal-stage-footer">' +
+        '<button type="button" class="btn-stage-cancel" data-act="close-modal">Cancel</button>' +
+        '<button type="submit" class="btn-stage-confirm">' +
+          (isToStage2 ? '🚚 Confirm &amp; Move to Stage 2' : '✅ Confirm Return &amp; Close Demurrage') +
+        '</button>' +
+      '</div>' +
+    '</form>' +
+  '</div></div>';
+}
+
+function submitAdvanceStageForm(form){
+  var cid = form.getAttribute('data-id');
+  var target = form.getAttribute('data-target');
+  var targetItem = state.containers.find(function(x){ return x.id === cid; });
+  if(!targetItem) return;
+
+  var fd = new FormData(form);
+  var nowIso = new Date().toISOString();
+
+  if(target === 'stage2'){
+    var clearanceDate = (fd.get('clearanceDate') || '').trim();
+    var location = (fd.get('location') || '').trim();
+    var freeDaysStr = (fd.get('freeDays') || '').trim();
+    var fullDischargeDate = (fd.get('fullDischargeDate') || '').trim();
+    var draftApprovalDate = (fd.get('draftApprovalDate') || '').trim();
+    var doIssueDate = (fd.get('doIssueDate') || '').trim();
+    var gpIssueDate = (fd.get('gpIssueDate') || '').trim();
+    var naqiaPtlDate = (fd.get('naqiaPtlDate') || '').trim();
+
+    if(!clearanceDate || !location || !freeDaysStr || !fullDischargeDate || !draftApprovalDate || !doIssueDate || !gpIssueDate || !naqiaPtlDate){
+      showToast('⚠️ Please fill in all mandatory fields before moving to Stage 2.');
+      return;
+    }
+
+    targetItem.clearanceDate = clearanceDate;
+    targetItem.location = location;
+    var fdDays = parseInt(freeDaysStr, 10);
+    if(!isNaN(fdDays)) targetItem.freeDays = fdDays;
+    targetItem.fullDischargeDate = fullDischargeDate;
+    targetItem.draftApprovalDate = draftApprovalDate;
+    targetItem.doIssueDate = doIssueDate;
+    targetItem.gpIssueDate = gpIssueDate;
+    targetItem.naqiaPtlDate = naqiaPtlDate;
+
+    targetItem.dueDate = computeDueDate(targetItem);
+    targetItem.status = computeStatus(targetItem);
+    targetItem.updatedAt = nowIso;
+    targetItem.updatedBy = state.currentUser ? state.currentUser.name : 'Staff';
+
+    storageSet(CONTAINERS_KEY, state.containers);
+    pushAudit({
+      action: 'advance-stage-2',
+      containerNo: targetItem.containerNo,
+      changes: [
+        { field: 'Stage', from: 'Stage 1: Shipping', to: 'Stage 2: Yard Control (' + targetItem.location + ')' },
+        { field: 'Clearance Date', from: '—', to: targetItem.clearanceDate }
+      ]
+    });
+    showToast('🚚 Container ' + targetItem.containerNo + ' moved to Stage 2: Yard Control!');
+  } else if(target === 'stage3'){
+    targetItem.emptyReturnDate = fd.get('emptyReturnDate') || todayStr();
+    targetItem.eirDate = fd.get('eirDate') || todayStr();
+    targetItem.status = STATUS.RETURNED;
+    targetItem.updatedAt = nowIso;
+    targetItem.updatedBy = state.currentUser ? state.currentUser.name : 'Staff';
+
+    storageSet(CONTAINERS_KEY, state.containers);
+    pushAudit({
+      action: 'advance-stage-3',
+      containerNo: targetItem.containerNo,
+      changes: [
+        { field: 'Stage', from: 'Stage 2: Yard Control', to: 'Stage 3: Returned' },
+        { field: 'Empty Return Date', from: '—', to: targetItem.emptyReturnDate },
+        { field: 'EIR Date', from: '—', to: targetItem.eirDate }
+      ]
+    });
+    showToast('✅ Container ' + targetItem.containerNo + ' empty returned & demurrage closed!');
+  }
+
+  state.modal = null;
+  checkAndLogAlertEmails();
+  render();
+}
+
 /* ============================================================
    EVENTS
    ============================================================ */
@@ -4418,6 +5889,73 @@ function bootEvents(){
         alert('Panamex Port Terminal IT Security:\n\nTo reset your operator password, contact the IT Administrator at:\nit.support@panamex.com.pg or internal port extension #402.');
         break;
       case 'open-add-container': state.modal = {type:'container', id:null, mode:'single'}; render(); break;
+      case 'open-import-excel':
+        var directInp = document.getElementById('directExcelFileInput');
+        if(!directInp){
+          directInp = document.createElement('input');
+          directInp.type = 'file';
+          directInp.id = 'directExcelFileInput';
+          directInp.accept = '.xlsx,.xls,.csv';
+          directInp.style.display = 'none';
+          document.body.appendChild(directInp);
+        }
+        directInp.value = '';
+        directInp.onchange = function(fe){
+          if(fe.target.files && fe.target.files[0]){
+            handleDirectExcelImport(fe.target.files[0]);
+          }
+        };
+        directInp.click();
+        break;
+      case 'trigger-modal-excel':
+        var finp = document.getElementById('modalExcelFileInput');
+        if(finp){
+          finp.value = '';
+          finp.click();
+        } else {
+          var tempInp = document.createElement('input');
+          tempInp.type = 'file';
+          tempInp.accept = '.xlsx,.xls,.csv';
+          tempInp.style.display = 'none';
+          document.body.appendChild(tempInp);
+          tempInp.onchange = function(fe){
+            if(fe.target.files && fe.target.files[0]){
+              handleExcelFileImport(fe.target.files[0]);
+            }
+            document.body.removeChild(tempInp);
+          };
+          tempInp.click();
+        }
+        break;
+      case 'download-sample-template':
+        downloadContainerTemplateExcel();
+        break;
+      case 'prev-imported-row':
+        if(state.modal && state.modal.importedRows && (state.modal.importedIndex || 0) > 0){
+          syncCurrentFormToImportedRow();
+          state.modal.importedIndex--;
+          render();
+        }
+        break;
+      case 'next-imported-row':
+        if(state.modal && state.modal.importedRows && (state.modal.importedIndex || 0) < state.modal.importedRows.length - 1){
+          syncCurrentFormToImportedRow();
+          state.modal.importedIndex++;
+          render();
+        }
+        break;
+      case 'clear-imported':
+        if(state.modal){
+          delete state.modal.importedRows;
+          delete state.modal.importedIndex;
+          delete state.modal.importedFileName;
+          render();
+        }
+        break;
+      case 'save-all-imported':
+        syncCurrentFormToImportedRow();
+        saveAllImportedContainers();
+        break;
       case 'edit-container': state.modal = {type:'container', id:id}; render(); break;
       case 'set-add-mode': if(state.modal){ state.modal.mode = id; render(); } break;
       case 'delete-container-confirm': state.modal = {type:'confirmDelete', id:id}; render(); break;
@@ -4440,6 +5978,15 @@ function bootEvents(){
         state.view = 'containers';
         render();
         break;
+      case 'set-stage-tab':
+        state.filters.stage = t.getAttribute('data-stage') || '';
+        render();
+        break;
+      case 'open-advance-stage':
+        var targetStage = t.getAttribute('data-stage') || 'stage2';
+        state.modal = { type: 'advanceStage', id: id, targetStage: targetStage };
+        render();
+        break;
       case 'filter-status':
         state.filters.status = id || '';
         state.view = 'containers';
@@ -4455,6 +6002,9 @@ function bootEvents(){
 
   app.addEventListener('change', function(e){
     var t = e.target;
+    if((t.id === 'modalExcelFileInput' || t.matches('#modalExcelFileInput')) && t.files && t.files[0]){
+      handleExcelFileImport(t.files[0]);
+    }
     if(t.matches('[data-filter]')){
       state.filters[t.getAttribute('data-filter')] = t.type==='checkbox'?t.checked:t.value;
       renderContentOnly();
@@ -4485,6 +6035,29 @@ function bootEvents(){
     if(e.target.matches('#userForm')){ e.preventDefault(); submitUserForm(e.target); }
     if(e.target.matches('#loginForm')){ e.preventDefault(); submitLoginForm(e.target); }
     if(e.target.matches('#loginNewForm')){ e.preventDefault(); submitNewUser(e.target); }
+    if(e.target.matches('#advanceStageForm')){ e.preventDefault(); submitAdvanceStageForm(e.target); }
+  });
+
+  app.addEventListener('dragover', function(e){
+    if(state.modal && state.modal.type === 'container'){
+      e.preventDefault();
+      var m = document.querySelector('.modal');
+      if(m) m.style.borderColor = 'var(--mint)';
+    }
+  });
+  app.addEventListener('dragleave', function(e){
+    var m = document.querySelector('.modal');
+    if(m) m.style.borderColor = '';
+  });
+  app.addEventListener('drop', function(e){
+    if(state.modal && state.modal.type === 'container'){
+      e.preventDefault();
+      var m = document.querySelector('.modal');
+      if(m) m.style.borderColor = '';
+      if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]){
+        handleExcelFileImport(e.dataTransfer.files[0]);
+      }
+    }
   });
 
   window.addEventListener('keydown', function(e){
@@ -4553,6 +6126,7 @@ function submitContainerForm(form){
     if(mode==='bulk'){
       var jobNo = (fd.get('jobNo')||'').trim();
       var billNo = (fd.get('billNo')||'').trim();
+      var containerType = (fd.get('containerType')||'').trim();
       var pplNo = (fd.get('pplNo')||'').trim();
       var vesselName = (fd.get('vesselName')||'').trim();
       var voyageNo = (fd.get('voyageNo')||'').trim();
@@ -4583,7 +6157,8 @@ function submitContainerForm(form){
       var nowIso = new Date().toISOString();
       clean.forEach(function(containerNo){
         var item = {
-          id:uid('cnt'), jobNo:jobNo, billNo:billNo, containerNo:containerNo, pplNo:pplNo,
+          id:uid('cnt'), jobNo:jobNo, billNo:billNo, containerNo:containerNo,
+          containerType:containerType, notes:containerType, pplNo:pplNo,
           vesselName:vesselName, voyageNo:voyageNo, shippingLine:shippingLine, productDescription:productDescription,
           eta:eta, jobRegisterDate:jobRegisterDate, draftApprovalDate:draftApprovalDate, fullDischargeDate:fullDischargeDate,
           naqiaPtlDate:naqiaPtlDate, whChargesPaidDate:whChargesPaidDate, doIssueDate:doIssueDate, gpIssueDate:gpIssueDate,
@@ -4608,6 +6183,8 @@ function submitContainerForm(form){
       jobNo: fd.get('jobNo').trim(),
       billNo: fd.get('billNo').trim(),
       containerNo: fd.get('containerNo').trim(),
+      containerType: (fd.get('containerType')||'').trim(),
+      notes: (fd.get('containerType')||'').trim(),
       pplNo: (fd.get('pplNo')||'').trim(),
       vesselName: (fd.get('vesselName')||'').trim(),
       voyageNo: (fd.get('voyageNo')||'').trim(),
