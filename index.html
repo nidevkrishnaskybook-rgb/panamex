@@ -2648,12 +2648,332 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
   transition: all 0.2s ease;
 }
-.btn-stage-confirm:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+/* ============================================================
+   PENDING CLEARANCE MODULE STYLING
+   ============================================================ */
+.clearance-header-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
-.btn-stage-confirm:active {
-  transform: translateY(0);
+.clearance-header-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.clearance-header-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+.clearance-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+@media (max-width: 1200px){
+  .clearance-kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px){
+  .clearance-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.clearance-kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.clearance-kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--forest);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.clearance-kpi-card.active {
+  border-color: #10B981;
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(16,185,129,0.08) 100%);
+  box-shadow: 0 0 0 2px #10B981;
+}
+.clearance-kpi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.clearance-kpi-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.clearance-kpi-icon {
+  font-size: 18px;
+}
+.clearance-kpi-val {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+/* Status Pills */
+.pill-clearance {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.pill-clearance-pending {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+.pill-clearance-progress {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+.pill-clearance-cleared {
+  background: #D1FAE5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}
+.pill-clearance-duesoon {
+  background: #FFEDD5;
+  color: #C2410C;
+  border-color: #FED7AA;
+}
+.pill-clearance-overdue {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FECACA;
+}
+
+/* Checklist in Modal */
+.clearance-checklist-box {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin: 16px 0;
+}
+.checklist-item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.15s ease;
+}
+.checklist-item-card:hover {
+  border-color: var(--border-hover);
+}
+.checklist-item-card.is-completed {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.04) 0%, var(--bg-card) 100%);
+}
+.checklist-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.checklist-item-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.checklist-item-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.checklist-segmented-ctrl {
+  display: inline-flex;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+.checklist-seg-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s ease;
+}
+.checklist-seg-btn:hover {
+  color: var(--text-main);
+}
+.checklist-seg-btn.active-pending {
+  background: #FEF3C7;
+  color: #92400E;
+  font-weight: 700;
+}
+.checklist-seg-btn.active-progress {
+  background: #DBEAFE;
+  color: #1E40AF;
+  font-weight: 700;
+}
+.checklist-seg-btn.active-completed {
+  background: #10B981;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* History / Activity */
+.clearance-history-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 10px;
+  background: var(--bg-card);
+  font-size: 12px;
+}
+.clearance-history-item {
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-card);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.clearance-history-item:last-child {
+  border-bottom: none;
+}
+.clearance-history-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.clearance-history-text {
+  color: var(--text-main);
+}
+.btn-send-clearance {
+  background: #EEF2FF;
+  color: #4338CA;
+  border: 1px solid #C7D2FE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.btn-send-clearance:hover {
+  background: #E0E7FF;
+  border-color: #A5B4FC;
+}
+
+.btn-pill-clearance-view {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: 1px solid #1D4ED8 !important;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.btn-pill-clearance-view:hover {
+  background: linear-gradient(135deg, #1D4ED8, #1E40AF) !important;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.45);
+}
+.container-subview-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  margin-bottom: 16px;
+}
+.btn-subview-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.btn-subview-tab:hover {
+  color: var(--text-main);
+  background: rgba(255,255,255,0.05);
+}
+.btn-subview-tab.active {
+  background: var(--bg-card-hover, rgba(255,255,255,0.08));
+  color: var(--text-main);
+  border-color: var(--border-card);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-subview-tab.active.tab-clearance {
+  border-color: #3B82F6;
+  background: rgba(59,130,246,0.12);
+  color: #60A5FA;
+}
+.btn-subview-tab .tab-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: var(--surface, #1E293B);
+  color: var(--text-muted);
+}
+.btn-subview-tab.active .tab-badge {
+  background: #10B981;
+  color: #fff;
+}
+.btn-subview-tab.active.tab-clearance .tab-badge {
+  background: #2563EB;
+  color: #fff;
 }
 
 </style>
@@ -2680,12 +3000,35 @@ var STAGE = { SHIPPING:'Shipping (pre-clearance)', CONTROL:'Container Control (y
 var LOCATIONS = { AGENT:'Agent Yard (6A)', PANAMEX:'Panamex Yard (1B)' };
 var PORT_STATUS = { AWAITING:'Awaiting Discharge', WITHIN:'Within Port Free Days', SOON:'Port Due Soon', OVER:'Port Overdue', CLEARED_OK:'Cleared Within Port Free Days', CLEARED_LATE:'Cleared Late (Port)' };
 
+var OPERATIONAL_STAGE = {
+  TRANSIT: 'Stock In Transit',
+  CLEARANCE: 'Pending Clearance',
+  CLEARED: 'Cleared',
+  YARD: 'Yard / Gate-Out',
+  COMPLETED: 'Completed'
+};
+
+var CLEARANCE_STATUS = {
+  PENDING: 'Pending',
+  IN_PROGRESS: 'In Progress',
+  CLEARED: 'Cleared'
+};
+
+var CLEARANCE_CHECKLIST_ITEMS = [
+  { key: 'customsDraft', label: 'Customs Draft Approval', dateField: 'draftApprovalDate', desc: 'Customs document lodgement & assessment approval' },
+  { key: 'naqiaPtl', label: 'NAQIA / PTL Clearance', dateField: 'naqiaPtlDate', desc: 'Biosecurity inspection & quarantine release permit' },
+  { key: 'wharfageHandling', label: 'Wharfage & Handling', dateField: 'whChargesPaidDate', desc: 'Port terminal handling & wharfage payment' },
+  { key: 'shippingDo', label: 'Shipping DO', dateField: 'doIssueDate', desc: 'Carrier Delivery Order release from shipping line' },
+  { key: 'gatePass', label: 'Gate Pass', dateField: 'gpIssueDate', desc: 'Terminal Gate Pass issued for transport dispatch' },
+  { key: 'gateOut', label: 'Gate-Out', dateField: 'gateOutDate', desc: 'Container physically gated out from port terminal' }
+];
+
 var NAV = [
-  {id:'dashboard', label:'Dashboard', icon:'📁', section:'MENU', roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
-  {id:'containers', label:'Containers', icon:'📦', section:'MENU', countBadge:true, roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
+  {id:'dashboard', label:'Dashboard', icon:'📊', section:'MENU', roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
+  {id:'containers', label:'Container Management', icon:'🚢', section:'MENU', countBadge:true, roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
   {id:'alerts', label:'Alerts', icon:'🔔', section:'MENU', roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
-  {id:'reports', label:'Reports', icon:'📊', section:'MENU', roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
-  {id:'audit', label:'Audit Trail', icon:'📝', section:'GENERAL', roles:[ROLES.ADMIN,ROLES.MANAGER]},
+  {id:'reports', label:'Reports', icon:'📈', section:'MENU', roles:[ROLES.ADMIN,ROLES.MANAGER,ROLES.STAFF]},
+  {id:'audit', label:'Audit Trail', icon:'📜', section:'GENERAL', roles:[ROLES.ADMIN,ROLES.MANAGER]},
   {id:'users', label:'Users', icon:'👥', section:'GENERAL', roles:[ROLES.ADMIN]},
   {id:'settings', label:'Settings', icon:'⚙️', section:'GENERAL', roles:[ROLES.ADMIN]}
 ];
@@ -2698,6 +3041,7 @@ var EMAILLOG_KEY = 'email-log-v1';
 var CURRENTUSER_KEY = 'current-user-v1';
 var THEME_KEY = 'panamex-theme-v1';
 var BG_STYLE_KEY = 'panamex-bg-style-v1';
+var CLEARANCE_KEY = 'clearance-shipments-v2';
 
 function getInitialBgStyle(){
   try {
@@ -2744,12 +3088,16 @@ var state = {
   currentUser: null,
   users: [],
   containers: [],
+  clearanceShipments: [],
   audit: [],
   emailLog: [],
   settings: { alertDays:3, companyName:'Panamex Pacific (PNG) Ltd', portFreeDays:5 },
   view: 'dashboard',
+  containerSubView: 'transit',
   filters: { q:'', status:'', line:'', location:'', stage:'', overdueOnly:false },
+  clearanceFilters: { q:'', port:'', line:'', status:'', staff:'', overdueOnly:false, dateFrom:'', dateTo:'' },
   sort: { key:'dueDate', dir:'asc' },
+  clearanceSort: { key:'clearanceDueDate', dir:'asc' },
   modal: null,
   toast: null,
   loginError: null,
@@ -2832,14 +3180,23 @@ function loadAll(){
     storageGet(AUDIT_KEY),
     storageGet(SETTINGS_KEY),
     storageGet(EMAILLOG_KEY),
-    storageGet(CURRENTUSER_KEY)
+    storageGet(CURRENTUSER_KEY),
+    storageGet(CLEARANCE_KEY)
   ]).then(function(res){
     var rawCnt = res[0] || [];
     // Completely wipe any legacy demo / sample containers
     state.containers = rawCnt.filter(function(c){
       return !(/^cnt_\d+$/.test(c.id || '') || (c.jobNo && String(c.jobNo).indexOf('J-24-10') === 0));
     });
+    state.containers.forEach(function(c){
+      if(!c.emptyReturnDate && !c.clearanceDate){
+        c.operationalStage = OPERATIONAL_STAGE.TRANSIT;
+      }
+    });
     storageSet(CONTAINERS_KEY, state.containers);
+
+    state.clearanceShipments = res[6] || [];
+    state.clearanceShipments.forEach(ensureClearanceProperties);
 
     if(!res[1] || !res[1].length){
       var seed = getInitialSeedData();
@@ -3027,6 +3384,162 @@ function portPillClass(ps){
   }
 }
 
+/* ============================================================
+   CLEARANCE DOMAIN LOGIC & WORKFLOW ENGINE
+   ============================================================ */
+function initClearanceChecklist(c){
+  c = c || {};
+  return {
+    customsDraft: {
+      status: c.draftApprovalDate ? 'Completed' : 'Pending',
+      date: c.draftApprovalDate || null,
+      updatedBy: c.draftApprovalDate ? 'Import/System' : '',
+      updatedAt: c.draftApprovalDate ? c.draftApprovalDate : ''
+    },
+    naqiaPtl: {
+      status: c.naqiaPtlDate ? 'Completed' : 'Pending',
+      date: c.naqiaPtlDate || null,
+      updatedBy: c.naqiaPtlDate ? 'Import/System' : '',
+      updatedAt: c.naqiaPtlDate ? c.naqiaPtlDate : ''
+    },
+    wharfageHandling: {
+      status: c.whChargesPaidDate ? 'Completed' : 'Pending',
+      date: c.whChargesPaidDate || null,
+      updatedBy: c.whChargesPaidDate ? 'Import/System' : '',
+      updatedAt: c.whChargesPaidDate ? c.whChargesPaidDate : ''
+    },
+    shippingDo: {
+      status: c.doIssueDate ? 'Completed' : 'Pending',
+      date: c.doIssueDate || null,
+      updatedBy: c.doIssueDate ? 'Import/System' : '',
+      updatedAt: c.doIssueDate ? c.doIssueDate : ''
+    },
+    gatePass: {
+      status: c.gpIssueDate ? 'Completed' : 'Pending',
+      date: c.gpIssueDate || null,
+      updatedBy: c.gpIssueDate ? 'Import/System' : '',
+      updatedAt: c.gpIssueDate ? c.gpIssueDate : ''
+    },
+    gateOut: {
+      status: (c.gateOutDate || c.clearanceDate) ? 'Completed' : 'Pending',
+      date: c.gateOutDate || c.clearanceDate || null,
+      updatedBy: (c.gateOutDate || c.clearanceDate) ? 'Import/System' : '',
+      updatedAt: (c.gateOutDate || c.clearanceDate) ? (c.gateOutDate || c.clearanceDate) : ''
+    }
+  };
+}
+
+function ensureClearanceProperties(c){
+  if(!c) return;
+  if(!c.checklist){
+    c.checklist = initClearanceChecklist(c);
+  }
+  if(!c.clearanceDueDate){
+    c.clearanceDueDate = computePortDueDate(c) || (c.eta ? addDays(c.eta, c.portFreeDays || 5) : null);
+  }
+  if(!c.clearanceStatus){
+    if(c.clearanceDate || c.emptyReturnDate){
+      c.clearanceStatus = CLEARANCE_STATUS.CLEARED;
+    } else {
+      c.clearanceStatus = CLEARANCE_STATUS.PENDING;
+    }
+  }
+  if(!c.operationalStage){
+    if(c.emptyReturnDate) c.operationalStage = OPERATIONAL_STAGE.COMPLETED;
+    else if(c.clearanceDate) c.operationalStage = OPERATIONAL_STAGE.YARD;
+    else if(c.clearanceStatus === CLEARANCE_STATUS.CLEARED) c.operationalStage = OPERATIONAL_STAGE.CLEARED;
+    else c.operationalStage = OPERATIONAL_STAGE.TRANSIT;
+  }
+  if(!c.clearanceHistory) c.clearanceHistory = [];
+}
+
+function areAllChecklistItemsCompleted(c){
+  if(!c || !c.checklist) return false;
+  var keys = ['customsDraft', 'naqiaPtl', 'wharfageHandling', 'shippingDo', 'gatePass', 'gateOut'];
+  return keys.every(function(k){
+    return c.checklist[k] && c.checklist[k].status === 'Completed';
+  });
+}
+
+function countCompletedChecklistItems(c){
+  if(!c || !c.checklist) return 0;
+  var keys = ['customsDraft', 'naqiaPtl', 'wharfageHandling', 'shippingDo', 'gatePass', 'gateOut'];
+  return keys.filter(function(k){
+    return c.checklist[k] && c.checklist[k].status === 'Completed';
+  }).length;
+}
+
+function computeClearanceStatusDisplay(c){
+  if(!c) return 'Pending';
+  ensureClearanceProperties(c);
+  if(c.clearanceStatus === CLEARANCE_STATUS.CLEARED || c.operationalStage === OPERATIONAL_STAGE.CLEARED || c.clearanceDate){
+    return 'Cleared';
+  }
+  var due = c.clearanceDueDate;
+  if(due){
+    var d = diffDays(due, todayStr());
+    if(d < 0) return 'Overdue';
+    if(d <= Number(state.settings.alertDays || 3)) return 'Due Soon';
+  }
+  if(c.clearanceStatus === CLEARANCE_STATUS.IN_PROGRESS) return 'In Progress';
+  return 'Pending';
+}
+
+function clearancePillClass(statusDisplay){
+  switch(statusDisplay){
+    case 'Cleared': return 'pill-clearance pill-clearance-cleared';
+    case 'Overdue': return 'pill-clearance pill-clearance-overdue';
+    case 'Due Soon': return 'pill-clearance pill-clearance-duesoon';
+    case 'In Progress': return 'pill-clearance pill-clearance-progress';
+    default: return 'pill-clearance pill-clearance-pending';
+  }
+}
+
+function addClearanceHistory(c, action, note, changes){
+  if(!c) return;
+  if(!c.clearanceHistory) c.clearanceHistory = [];
+  var entry = {
+    id: uid('clh'),
+    ts: new Date().toISOString(),
+    userName: state.currentUser ? state.currentUser.name : 'System',
+    userRole: state.currentUser ? state.currentUser.role : 'Staff',
+    action: action,
+    note: note || '',
+    changes: changes || []
+  };
+  c.clearanceHistory.unshift(entry);
+  if(c.clearanceHistory.length > 200) c.clearanceHistory = c.clearanceHistory.slice(0, 200);
+}
+
+function isClearanceShipment(c){
+  if(!c) return false;
+  ensureClearanceProperties(c);
+  return c.sourceSection === 'clearance' || c.operationalStage === OPERATIONAL_STAGE.CLEARANCE || c.operationalStage === OPERATIONAL_STAGE.CLEARED;
+}
+
+function countPendingClearance(){
+  return (state.clearanceShipments || []).filter(function(c){
+    return c.clearanceStatus !== CLEARANCE_STATUS.CLEARED;
+  }).length;
+}
+
+function uniquePorts(){
+  var set = {};
+  state.containers.forEach(function(c){
+    if(c.dischargePort) set[c.dischargePort] = true;
+    if(c.loadPort) set[c.loadPort] = true;
+    if(c.location) set[c.location] = true;
+  });
+  return Object.keys(set).filter(Boolean).sort();
+}
+
+function uniqueAssignedStaff(){
+  var set = {};
+  state.users.forEach(function(u){ if(u.name) set[u.name] = true; });
+  state.containers.forEach(function(c){ if(c.assignedStaff) set[c.assignedStaff] = true; });
+  return Object.keys(set).filter(Boolean).sort();
+}
+
 /* Role Capabilities */
 function currentUserRole(){ return state.currentUser ? state.currentUser.role : null; }
 function can(action){
@@ -3047,12 +3560,15 @@ function can(action){
    ============================================================ */
 var CONTAINER_FIELD_LABELS = {
   jobNo:'Job No.', billNo:'Bill No.', containerNo:'Container No.', containerType:'Container Type / Details', pplNo:'PPL #',
+  customerRef:'Customer Reference', orderDate:'Order Date', loadPort:'Load Port', etd:'ETD', dischargePort:'Discharge Port',
   vesselName:'Vessel Name', voyageNo:'Voyage No.', eta:'ETA',
   jobRegisterDate:'Job Register Date', draftApprovalDate:'Draft Approval Date',
   fullDischargeDate:'Full Discharge Date', naqiaPtlDate:'NAQIA PTL Approved Date',
   whChargesPaidDate:'Shipping Charges Paid Date', doIssueDate:'DO Issue Date',
-  gpIssueDate:'Gate Pass Issue Date', portFreeDays:'Port Free Days',
-  clearanceDate:'Clearance Date', freeDays:'Free Days', dueDate:'Due Date',
+  gpIssueDate:'Gate Pass Issue Date', gateOutDate:'Gate-Out Date', portFreeDays:'Port Free Days',
+  clearanceDate:'Clearance Date', clearanceStatus:'Clearance Status', clearanceDueDate:'Clearance Due Date',
+  assignedStaff:'Assigned Staff', operationalStage:'Operational Stage',
+  freeDays:'Free Days', dueDate:'Due Date',
   emptyReturnDate:'Empty Return Date', eirDate:'EIR Date', status:'Status',
   statusLocked:'Status Lock', shippingLine:'Shipping Line', productDescription:'Product Description',
   location:'Yard / Location'
@@ -3222,6 +3738,71 @@ function uniqueShippingLines(){
   var set = {};
   state.containers.forEach(function(c){ if(c.shippingLine) set[c.shippingLine]=true; });
   return Object.keys(set).sort();
+}
+
+function filteredClearanceShipments(){
+  var f = state.clearanceFilters;
+  var q = (f.q || '').trim().toLowerCase();
+  
+  var list = (state.clearanceShipments || []).filter(function(c){
+    ensureClearanceProperties(c);
+
+    if(f.status){
+      var displaySt = computeClearanceStatusDisplay(c);
+      if(f.status === 'Due Soon'){
+        if(displaySt !== 'Due Soon') return false;
+      } else if(f.status === 'Overdue'){
+        if(displaySt !== 'Overdue') return false;
+      } else if(c.clearanceStatus !== f.status && displaySt !== f.status){
+        return false;
+      }
+    }
+
+    if(f.overdueOnly){
+      if(computeClearanceStatusDisplay(c) !== 'Overdue') return false;
+    }
+
+    if(f.port){
+      var pod = (c.dischargePort || c.location || '').toLowerCase();
+      var pol = (c.loadPort || '').toLowerCase();
+      var filterPort = f.port.toLowerCase();
+      if(pod !== filterPort && pol !== filterPort && pod.indexOf(filterPort) === -1 && pol.indexOf(filterPort) === -1) return false;
+    }
+
+    if(f.line && c.shippingLine !== f.line) return false;
+
+    if(f.staff && (c.assignedStaff || 'Unassigned') !== f.staff) return false;
+
+    if(f.dateFrom){
+      var targetDate = c.clearanceDueDate || c.eta;
+      if(!targetDate || targetDate < f.dateFrom) return false;
+    }
+    if(f.dateTo){
+      var targetDate2 = c.clearanceDueDate || c.eta;
+      if(!targetDate2 || targetDate2 > f.dateTo) return false;
+    }
+
+    if(q){
+      var hay = [
+        c.jobNo, c.containerNo, c.customerRef, c.pplNo, c.vesselName, c.voyageNo,
+        c.loadPort, c.dischargePort, c.shippingLine, c.productDescription, c.notes
+      ].join(' ').toLowerCase();
+      if(hay.indexOf(q) === -1) return false;
+    }
+
+    return true;
+  });
+
+  var s = state.clearanceSort;
+  var key = s.key || 'clearanceDueDate';
+  var dir = s.dir === 'desc' ? -1 : 1;
+  list.sort(function(a, b){
+    var av = a[key] || '';
+    var bv = b[key] || '';
+    return String(av).localeCompare(String(bv)) * dir;
+  });
+
+  return list;
 }
 
 /* ============================================================
@@ -3408,6 +3989,22 @@ function extractProntoOrStandardRows(sheet){
     var colNames = rawHeaders.map(function(hCell){ return String(hCell || '').trim(); });
     var nextHeaderIdx = (h + 1 < headerIndices.length) ? headerIndices[h + 1] : grid.length;
 
+    // Detect section title from rows between previous header (or row 0) and this header
+    var sectionType = 'transit'; // default
+    var prevText = '';
+    var scanStart = (h === 0) ? 0 : headerIndices[h - 1] + 1;
+    for(var sIdx = scanStart; sIdx < headerRowIdx; sIdx++){
+      var sRow = grid[sIdx];
+      if(Array.isArray(sRow)){
+        prevText += ' ' + sRow.map(function(cell){ return String(cell || ''); }).join(' ').toLowerCase();
+      }
+    }
+    if(prevText.indexOf('pending order') !== -1 || prevText.indexOf('pending clearance') !== -1 || prevText.indexOf('clearance') !== -1){
+      sectionType = 'clearance';
+    } else if(prevText.indexOf('stock in transit') !== -1 || prevText.indexOf('transit') !== -1){
+      sectionType = 'transit';
+    }
+
     for(var rowIdx = headerRowIdx + 1; rowIdx < nextHeaderIdx; rowIdx++){
       var rowData = grid[rowIdx];
       if(!Array.isArray(rowData)) continue;
@@ -3441,6 +4038,8 @@ function extractProntoOrStandardRows(sheet){
 
       if(validCells === 0) continue;
 
+      rowObj._sourceSection = sectionType;
+
       var rowKey = JSON.stringify(rowObj);
       if(!seenKeys[rowKey]){
         seenKeys[rowKey] = true;
@@ -3453,19 +4052,32 @@ function extractProntoOrStandardRows(sheet){
 }
 
 function normalizeImportedRow(rawRow){
+  var isClearance = (rawRow._sourceSection === 'clearance') || String(rawRow.operationalStage || '').toUpperCase().indexOf('CLEAR') !== -1;
+  var stageVal = isClearance ? OPERATIONAL_STAGE.CLEARANCE : OPERATIONAL_STAGE.TRANSIT;
+
   var item = {
-    jobNo: '', billNo: '', containerNo: '', containerType: '', notes: '', pplNo: '', vesselName: '', voyageNo: '',
-    shippingLine: 'Swire Shipping', productDescription: '', eta: '', jobRegisterDate: '',
+    jobNo: '', billNo: '', containerNo: '', containerType: '', notes: '', pplNo: '', customerRef: '', orderDate: '',
+    vesselName: '', voyageNo: '', loadPort: '', etd: '', dischargePort: '', shippingLine: 'Swire Shipping',
+    productDescription: '', eta: '', jobRegisterDate: '',
     draftApprovalDate: '', fullDischargeDate: '', naqiaPtlDate: '', whChargesPaidDate: '',
-    doIssueDate: '', gpIssueDate: '', portFreeDays: state.settings.portFreeDays,
-    clearanceDate: '', freeDays: 14, emptyReturnDate: '', eirDate: '',
+    doIssueDate: '', gpIssueDate: '', gateOutDate: '', portFreeDays: state.settings.portFreeDays,
+    clearanceDate: '', clearanceStatus: CLEARANCE_STATUS.PENDING, clearanceDueDate: '',
+    assignedStaff: '', operationalStage: stageVal,
+    clearanceEnrolled: isClearance,
+    _sourceSection: rawRow._sourceSection || (isClearance ? 'clearance' : 'transit'),
+    sourceSection: rawRow._sourceSection || (isClearance ? 'clearance' : 'transit'),
+    freeDays: 14, emptyReturnDate: '', eirDate: '',
     location: '', statusLocked: false, status: ''
   };
 
   var keyMap = {
     orderno: 'jobNo', order: 'jobNo', ordernumber: 'jobNo', orderref: 'jobNo', ordernum: 'jobNo',
     jobno: 'jobNo', job: 'jobNo', jobnumber: 'jobNo', jobref: 'jobNo', fileno: 'jobNo', file: 'jobNo',
-    orderdate: 'jobRegisterDate',
+    orderdate: 'orderDate',
+    customerreference: 'customerRef', customerref: 'customerRef', custref: 'customerRef', custreference: 'customerRef',
+    loadport: 'loadPort', portofloading: 'loadPort', pol: 'loadPort',
+    etd: 'etd', departuredate: 'etd', departure: 'etd',
+    dischargeport: 'dischargePort', portofdischarge: 'dischargePort', pod: 'dischargePort',
     billno: 'billNo', blno: 'billNo', bl: 'billNo', billoflading: 'billNo', bol: 'billNo',
     containerno: 'containerNo', container: 'containerNo', containernumber: 'containerNo', cntrno: 'containerNo', cntr: 'containerNo', unitno: 'containerNo', equipmentno: 'containerNo',
     containertype: 'containerType', type: 'containerType', cntrtype: 'containerType', size: 'containerType', sizetype: 'containerType',
@@ -3491,7 +4103,6 @@ function normalizeImportedRow(rawRow){
     emptyreturndate: 'emptyReturnDate', emptyreturn: 'emptyReturnDate', returndate: 'emptyReturnDate',
     eirdate: 'eirDate', eir: 'eirDate',
     location: 'location', yard: 'location', yardlocation: 'location',
-    dischargeport: 'location', portofdischarge: 'location', pod: 'location',
     status: 'status'
   };
 
@@ -3501,7 +4112,7 @@ function normalizeImportedRow(rawRow){
     if(mappedProp){
       var val = rawRow[rawKey];
       if(val !== undefined && val !== null && val !== ''){
-        if(/date|eta/i.test(mappedProp)){
+        if(/date|eta|etd/i.test(mappedProp)){
           item[mappedProp] = parseExcelDate(val);
         } else if(mappedProp === 'freeDays' || mappedProp === 'portFreeDays'){
           var num = parseInt(val, 10);
@@ -3528,7 +4139,7 @@ function normalizeImportedRow(rawRow){
 
   if(custRefVal !== null && custRefVal !== undefined && String(custRefVal).trim() !== ''){
     var custRefStr = String(custRefVal).trim();
-    // Strip all alphabets/characters and extract only the numbers
+    item.customerRef = custRefStr;
     var digitsOnly = custRefStr.replace(/[^0-9]/g, '');
     if(digitsOnly){
       item.pplNo = digitsOnly;
@@ -3547,6 +4158,16 @@ function normalizeImportedRow(rawRow){
     item.productDescription = brandVal + (item.productDescription && item.productDescription !== brandVal ? ' - ' + item.productDescription : '');
   }
   delete item.brand;
+
+  if(item.orderDate && !item.jobRegisterDate) item.jobRegisterDate = item.orderDate;
+  if(item.jobRegisterDate && !item.orderDate) item.orderDate = item.jobRegisterDate;
+  if(item.dischargePort && !item.location) item.location = item.dischargePort;
+  if(item.location && !item.dischargePort) item.dischargePort = item.location;
+
+  ensureClearanceProperties(item);
+  if(isClearance && item.eta && !item.clearanceDueDate){
+    item.clearanceDueDate = addDays(item.eta, 7);
+  }
 
   item.dueDate = computeDueDate(item);
   item.status = item.status || computeStatus(item);
@@ -3589,25 +4210,36 @@ function handleExcelFileImport(file){
 
         var jobTrackers = {};
         var seenNos = {};
+        var assignedByJobType = {};
         parsed.forEach(function(item, idx){
+          var j = (item.jobNo || '').trim();
+          var jKey = j.toUpperCase();
+          var tKey = (item.containerType || item.notes || '').trim().toUpperCase();
+          var combo = jKey + '::' + tKey;
+
           if(!item.containerNo){
-            var j = (item.jobNo || '').trim();
-            var jKey = j.toUpperCase();
-            if(j){
+            if(jKey && tKey && assignedByJobType[combo]){
+              item.containerNo = assignedByJobType[combo];
+            } else if(j){
               if(jobCounts[jKey] > 1){
                 jobTrackers[jKey] = (jobTrackers[jKey] || 0) + 1;
                 item.containerNo = 'ORD-' + j + '-' + jobTrackers[jKey];
               } else {
                 item.containerNo = 'ORD-' + j;
               }
+              if(tKey) assignedByJobType[combo] = item.containerNo;
             } else {
               item.containerNo = item.billNo || ('CNTR-' + (idx + 1));
             }
           }
           var base = item.containerNo.trim().toUpperCase();
           if(seenNos[base]){
-            seenNos[base]++;
-            item.containerNo = item.containerNo + '-' + seenNos[base];
+            if(item.sourceSection === 'clearance' && assignedByJobType[combo] === item.containerNo){
+              // maintain same container ID so clearance updates the existing transit record
+            } else {
+              seenNos[base]++;
+              item.containerNo = item.containerNo + '-' + seenNos[base];
+            }
           } else {
             seenNos[base] = 1;
           }
@@ -3676,50 +4308,97 @@ function saveAllImportedContainers(){
   if(!state.modal || !state.modal.importedRows || !state.modal.importedRows.length) return;
   var list = state.modal.importedRows;
   var nowIso = new Date().toISOString();
-  var addedCount = 0;
-  var updatedCount = 0;
-  list.forEach(function(row){
-    var existing = state.containers.find(function(x){
-      if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
-        return true;
+
+  var transitRows = list.filter(function(r){ return (r._sourceSection || r.sourceSection) !== 'clearance'; });
+  var clearanceRows = list.filter(function(r){ return (r._sourceSection || r.sourceSection) === 'clearance'; });
+  var addedCount = 0, updatedCount = 0;
+  var addedClr = 0, updatedClr = 0;
+
+  if(transitRows.length > 0){
+    transitRows.forEach(function(row){
+      var existing = state.containers.find(function(x){
+        if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
+          return true;
+        }
+        if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+          var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+          var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+          if(xType && rType && xType === rType) return true;
+        }
+        return false;
+      });
+      if(existing){
+        Object.assign(existing, row, {
+          id: existing.id,
+          operationalStage: OPERATIONAL_STAGE.TRANSIT,
+          updatedAt: nowIso,
+          updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+        });
+        existing.dueDate = computeDueDate(existing);
+        existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
+        updatedCount++;
+      } else {
+        var newItem = Object.assign({}, row, {
+          id: uid('cnt'),
+          operationalStage: OPERATIONAL_STAGE.TRANSIT,
+          createdAt: nowIso,
+          createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+          updatedAt: nowIso,
+          updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+        });
+        newItem.dueDate = computeDueDate(newItem);
+        newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
+        state.containers.unshift(newItem);
+        addedCount++;
       }
-      if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
-        var xType = (x.containerType || x.notes || '').trim().toUpperCase();
-        var rType = (row.containerType || row.notes || '').trim().toUpperCase();
-        if(xType && rType && xType === rType) return true;
-      }
-      return false;
     });
-    if(existing){
-      Object.assign(existing, row, {
-        id: existing.id,
-        updatedAt: nowIso,
-        updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+    storageSet(CONTAINERS_KEY, state.containers);
+  }
+
+  if(clearanceRows.length > 0){
+    state.clearanceShipments = state.clearanceShipments || [];
+    clearanceRows.forEach(function(row){
+      var existing = state.clearanceShipments.find(function(x){
+        if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()) return true;
+        if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+          var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+          var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+          if(xType && rType && xType === rType) return true;
+        }
+        return false;
       });
-      existing.dueDate = computeDueDate(existing);
-      existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
-      updatedCount++;
-    } else {
-      var newItem = Object.assign({}, row, {
-        id: uid('cnt'),
-        createdAt: nowIso,
-        createdBy: state.currentUser ? state.currentUser.name : 'Staff',
-        updatedAt: nowIso,
-        updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
-      });
-      newItem.dueDate = computeDueDate(newItem);
-      newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
-      state.containers.unshift(newItem);
-      addedCount++;
-    }
-  });
-  storageSet(CONTAINERS_KEY, state.containers);
+      if(existing){
+        Object.assign(existing, row, {
+          id: existing.id,
+          operationalStage: OPERATIONAL_STAGE.CLEARANCE,
+          updatedAt: nowIso,
+          updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+        });
+        ensureClearanceProperties(existing);
+        updatedClr++;
+      } else {
+        var newClr = Object.assign({}, row, {
+          id: uid('clr'),
+          operationalStage: OPERATIONAL_STAGE.CLEARANCE,
+          createdAt: nowIso,
+          createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+          updatedAt: nowIso,
+          updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+        });
+        ensureClearanceProperties(newClr);
+        state.clearanceShipments.unshift(newClr);
+        addedClr++;
+      }
+    });
+    storageSet(CLEARANCE_KEY, state.clearanceShipments);
+  }
+
   pushAudit({
     action: 'bulk-excel-import',
     containerNo: state.modal.importedFileName || 'Excel Sheet',
-    changes: [{ field: 'Excel Imported', from: '—', to: addedCount + ' added, ' + updatedCount + ' updated' }]
+    changes: [{ field: 'Excel Imported', from: '—', to: (addedCount + addedClr) + ' added, ' + (updatedCount + updatedClr) + ' updated' }]
   });
-  showToast('🎉 Successfully imported ' + list.length + ' containers (' + addedCount + ' added, ' + updatedCount + ' updated)!');
+  showToast('🎉 Successfully imported ' + list.length + ' order(s) (Stock In Transit: ' + transitRows.length + ', Pending Clearance: ' + clearanceRows.length + ')!');
   state.modal = null;
   checkAndLogAlertEmails();
   render();
@@ -3761,25 +4440,36 @@ function handleDirectExcelImport(file){
 
         var jobTrackers = {};
         var seenNos = {};
+        var assignedByJobType = {};
         parsed.forEach(function(item, idx){
+          var j = (item.jobNo || '').trim();
+          var jKey = j.toUpperCase();
+          var tKey = (item.containerType || item.notes || '').trim().toUpperCase();
+          var combo = jKey + '::' + tKey;
+
           if(!item.containerNo){
-            var j = (item.jobNo || '').trim();
-            var jKey = j.toUpperCase();
-            if(j){
+            if(jKey && tKey && assignedByJobType[combo]){
+              item.containerNo = assignedByJobType[combo];
+            } else if(j){
               if(jobCounts[jKey] > 1){
                 jobTrackers[jKey] = (jobTrackers[jKey] || 0) + 1;
                 item.containerNo = 'ORD-' + j + '-' + jobTrackers[jKey];
               } else {
                 item.containerNo = 'ORD-' + j;
               }
+              if(tKey) assignedByJobType[combo] = item.containerNo;
             } else {
               item.containerNo = item.billNo || ('CNTR-' + (idx + 1));
             }
           }
           var base = item.containerNo.trim().toUpperCase();
           if(seenNos[base]){
-            seenNos[base]++;
-            item.containerNo = item.containerNo + '-' + seenNos[base];
+            if(item.sourceSection === 'clearance' && assignedByJobType[combo] === item.containerNo){
+              // maintain same container ID so clearance updates the existing transit record
+            } else {
+              seenNos[base]++;
+              item.containerNo = item.containerNo + '-' + seenNos[base];
+            }
           } else {
             seenNos[base] = 1;
           }
@@ -3795,57 +4485,108 @@ function handleDirectExcelImport(file){
         });
 
         var nowIso = new Date().toISOString();
-        var addedCount = 0;
-        var updatedCount = 0;
+        var transitRows = parsed.filter(function(r){ return (r._sourceSection || r.sourceSection) !== 'clearance'; });
+        var clearanceRows = parsed.filter(function(r){ return (r._sourceSection || r.sourceSection) === 'clearance'; });
+        var addedCount = 0, updatedCount = 0;
+        var addedClr = 0, updatedClr = 0;
 
-        parsed.forEach(function(row){
-          var existing = state.containers.find(function(x){
-            if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
-              return true;
+        // 1. Process Transit rows into state.containers
+        if(transitRows.length > 0){
+          transitRows.forEach(function(row){
+            var existing = state.containers.find(function(x){
+              if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
+                return true;
+              }
+              if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+                var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+                var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+                if(xType && rType && xType === rType) return true;
+              }
+              return false;
+            });
+            if(existing){
+              Object.assign(existing, row, {
+                id: existing.id,
+                operationalStage: OPERATIONAL_STAGE.TRANSIT,
+                updatedAt: nowIso,
+                updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+              });
+              existing.dueDate = computeDueDate(existing);
+              existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
+              updatedCount++;
+            } else {
+              var newItem = Object.assign({}, row, {
+                id: uid('cnt'),
+                operationalStage: OPERATIONAL_STAGE.TRANSIT,
+                createdAt: nowIso,
+                createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+                updatedAt: nowIso,
+                updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+              });
+              newItem.dueDate = computeDueDate(newItem);
+              newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
+              state.containers.unshift(newItem);
+              addedCount++;
             }
-            if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
-              var xType = (x.containerType || x.notes || '').trim().toUpperCase();
-              var rType = (row.containerType || row.notes || '').trim().toUpperCase();
-              if(xType && rType && xType === rType) return true;
-            }
-            return false;
           });
-          if(existing){
-            Object.assign(existing, row, {
-              id: existing.id,
-              updatedAt: nowIso,
-              updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
-            });
-            existing.dueDate = computeDueDate(existing);
-            existing.status = existing.statusLocked ? existing.status : computeStatus(existing);
-            updatedCount++;
-          } else {
-            var newItem = Object.assign({}, row, {
-              id: uid('cnt'),
-              createdAt: nowIso,
-              createdBy: state.currentUser ? state.currentUser.name : 'Staff',
-              updatedAt: nowIso,
-              updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
-            });
-            newItem.dueDate = computeDueDate(newItem);
-            newItem.status = newItem.statusLocked ? newItem.status : computeStatus(newItem);
-            state.containers.unshift(newItem);
-            addedCount++;
-          }
-        });
+          storageSet(CONTAINERS_KEY, state.containers);
+        }
 
-        storageSet(CONTAINERS_KEY, state.containers);
+        // 2. Process Clearance rows into state.clearanceShipments
+        if(clearanceRows.length > 0){
+          state.clearanceShipments = state.clearanceShipments || [];
+          clearanceRows.forEach(function(row){
+            var existing = state.clearanceShipments.find(function(x){
+              if(x.containerNo && row.containerNo && x.containerNo.trim().toUpperCase() === row.containerNo.trim().toUpperCase()){
+                return true;
+              }
+              if(x.jobNo && row.jobNo && x.jobNo.trim().toUpperCase() === row.jobNo.trim().toUpperCase()){
+                var xType = (x.containerType || x.notes || '').trim().toUpperCase();
+                var rType = (row.containerType || row.notes || '').trim().toUpperCase();
+                if(xType && rType && xType === rType) return true;
+              }
+              return false;
+            });
+            if(existing){
+              Object.assign(existing, row, {
+                id: existing.id,
+                operationalStage: OPERATIONAL_STAGE.CLEARANCE,
+                updatedAt: nowIso,
+                updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+              });
+              ensureClearanceProperties(existing);
+              updatedClr++;
+            } else {
+              var newClr = Object.assign({}, row, {
+                id: uid('clr'),
+                operationalStage: OPERATIONAL_STAGE.CLEARANCE,
+                createdAt: nowIso,
+                createdBy: state.currentUser ? state.currentUser.name : 'Staff',
+                updatedAt: nowIso,
+                updatedBy: state.currentUser ? state.currentUser.name : 'Staff'
+              });
+              ensureClearanceProperties(newClr);
+              state.clearanceShipments.unshift(newClr);
+              addedClr++;
+            }
+          });
+          storageSet(CLEARANCE_KEY, state.clearanceShipments);
+        }
+
         pushAudit({
           action: 'bulk-excel-import',
           containerNo: file.name,
-          changes: [{ field: 'Excel Direct Import', from: '—', to: addedCount + ' added, ' + updatedCount + ' updated' }]
+          changes: [{ field: 'Excel Direct Import', from: '—', to: (addedCount + addedClr) + ' added, ' + (updatedCount + updatedClr) + ' updated' }]
         });
 
         state.view = 'containers';
         state.modal = null;
         checkAndLogAlertEmails();
         render();
-        showToast('🎉 Successfully imported ' + parsed.length + ' container(s) directly into ledger!');
+        var toastParts = [];
+        if(transitRows.length > 0) toastParts.push(transitRows.length + ' Stock In Transit');
+        if(clearanceRows.length > 0) toastParts.push(clearanceRows.length + ' Pending Clearance');
+        showToast('🎉 Successfully imported ' + (toastParts.length ? toastParts.join(' & ') : (parsed.length + ' items')) + '!');
       } catch(err){
         console.error('Direct Excel parse error:', err);
         showToast('Failed to parse Excel: ' + (err.message || 'Unknown error'));
@@ -4248,6 +4989,10 @@ function renderShell(){
     }
     var badge = '';
     if(item.countBadge) badge = '<span class="badge-counter">'+state.containers.length+'</span>';
+    if(item.clearanceBadge){
+      var clrCount = countPendingClearance();
+      if(clrCount > 0) badge = '<span class="badge-counter" style="background:#2563EB;">'+clrCount+'</span>';
+    }
     if(item.id==='alerts' && alertCount>0) badge = '<span class="badge-counter" style="background:#EF4444;">'+alertCount+'</span>';
 
     navHtml += '<div class="nav-link'+(state.view===item.id?' active':'')+'" data-act="nav" data-id="'+item.id+'">'+
@@ -4276,7 +5021,7 @@ function renderShell(){
       '<header class="topbar">'+
         '<div class="search-pill-box">'+
           '<span>🔍</span>'+
-          '<input type="text" id="topSearchInput" placeholder="Search Job, Container, Vessel..." value="'+escapeHtml(state.filters.q)+'" oninput="state.filters.q=this.value; if(state.view!==\'containers\'){state.view=\'containers\'; render();} else {renderContentOnly();}">'+
+          '<input type="text" id="topSearchInput" placeholder="Search Job, Container, Vessel..." value="'+escapeHtml((state.view==='containers'&&state.containerSubView==='clearance')||state.view==='clearance'?state.clearanceFilters.q:state.filters.q)+'" oninput="if((state.view===\'containers\'&&state.containerSubView===\'clearance\')||state.view===\'clearance\'){state.clearanceFilters.q=this.value; renderContentOnly();} else {state.filters.q=this.value; if(state.view!==\'containers\'){state.view=\'containers\'; state.containerSubView=\'transit\'; render();} else {renderContentOnly();}}}">'+
           '<span class="kbd-tag">⌘F</span>'+
         '</div>'+
         '<div class="topbar-actions">'+
@@ -4315,6 +5060,9 @@ function renderContent(){
   switch(state.view){
     case 'dashboard': return renderDashboard();
     case 'containers': return renderContainers();
+    case 'clearance':
+      state.containerSubView = 'clearance';
+      return renderContainers();
     case 'alerts': return renderAlerts();
     case 'reports': return renderReports();
     case 'audit': return can('auditView') ? renderAudit() : renderNoAccess();
@@ -4897,6 +5645,12 @@ function portMiniTable(list, emptyMsg){
    PAGE 2: CONTAINERS (FULL FLEET LEDGER)
    ============================================================ */
 function renderContainers(){
+  var clearanceCount = (state.clearanceShipments || []).length;
+
+  if(state.containerSubView === 'clearance'){
+    return renderPendingClearance();
+  }
+
   var list = filteredContainers();
   var lines = uniqueShippingLines();
   var f = state.filters;
@@ -5021,10 +5775,24 @@ function renderContainers(){
   var locOpts = [LOCATIONS.AGENT, LOCATIONS.PANAMEX, 'Not yet allocated'].map(function(l){ return '<option value="'+escapeHtml(l)+'"'+(f.location===l?' selected':'')+'>'+escapeHtml(l)+'</option>'; }).join('');
   var stageOpts = Object.keys(STAGE).map(function(k){ return '<option value="'+STAGE[k]+'"'+(f.stage===STAGE[k]?' selected':'')+'>'+STAGE[k]+'</option>'; }).join('');
 
-  var html = '<div class="panel">'+
+  var subviewSwitcher = '<div class="container-subview-switch">' +
+    '<button type="button" class="btn-subview-tab active" data-act="switch-container-subview" data-subview="transit">' +
+      '<span style="font-size:15px;">🚢</span>' +
+      '<span>Stock In Transit Ledger</span>' +
+      '<span class="tab-badge">' + list.length + '</span>' +
+    '</button>' +
+    '<button type="button" class="btn-subview-tab tab-clearance" data-act="switch-container-subview" data-subview="clearance" title="Open Pending Clearance workflow, formalities & checklist">' +
+      '<span style="font-size:15px;">📑</span>' +
+      '<span>Pending Clearance View</span>' +
+      '<span class="tab-badge" style="background:#2563EB;color:#fff;">' + clearanceCount + '</span>' +
+    '</button>' +
+  '</div>';
+
+  var html = subviewSwitcher + '<div class="panel">'+
     '<div class="panel-head">'+
-      '<div class="panel-title">All Containers Ledger <span class="badge-counter">'+list.length+'</span></div>'+
+      '<div class="panel-title">Container Management — Stock In Transit <span class="badge-counter">'+list.length+'</span></div>'+
       '<div class="page-actions-group">'+
+        '<button type="button" class="btn-pill btn-pill-clearance-view btn-pill-sm" data-act="switch-container-subview" data-subview="clearance" title="Open Pending Clearance workflow and checklist"><span style="font-size:13px;">📑</span> Pending Clearance View <span class="badge-counter" style="background:#fff;color:#1D4ED8;font-weight:800;margin-left:4px;font-size:11px;padding:1px 6px;">'+clearanceCount+'</span></button>'+
         (can('edit') ? '<button class="btn-pill btn-pill-primary btn-pill-sm" data-act="open-add-container">+ Add Container</button>' : '')+
         (can('edit') ? '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel</button>' : '')+
         '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="export-containers-xlsx">Export Excel</button>'+
@@ -5044,6 +5812,466 @@ function renderContainers(){
   '</div>';
 
   return html;
+}
+
+/* ============================================================
+   PAGE: PENDING CLEARANCE (CUSTOMS & PORT FORMALITIES WORKFLOW)
+   ============================================================ */
+function renderPendingClearance(){
+  var list = filteredClearanceShipments();
+  var f = state.clearanceFilters;
+  var s = state.clearanceSort;
+  var lines = uniqueShippingLines();
+  var ports = uniquePorts();
+  var staffList = uniqueAssignedStaff();
+
+  // KPIs
+  var allClearance = state.clearanceShipments || [];
+  allClearance.forEach(ensureClearanceProperties);
+  var totalCount = allClearance.length;
+  var pendingCount = allClearance.filter(function(c){ return c.clearanceStatus === CLEARANCE_STATUS.PENDING; }).length;
+  var progressCount = allClearance.filter(function(c){ return c.clearanceStatus === CLEARANCE_STATUS.IN_PROGRESS; }).length;
+  var clearedCount = allClearance.filter(function(c){ return c.clearanceStatus === CLEARANCE_STATUS.CLEARED; }).length;
+  var dueSoonCount = allClearance.filter(function(c){
+    return c.clearanceStatus !== CLEARANCE_STATUS.CLEARED && computeClearanceStatusDisplay(c) === 'Due Soon';
+  }).length;
+  var overdueCount = allClearance.filter(function(c){
+    return c.clearanceStatus !== CLEARANCE_STATUS.CLEARED && computeClearanceStatusDisplay(c) === 'Overdue';
+  }).length;
+
+  function th(label, key){
+    var arrow = s.key===key ? (s.dir==='asc'?' ▲':' ▼') : '';
+    return '<th class="sortable" data-act="sort-clearance" data-id="'+key+'">'+label+arrow+'</th>';
+  }
+
+  var head = '<tr>'+
+    th('Order No.','jobNo')+
+    th('Order Date','orderDate')+
+    th('Customer Reference','customerRef')+
+    th('Vessel','vesselName')+
+    th('Voyage No.','voyageNo')+
+    th('Load Port','loadPort')+
+    th('ETD','etd')+
+    th('Discharge Port','dischargePort')+
+    th('ETA','eta')+
+    th('Shipping Company','shippingLine')+
+    '<th>Clearance Checklist</th>'+
+    th('Clearance Status','clearanceStatus')+
+    th('Clearance Due Date','clearanceDueDate')+
+    th('Assigned Staff','assignedStaff')+
+    th('Last Updated','updatedAt')+
+    '<th>Actions</th>'+
+  '</tr>';
+
+  var rows = list.map(function(c){
+    var statusDisplay = computeClearanceStatusDisplay(c);
+    var pillHtml = '<span class="'+clearancePillClass(statusDisplay)+'">'+
+      (statusDisplay==='Cleared'?'✅ ':statusDisplay==='Overdue'?'🚨 ':statusDisplay==='Due Soon'?'⏳ ':'')+
+      statusDisplay+
+    '</span>';
+
+    var completedItems = countCompletedChecklistItems(c);
+    var checklistProgress = '<div style="display:flex;align-items:center;gap:6px;" title="'+completedItems+' of 6 clearance items completed">'+
+      '<span class="mono-tag" style="background:'+(completedItems===6?'#D1FAE5;color:#065F46;border-color:#A7F3D0':completedItems>0?'#DBEAFE;color:#1E40AF;border-color:#BFDBFE':'#F3F4F6;color:#6B7280;')+';font-size:11px;font-weight:700;">'+
+        completedItems + ' / 6 Done'+
+      '</span>'+
+    '</div>';
+
+    var dueDisplay = '—';
+    if(c.clearanceDueDate){
+      var daysLeft = diffDays(c.clearanceDueDate, todayStr());
+      var badgeStyle = daysLeft < 0 ? 'background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;' : (daysLeft <= 3 ? 'background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;' : 'background:#F3F4F6;color:#374151;');
+      dueDisplay = '<div>'+fmtDate(c.clearanceDueDate)+'</div>'+
+        '<div style="margin-top:2px;"><span class="mono-tag" style="'+badgeStyle+'font-size:10px;padding:1px 5px;border-radius:4px;">'+
+          (daysLeft < 0 ? Math.abs(daysLeft)+'d Overdue' : (daysLeft===0 ? 'Due Today' : daysLeft+'d left'))+
+        '</span></div>';
+    }
+
+    var moveBtn = '';
+    if(c.clearanceStatus === CLEARANCE_STATUS.CLEARED && can('edit')){
+      moveBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Advance Cleared Shipment to Yard Control">🚚 Move to Yard</button>';
+    }
+
+    return '<tr>'+
+      '<td><span class="mono-tag" style="font-weight:700;color:var(--text-main);">'+escapeHtml(c.jobNo||'—')+'</span></td>'+
+      '<td>'+fmtDate(c.orderDate||c.jobRegisterDate)+'</td>'+
+      '<td><span class="mono-tag" style="background:#F3F4F6;color:var(--text-muted);">'+escapeHtml(c.customerRef||c.pplNo||'—')+'</span></td>'+
+      '<td><strong>'+escapeHtml(c.vesselName||'—')+'</strong></td>'+
+      '<td>'+escapeHtml(c.voyageNo||'—')+'</td>'+
+      '<td>'+escapeHtml(c.loadPort||'—')+'</td>'+
+      '<td>'+fmtDate(c.etd)+'</td>'+
+      '<td>'+escapeHtml(c.dischargePort||c.location||'—')+'</td>'+
+      '<td>'+fmtDate(c.eta)+'</td>'+
+      '<td>'+escapeHtml(c.shippingLine||'—')+'</td>'+
+      '<td>'+checklistProgress+'</td>'+
+      '<td>'+pillHtml+'</td>'+
+      '<td>'+dueDisplay+'</td>'+
+      '<td>'+(c.assignedStaff ? '<span class="mono-tag" style="background:#EEF2FF;color:#3730A3;">👤 '+escapeHtml(c.assignedStaff)+'</span>' : '<span style="color:var(--text-subtle);">Unassigned</span>')+'</td>'+
+      '<td>'+(c.updatedAt ? fmtDate(c.updatedAt) : '—')+'</td>'+
+      '<td class="rowactions">'+
+        '<button class="iconbtn" data-act="open-clearance-detail" data-id="'+c.id+'" title="Open Clearance Checklist & Details">📋</button>'+
+        moveBtn+
+        '<button class="iconbtn" data-act="edit-container" data-id="'+c.id+'" title="Edit Full Shipment Details">✏️</button>'+
+      '</td>'+
+    '</tr>';
+  }).join('');
+
+  if(!rows){
+    if(!allClearance.length){
+      rows = '<tr><td colspan="16" style="text-align:center;padding:50px 20px;color:var(--text-muted);">' +
+        '<div style="font-size:36px;margin-bottom:12px;">📑</div>' +
+        '<div style="font-size:16px;font-weight:700;color:var(--text-main);margin-bottom:6px;">No Shipments in Pending Clearance</div>' +
+        '<div style="font-size:13px;margin-bottom:18px;">Send an inbound shipment from <strong>Stock In Transit</strong> or import your Pronto BI spreadsheet directly.</div>' +
+        '<div style="display:inline-flex;gap:10px;">'+
+          '<button class="btn-pill btn-pill-primary" data-act="open-add-clearance-shipment" style="display:inline-flex;align-items:center;gap:6px;">🚢 Pull from Stock In Transit</button>'+
+          '<button class="btn-pill btn-pill-secondary" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel File</button>'+
+        '</div>'+
+        '</td></tr>';
+    } else {
+      rows = '<tr><td colspan="16" style="text-align:center;padding:36px;color:var(--text-muted);">No clearance shipments match the selected filters. <button class="btn-switch-user" data-act="clear-clearance-filters">Reset filters</button></td></tr>';
+    }
+  }
+
+  var portOpts = ports.map(function(p){ return '<option value="'+escapeHtml(p)+'"'+(f.port===p?' selected':'')+'>'+escapeHtml(p)+'</option>'; }).join('');
+  var lineOpts = lines.map(function(l){ return '<option value="'+escapeHtml(l)+'"'+(f.line===l?' selected':'')+'>'+escapeHtml(l)+'</option>'; }).join('');
+  var staffOpts = staffList.map(function(st){ return '<option value="'+escapeHtml(st)+'"'+(f.staff===st?' selected':'')+'>'+escapeHtml(st)+'</option>'; }).join('');
+
+  var statusChoices = [
+    { id: '', label: 'All Statuses' },
+    { id: CLEARANCE_STATUS.PENDING, label: 'Pending' },
+    { id: CLEARANCE_STATUS.IN_PROGRESS, label: 'In Progress' },
+    { id: 'Due Soon', label: 'Due Soon' },
+    { id: 'Overdue', label: 'Overdue' },
+    { id: CLEARANCE_STATUS.CLEARED, label: 'Cleared' }
+  ];
+  var statusOpts = statusChoices.map(function(sc){
+    return '<option value="'+sc.id+'"'+(f.status===sc.id?' selected':'')+'>'+sc.label+'</option>';
+  }).join('');
+
+  var transitCount = state.containers.length;
+  var subviewSwitcher = '<div class="container-subview-switch">' +
+    '<button type="button" class="btn-subview-tab" data-act="switch-container-subview" data-subview="transit">' +
+      '<span style="font-size:15px;">🚢</span>' +
+      '<span>Stock In Transit Ledger</span>' +
+      '<span class="tab-badge">' + transitCount + '</span>' +
+    '</button>' +
+    '<button type="button" class="btn-subview-tab active tab-clearance" data-act="switch-container-subview" data-subview="clearance">' +
+      '<span style="font-size:15px;">📑</span>' +
+      '<span>Pending Clearance View</span>' +
+      '<span class="tab-badge">' + totalCount + '</span>' +
+    '</button>' +
+  '</div>';
+
+  var html = subviewSwitcher + '<div class="clearance-header-banner">'+
+    '<div>'+
+      '<div class="clearance-header-title"><span>📑</span> Pending Clearance View</div>'+
+      '<div class="clearance-header-sub">Operational Customs Formalities, Quarantine/NAQIA Clearance, Wharfage &amp; Gate-Out Tracking</div>'+
+    '</div>'+
+    '<div class="page-actions-group">'+
+      '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="switch-container-subview" data-subview="transit" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;"><span style="font-size:13px;">🚢</span> Back to Stock In Transit</button>'+
+      '<button class="btn-pill btn-pill-primary btn-pill-sm" data-act="open-add-clearance-shipment" style="display:inline-flex;align-items:center;gap:6px;">📥 Pull from Stock In Transit</button>'+
+      (can('edit') ? '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel / CSV</button>' : '')+
+      '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="export-clearance-xlsx">Export Excel</button>'+
+    '</div>'+
+  '</div>';
+
+  // KPI summary cards matching Panamex dashboard styling
+  html += '<div class="clearance-kpi-grid">'+
+    '<div class="clearance-kpi-card'+(f.status===''&&!f.overdueOnly?' active':'')+'" data-act="filter-clearance-status" data-id="" title="Show all shipments in clearance workflow">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">Total Clearance</span><span class="clearance-kpi-icon">📋</span></div>'+
+      '<div class="clearance-kpi-val">'+totalCount+'</div>'+
+    '</div>'+
+    '<div class="clearance-kpi-card'+(f.status===CLEARANCE_STATUS.PENDING?' active':'')+'" data-act="filter-clearance-status" data-id="'+CLEARANCE_STATUS.PENDING+'" title="Awaiting formal clearance lodgement">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">Pending</span><span class="clearance-kpi-icon">⏳</span></div>'+
+      '<div class="clearance-kpi-val" style="color:#D97706;">'+pendingCount+'</div>'+
+    '</div>'+
+    '<div class="clearance-kpi-card'+(f.status===CLEARANCE_STATUS.IN_PROGRESS?' active':'')+'" data-act="filter-clearance-status" data-id="'+CLEARANCE_STATUS.IN_PROGRESS+'" title="Customs/Port checklist processing active">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">In Progress</span><span class="clearance-kpi-icon">⚙️</span></div>'+
+      '<div class="clearance-kpi-val" style="color:#2563EB;">'+progressCount+'</div>'+
+    '</div>'+
+    '<div class="clearance-kpi-card'+(f.status==='Due Soon'?' active':'')+'" data-act="filter-clearance-status" data-id="Due Soon" title="Clearance due date ending within 3 days">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">Due Soon</span><span class="clearance-kpi-icon">⚠️</span></div>'+
+      '<div class="clearance-kpi-val" style="color:#EA580C;">'+dueSoonCount+'</div>'+
+    '</div>'+
+    '<div class="clearance-kpi-card'+(f.status==='Overdue'||f.overdueOnly?' active':'')+'" data-act="filter-clearance-status" data-id="Overdue" title="Clearance deadline passed">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">Overdue</span><span class="clearance-kpi-icon">🚨</span></div>'+
+      '<div class="clearance-kpi-val" style="color:#DC2626;">'+overdueCount+'</div>'+
+    '</div>'+
+    '<div class="clearance-kpi-card'+(f.status===CLEARANCE_STATUS.CLEARED?' active':'')+'" data-act="filter-clearance-status" data-id="'+CLEARANCE_STATUS.CLEARED+'" title="All mandatory clearance checklist items completed">'+
+      '<div class="clearance-kpi-top"><span class="clearance-kpi-label">Cleared</span><span class="clearance-kpi-icon">✅</span></div>'+
+      '<div class="clearance-kpi-val" style="color:#059669;">'+clearedCount+'</div>'+
+    '</div>'+
+  '</div>';
+
+  html += '<div class="panel">'+
+    '<div class="panel-head">'+
+      '<div class="panel-title">Pending Clearance Ledger <span class="badge-counter">'+list.length+'</span></div>'+
+      '<div style="font-size:12px;color:var(--text-muted);">Operational Stage: <strong>Stock In Transit → Pending Clearance → Cleared → Yard</strong></div>'+
+    '</div>'+
+    '<div class="filters-bar">'+
+      '<div class="field grow"><label>Search</label><input type="text" data-clearance-filter="q" value="'+escapeHtml(f.q)+'" placeholder="Order No, Customer Ref, Vessel, Container, Port..."></div>'+
+      '<div class="field"><label>Port</label><select data-clearance-filter="port"><option value="">All Ports</option>'+portOpts+'</select></div>'+
+      '<div class="field"><label>Shipping Line</label><select data-clearance-filter="line"><option value="">All Lines</option>'+lineOpts+'</select></div>'+
+      '<div class="field"><label>Clearance Status</label><select data-clearance-filter="status">'+statusOpts+'</select></div>'+
+      '<div class="field"><label>Assigned Staff</label><select data-clearance-filter="staff"><option value="">All Staff</option>'+staffOpts+'</select></div>'+
+      '<div class="field" style="max-width:130px;"><label>From Date</label><input type="date" data-clearance-filter="dateFrom" value="'+(f.dateFrom||'')+'"></div>'+
+      '<div class="field" style="max-width:130px;"><label>To Date</label><input type="date" data-clearance-filter="dateTo" value="'+(f.dateTo||'')+'"></div>'+
+      '<label class="checkline" style="padding-bottom:10px;"><input type="checkbox" data-clearance-filter="overdueOnly" '+(f.overdueOnly?'checked':'')+'> Overdue Only</label>'+
+      '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="clear-clearance-filters">Reset</button>'+
+    '</div>'+
+    '<div class="table-wrap"><table><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>'+
+  '</div>';
+
+  return html;
+}
+
+/* ============================================================
+   CLEARANCE DETAILS & CHECKLIST MODAL
+   ============================================================ */
+function renderClearanceDetailModal(id){
+  var c = (state.clearanceShipments || []).find(function(x){ return x.id === id; }) || state.containers.find(function(x){ return x.id === id; });
+  if(!c) return '';
+  ensureClearanceProperties(c);
+
+  var statusDisplay = computeClearanceStatusDisplay(c);
+  var completedItems = countCompletedChecklistItems(c);
+  var allComplete = areAllChecklistItemsCompleted(c);
+  var isCleared = c.clearanceStatus === CLEARANCE_STATUS.CLEARED || c.operationalStage === OPERATIONAL_STAGE.CLEARED;
+
+  var userOptions = state.users.map(function(u){
+    return '<option value="'+escapeHtml(u.name)+'"'+(c.assignedStaff===u.name?' selected':'')+'>'+escapeHtml(u.name)+' ('+u.role+')</option>';
+  }).join('');
+
+  // Checklist Items HTML
+  var checklistHtml = CLEARANCE_CHECKLIST_ITEMS.map(function(ci, idx){
+    var itemState = (c.checklist && c.checklist[ci.key]) ? c.checklist[ci.key] : { status: 'Pending' };
+    var currentSt = itemState.status || 'Pending';
+    var isDone = currentSt === 'Completed';
+
+    var metaText = 'Status: Pending Action';
+    if(currentSt === 'In Progress'){
+      metaText = 'In progress' + (itemState.updatedAt ? ' • ' + fmtDate(itemState.updatedAt) : '') + (itemState.updatedBy ? ' by ' + escapeHtml(itemState.updatedBy) : '');
+    } else if(currentSt === 'Completed'){
+      metaText = 'Completed' + (itemState.updatedAt ? ' • ' + fmtDate(itemState.updatedAt) : '') + (itemState.updatedBy ? ' by ' + escapeHtml(itemState.updatedBy) : '');
+    }
+
+    return '<div class="checklist-item-card'+(isDone?' is-completed':'')+'">'+
+      '<div class="checklist-item-info">'+
+        '<div class="checklist-item-name">'+
+          '<span>'+(idx+1)+'.</span> '+
+          '<span>'+escapeHtml(ci.label)+'</span>'+
+          (isDone ? '<span style="color:#059669;font-size:14px;">✓</span>' : '')+
+        '</div>'+
+        '<div style="font-size:11.5px;color:var(--text-subtle);">'+escapeHtml(ci.desc)+'</div>'+
+        '<div class="checklist-item-meta">'+escapeHtml(metaText)+'</div>'+
+      '</div>'+
+      '<div class="checklist-segmented-ctrl">'+
+        '<button type="button" class="checklist-seg-btn'+(currentSt==='Pending'?' active-pending':'')+'" data-act="update-checklist-status" data-id="'+c.id+'" data-item="'+ci.key+'" data-status="Pending">Pending</button>'+
+        '<button type="button" class="checklist-seg-btn'+(currentSt==='In Progress'?' active-progress':'')+'" data-act="update-checklist-status" data-id="'+c.id+'" data-item="'+ci.key+'" data-status="In Progress">In Progress</button>'+
+        '<button type="button" class="checklist-seg-btn'+(currentSt==='Completed'?' active-completed':'')+'" data-act="update-checklist-status" data-id="'+c.id+'" data-item="'+ci.key+'" data-status="Completed">Completed</button>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  // History entries
+  var historyHtml = '';
+  if(c.clearanceHistory && c.clearanceHistory.length){
+    historyHtml = c.clearanceHistory.map(function(h){
+      return '<div class="clearance-history-item">'+
+        '<div class="clearance-history-top">'+
+          '<strong>'+escapeHtml(h.action)+'</strong>'+
+          '<span>'+(h.ts ? new Date(h.ts).toLocaleString('en-GB') : '')+' • '+escapeHtml(h.userName||'Staff')+'</span>'+
+        '</div>'+
+        (h.note ? '<div class="clearance-history-text">'+escapeHtml(h.note)+'</div>' : '')+
+      '</div>';
+    }).join('');
+  } else {
+    historyHtml = '<div style="color:var(--text-subtle);font-style:italic;padding:8px 0;">No clearance activity recorded yet.</div>';
+  }
+
+  // Completion Call-to-action
+  var completionBanner = '';
+  if(isCleared){
+    completionBanner = '<div style="background:#D1FAE5;border:1px solid #A7F3D0;border-radius:8px;padding:14px 16px;margin:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">'+
+      '<div>'+
+        '<div style="font-weight:800;color:#065F46;font-size:14px;display:flex;align-items:center;gap:6px;"><span>🎉</span> Customs Formalities Cleared</div>'+
+        '<div style="font-size:12px;color:#047857;margin-top:2px;">Cleared on '+fmtDate(c.clearanceDate)+' • Container is ready for Yard Control and terminal gate-out.</div>'+
+      '</div>'+
+      '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="'+c.id+'" data-stage="stage2" style="font-size:12px;">🚚 Advance to Stage 2: Yard Control</button>'+
+    '</div>';
+  } else if(allComplete){
+    completionBanner = '<div style="background:#ECFDF5;border:1px solid #6EE7B7;border-radius:8px;padding:16px;margin:16px 0;text-align:center;">'+
+      '<div style="font-weight:800;color:#065F46;font-size:15px;margin-bottom:4px;">✨ All 6 Mandatory Formalities Completed!</div>'+
+      '<div style="font-size:12px;color:#047857;margin-bottom:12px;">You can now officially approve and mark this shipment as Cleared.</div>'+
+      '<button type="button" class="btn-stage-confirm" data-act="mark-shipment-cleared" data-id="'+c.id+'" style="margin:0 auto;padding:10px 24px;font-size:14px;">✅ Mark Shipment as Cleared</button>'+
+    '</div>';
+  } else {
+    completionBanner = '<div style="background:var(--bg-hover);border:1px solid var(--border-card);border-radius:8px;padding:12px 14px;margin:16px 0;display:flex;justify-content:space-between;align-items:center;">'+
+      '<div>'+
+        '<div style="font-size:12.5px;font-weight:700;color:var(--text-main);">Clearance Status: '+escapeHtml(c.clearanceStatus)+' ('+completedItems+'/6 items completed)</div>'+
+        '<div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Complete all mandatory checklist items before marking shipment as Cleared.</div>'+
+      '</div>'+
+      '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" disabled style="opacity:0.5;cursor:not-allowed;">Mark as Cleared</button>'+
+    '</div>';
+  }
+
+  return '<div class="modal-backdrop">'+
+    '<div class="modal" style="max-width:760px;max-height:92vh;overflow-y:auto;padding:24px 28px;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border-card);padding-bottom:14px;margin-bottom:18px;">'+
+        '<div>'+
+          '<div style="display:flex;align-items:center;gap:10px;">'+
+            '<span style="font-size:22px;">📋</span>'+
+            '<h2 style="margin:0;font-size:18px;color:var(--text-main);">Shipment Clearance: Order #'+escapeHtml(c.jobNo||c.containerNo)+'</h2>'+
+            '<span class="'+clearancePillClass(statusDisplay)+'">'+statusDisplay+'</span>'+
+          '</div>'+
+          '<div style="font-size:12.5px;color:var(--text-muted);margin-top:4px;">'+
+            'Container: <strong style="color:var(--text-main);">'+escapeHtml(c.containerNo)+'</strong> • '+
+            'Customer Ref: <strong>'+escapeHtml(c.customerRef||c.pplNo||'—')+'</strong> • '+
+            'Vessel: <strong>'+escapeHtml(c.vesselName||'—')+' v.'+escapeHtml(c.voyageNo||'—')+'</strong>'+
+          '</div>'+
+        '</div>'+
+        '<button class="iconbtn" data-act="close-modal" title="Close">✕</button>'+
+      '</div>'+
+
+      '<!-- Shipment Summary Card -->'+
+      '<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;background:var(--bg-hover);border:1px solid var(--border-card);border-radius:8px;padding:12px 14px;font-size:12px;margin-bottom:16px;">'+
+        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Shipping Carrier</span><strong>'+escapeHtml(c.shippingLine||'—')+'</strong></div>'+
+        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Load Port &amp; ETD</span>'+escapeHtml(c.loadPort||'—')+' ('+fmtDate(c.etd)+')</div>'+
+        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Discharge Port &amp; ETA</span>'+escapeHtml(c.dischargePort||c.location||'—')+' ('+fmtDate(c.eta)+')</div>'+
+        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Clearance Due Date</span><strong>'+fmtDate(c.clearanceDueDate)+'</strong></div>'+
+      '</div>'+
+
+      '<!-- Staff Assignment & Due Date Row -->'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">'+
+        '<div class="stage-form-field">'+
+          '<label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Assigned Clearance Operator</label>'+
+          '<select id="clearanceStaffSelect" onchange="var curId=\''+c.id+'\'; var val=this.value; var clr=(state.clearanceShipments||[]).find(function(x){return x.id===curId;}); if(clr){clr.assignedStaff=val; addClearanceHistory(clr,\'Assignment Updated\',\'Assigned to \'+val); storageSet(CLEARANCE_KEY, state.clearanceShipments);} var cnt=state.containers.find(function(x){return x.id===curId;}); if(cnt){cnt.assignedStaff=val; storageSet(CONTAINERS_KEY, state.containers);} showToast(\'Operator assigned: \'+val); render();">'+
+            '<option value="">Select Operator</option>'+userOptions+
+          '</select>'+
+        '</div>'+
+        '<div class="stage-form-field">'+
+          '<label style="font-size:11.5px;font-weight:700;color:var(--text-muted);">Clearance Due Date</label>'+
+          '<input type="date" value="'+(c.clearanceDueDate||'')+'" onchange="var curId=\''+c.id+'\'; var val=this.value; var clr=(state.clearanceShipments||[]).find(function(x){return x.id===curId;}); if(clr){clr.clearanceDueDate=val; addClearanceHistory(clr,\'Due Date Changed\',\'Due date set to \'+val); storageSet(CLEARANCE_KEY, state.clearanceShipments);} var cnt=state.containers.find(function(x){return x.id===curId;}); if(cnt){cnt.clearanceDueDate=val; storageSet(CONTAINERS_KEY, state.containers);} showToast(\'Clearance due date updated.\'); render();">'+
+        '</div>'+
+      '</div>'+
+
+      '<!-- Checklist Header -->'+
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">'+
+        '<div style="font-weight:800;font-size:13.5px;color:var(--text-main);">Clearance Checklist Formalities</div>'+
+        '<div style="font-size:12px;font-weight:700;color:var(--text-muted);">Progress: '+completedItems+' of 6 Complete</div>'+
+      '</div>'+
+
+      '<!-- Checklist Items -->'+
+      checklistHtml+
+
+      completionBanner+
+
+      '<!-- Notes & Activity Section -->'+
+      '<div style="margin-top:20px;border-top:1px solid var(--border-card);padding-top:16px;">'+
+        '<div style="font-weight:800;font-size:13px;color:var(--text-main);margin-bottom:8px;">Clearance Notes &amp; Activity Log</div>'+
+        '<div style="display:flex;gap:8px;margin-bottom:12px;">'+
+          '<input type="text" id="newClearanceNoteInput" placeholder="Add clearance note (e.g. NAQIA officer requested re-inspection, DO received)..." style="flex:1;padding:8px 12px;border:1px solid var(--border-card);border-radius:6px;background:var(--bg-card);color:var(--text-main);font-size:12.5px;">'+
+          '<button type="button" class="btn-pill btn-pill-primary btn-pill-sm" data-act="add-clearance-note" data-id="'+c.id+'">+ Add Note</button>'+
+        '</div>'+
+        '<div class="clearance-history-list">'+historyHtml+'</div>'+
+      '</div>'+
+
+      '<div style="margin-top:20px;display:flex;justify-content:flex-end;">'+
+        '<button type="button" class="btn-pill btn-pill-secondary" data-act="close-modal">Close</button>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+/* ============================================================
+   MODAL: PULL SHIPMENT FROM STOCK IN TRANSIT TO CLEARANCE
+   ============================================================ */
+function renderAddClearanceShipmentModal(){
+  var existingIds = (state.clearanceShipments || []).map(function(s){ return s.id; });
+  var existingKeys = (state.clearanceShipments || []).map(function(s){ return (s.jobNo || '') + '___' + (s.containerNo || ''); });
+  var transitList = state.containers.filter(function(c){
+    ensureClearanceProperties(c);
+    var key = (c.jobNo || '') + '___' + (c.containerNo || '');
+    return existingIds.indexOf(c.id) === -1 && existingKeys.indexOf(key) === -1 && !c.emptyReturnDate;
+  });
+
+  var rows = transitList.map(function(c){
+    return '<tr>'+
+      '<td><span class="mono-tag" style="font-weight:700;">'+escapeHtml(c.jobNo||'—')+'</span></td>'+
+      '<td><span class="mono-tag" style="background:#E0E7FF;color:#3730A3;">'+escapeHtml(c.containerNo)+'</span></td>'+
+      '<td>'+escapeHtml(c.vesselName||'—')+'</td>'+
+      '<td>'+escapeHtml(c.shippingLine||'—')+'</td>'+
+      '<td>'+fmtDate(c.eta)+'</td>'+
+      '<td>'+fmtDate(c.fullDischargeDate)+'</td>'+
+      '<td>'+
+        '<button type="button" class="btn-send-clearance" data-act="send-to-clearance" data-id="'+c.id+'">📑 Send to Clearance</button>'+
+      '</td>'+
+    '</tr>';
+  }).join('');
+
+  if(!rows){
+    rows = '<tr><td colspan="7" style="text-align:center;padding:26px;color:var(--text-muted);">All active shipments in Stock In Transit are already enrolled in Pending Clearance.</td></tr>';
+  }
+
+  return '<div class="modal-backdrop">'+
+    '<div class="modal" style="max-width:720px;max-height:90vh;overflow-y:auto;padding:22px 26px;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-card);padding-bottom:12px;margin-bottom:16px;">'+
+        '<div style="font-size:17px;font-weight:800;color:var(--text-main);display:flex;align-items:center;gap:8px;"><span>🚢</span> Pull Shipments from Stock In Transit to Clearance</div>'+
+        '<button class="iconbtn" data-act="close-modal" title="Close">✕</button>'+
+      '</div>'+
+      '<div style="font-size:12.5px;color:var(--text-muted);margin-bottom:14px;">Select any container or shipment currently in Stock In Transit to advance it into the Pending Clearance workflow.</div>'+
+      '<div class="table-wrap" style="max-height:380px;overflow-y:auto;">'+
+        '<table>'+
+          '<thead><tr><th>Order No.</th><th>Container No.</th><th>Vessel</th><th>Carrier</th><th>ETA</th><th>Discharge</th><th>Action</th></tr></thead>'+
+          '<tbody>'+rows+'</tbody>'+
+        '</table>'+
+      '</div>'+
+      '<div style="margin-top:18px;display:flex;justify-content:flex-end;">'+
+        '<button type="button" class="btn-pill btn-pill-secondary" data-act="close-modal">Done</button>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+function exportClearanceExcel(list){
+  list = list || filteredClearanceShipments();
+  ensureXLSX().then(function(){
+    var data = list.map(function(c){
+      var statusDisplay = computeClearanceStatusDisplay(c);
+      return {
+        'Order No.': c.jobNo || '',
+        'Order Date': c.orderDate || c.jobRegisterDate || '',
+        'Customer Reference': c.customerRef || c.pplNo || '',
+        'Container No.': c.containerNo || '',
+        'Vessel': c.vesselName || '',
+        'Voyage No.': c.voyageNo || '',
+        'Load Port': c.loadPort || '',
+        'ETD': c.etd || '',
+        'Discharge Port': c.dischargePort || c.location || '',
+        'ETA': c.eta || '',
+        'Shipping Company': c.shippingLine || '',
+        'Clearance Status': statusDisplay,
+        'Clearance Due Date': c.clearanceDueDate || '',
+        'Assigned Staff': c.assignedStaff || 'Unassigned',
+        'Checklist Completed': countCompletedChecklistItems(c) + ' / 6',
+        'Customs Draft': c.checklist && c.checklist.customsDraft ? c.checklist.customsDraft.status : 'Pending',
+        'NAQIA/PTL': c.checklist && c.checklist.naqiaPtl ? c.checklist.naqiaPtl.status : 'Pending',
+        'Wharfage': c.checklist && c.checklist.wharfageHandling ? c.checklist.wharfageHandling.status : 'Pending',
+        'Shipping DO': c.checklist && c.checklist.shippingDo ? c.checklist.shippingDo.status : 'Pending',
+        'Gate Pass': c.checklist && c.checklist.gatePass ? c.checklist.gatePass.status : 'Pending',
+        'Gate-Out': c.checklist && c.checklist.gateOut ? c.checklist.gateOut.status : 'Pending',
+        'Clearance Date': c.clearanceDate || '',
+        'Last Updated': c.updatedAt || ''
+      };
+    });
+    var ws = XLSX.utils.json_to_sheet(data);
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Pending Clearance');
+    XLSX.writeFile(wb, 'Panamex_Pending_Clearance_' + todayStr() + '.xlsx');
+    showToast('Exported ' + list.length + ' clearance shipment(s) to Excel.');
+  }).catch(function(){
+    showToast('Could not load Excel export library.');
+  });
 }
 
 /* ============================================================
@@ -5329,6 +6557,8 @@ function renderModal(){
   if(state.modal.type==='user') return renderUserModal(state.modal.id);
   if(state.modal.type==='auditDetail') return renderAuditDetailModal(state.modal.id);
   if(state.modal.type==='advanceStage') return renderAdvanceStageModal(state.modal.id, state.modal.targetStage);
+  if(state.modal.type==='clearanceDetail') return renderClearanceDetailModal(state.modal.id);
+  if(state.modal.type==='addClearanceShipment') return renderAddClearanceShipmentModal();
   return '';
 }
 
@@ -5556,7 +6786,7 @@ function renderAuditDetailModal(id){
 }
 
 function renderAdvanceStageModal(id, targetStage){
-  var c = state.containers.filter(function(x){ return x.id === id; })[0];
+  var c = state.containers.filter(function(x){ return x.id === id; })[0] || (state.clearanceShipments || []).filter(function(x){ return x.id === id; })[0];
   if(!c) return '';
 
   var isToStage2 = (targetStage === 'stage2');
@@ -5770,6 +7000,13 @@ function submitAdvanceStageForm(form){
   var cid = form.getAttribute('data-id');
   var target = form.getAttribute('data-target');
   var targetItem = state.containers.find(function(x){ return x.id === cid; });
+  if(!targetItem){
+    var clrMatch = (state.clearanceShipments || []).find(function(x){ return x.id === cid; });
+    if(clrMatch){
+      targetItem = JSON.parse(JSON.stringify(clrMatch));
+      state.containers.push(targetItem);
+    }
+  }
   if(!targetItem) return;
 
   var fd = new FormData(form);
@@ -5799,11 +7036,19 @@ function submitAdvanceStageForm(form){
     targetItem.doIssueDate = doIssueDate;
     targetItem.gpIssueDate = gpIssueDate;
     targetItem.naqiaPtlDate = naqiaPtlDate;
+    targetItem.operationalStage = STAGE.CONTROL;
 
     targetItem.dueDate = computeDueDate(targetItem);
     targetItem.status = computeStatus(targetItem);
     targetItem.updatedAt = nowIso;
     targetItem.updatedBy = state.currentUser ? state.currentUser.name : 'Staff';
+
+    var clrSync = (state.clearanceShipments || []).find(function(x){ return x.id === cid; });
+    if(clrSync){
+      clrSync.operationalStage = STAGE.CONTROL;
+      clrSync.clearanceDate = clearanceDate;
+      storageSet(CLEARANCE_KEY, state.clearanceShipments);
+    }
 
     storageSet(CONTAINERS_KEY, state.containers);
     pushAudit({
@@ -5856,7 +7101,19 @@ function bootEvents(){
       case 'toggle-theme': toggleTheme(); break;
       case 'set-theme': setTheme(id); break;
       case 'set-bg-style': setBgStyle(id); break;
-      case 'nav': state.view = id; render(); break;
+      case 'nav':
+        state.view = id;
+        if(id === 'containers'){
+          state.containerSubView = 'transit';
+        }
+        render();
+        break;
+      case 'switch-container-subview':
+        var subview = t.getAttribute('data-subview') || 'transit';
+        state.containerSubView = subview;
+        state.view = 'containers';
+        render();
+        break;
       case 'login-as': loginAs(id); break;
       case 'logout':
         state.currentUser = null;
@@ -5997,6 +7254,172 @@ function bootEvents(){
         state.view = 'containers';
         render();
         break;
+      case 'open-clearance-detail':
+        state.modal = { type:'clearanceDetail', id: id };
+        render();
+        break;
+      case 'open-add-clearance-shipment':
+        state.modal = { type:'addClearanceShipment' };
+        render();
+        break;
+      case 'send-to-clearance':
+        var targetCnt = state.containers.filter(function(x){ return x.id === id; })[0];
+        if(targetCnt){
+          ensureClearanceProperties(targetCnt);
+          targetCnt.operationalStage = OPERATIONAL_STAGE.CLEARANCE;
+          targetCnt.clearanceEnrolled = true;
+          if(!targetCnt.clearanceStatus || targetCnt.clearanceStatus === CLEARANCE_STATUS.CLEARED){
+            targetCnt.clearanceStatus = CLEARANCE_STATUS.PENDING;
+          }
+          addClearanceHistory(targetCnt, 'Enrolled into Clearance', 'Shipment advanced from Stock In Transit to Pending Clearance.');
+          pushAudit({
+            action: 'send-to-clearance',
+            containerNo: targetCnt.containerNo,
+            changes: [{ field: 'Operational Stage', from: 'Stock In Transit', to: 'Pending Clearance' }]
+          });
+          if(!state.clearanceShipments) state.clearanceShipments = [];
+          var existsInClr = state.clearanceShipments.some(function(s){ return s.id === targetCnt.id; });
+          if(!existsInClr){
+            state.clearanceShipments.push(JSON.parse(JSON.stringify(targetCnt)));
+            storageSet(CLEARANCE_KEY, state.clearanceShipments);
+          }
+          storageSet(CONTAINERS_KEY, state.containers);
+          showToast('📑 Shipment ' + (targetCnt.jobNo || targetCnt.containerNo) + ' moved to Pending Clearance!');
+          render();
+        }
+        break;
+      case 'update-checklist-status':
+        var clId = t.getAttribute('data-id');
+        var itemKey = t.getAttribute('data-item');
+        var newStatus = t.getAttribute('data-status');
+        var clItem = (state.clearanceShipments || []).filter(function(x){ return x.id === clId; })[0] || state.containers.filter(function(x){ return x.id === clId; })[0];
+        if(clItem && itemKey && newStatus){
+          ensureClearanceProperties(clItem);
+          var prevStatus = clItem.checklist[itemKey] ? clItem.checklist[itemKey].status : 'Pending';
+          clItem.checklist[itemKey].status = newStatus;
+          clItem.checklist[itemKey].updatedAt = todayStr();
+          clItem.checklist[itemKey].updatedBy = state.currentUser ? state.currentUser.name : 'Staff';
+
+          var fieldMap = {
+            customsDraft: 'draftApprovalDate',
+            naqiaPtl: 'naqiaPtlDate',
+            wharfageHandling: 'whChargesPaidDate',
+            shippingDo: 'doIssueDate',
+            gatePass: 'gpIssueDate',
+            gateOut: 'gateOutDate'
+          };
+          if(fieldMap[itemKey]){
+            if(newStatus === 'Completed'){
+              clItem[fieldMap[itemKey]] = todayStr();
+            } else {
+              clItem[fieldMap[itemKey]] = '';
+            }
+          }
+
+          if(clItem.clearanceStatus === CLEARANCE_STATUS.PENDING && (newStatus === 'In Progress' || newStatus === 'Completed')){
+            clItem.clearanceStatus = CLEARANCE_STATUS.IN_PROGRESS;
+          }
+
+          addClearanceHistory(clItem, 'Checklist: ' + itemKey, 'Status changed from ' + prevStatus + ' to ' + newStatus);
+          pushAudit({
+            action: 'checklist-update',
+            containerNo: clItem.containerNo,
+            changes: [{ field: 'Checklist: ' + itemKey, from: prevStatus, to: newStatus }]
+          });
+          var matchInCont = state.containers.filter(function(x){ return x.id === clId; })[0];
+          if(matchInCont && matchInCont !== clItem){
+            ensureClearanceProperties(matchInCont);
+            matchInCont.checklist = clItem.checklist;
+            matchInCont.clearanceStatus = clItem.clearanceStatus;
+            storageSet(CONTAINERS_KEY, state.containers);
+          }
+          storageSet(CLEARANCE_KEY, state.clearanceShipments || []);
+          showToast('Updated ' + itemKey + ' to ' + newStatus);
+          render();
+        }
+        break;
+      case 'mark-shipment-cleared':
+        var mkId = t.getAttribute('data-id');
+        var mkItem = (state.clearanceShipments || []).filter(function(x){ return x.id === mkId; })[0] || state.containers.filter(function(x){ return x.id === mkId; })[0];
+        if(mkItem){
+          ensureClearanceProperties(mkItem);
+          if(!areAllChecklistItemsCompleted(mkItem)){
+            alert('Cannot mark as Cleared: All 6 mandatory clearance checklist items must be Completed first.');
+            break;
+          }
+          mkItem.clearanceStatus = CLEARANCE_STATUS.CLEARED;
+          mkItem.operationalStage = OPERATIONAL_STAGE.CLEARED;
+          mkItem.clearanceDate = mkItem.clearanceDate || todayStr();
+          mkItem.dueDate = computeDueDate(mkItem);
+          addClearanceHistory(mkItem, 'Clearance Completed', 'All 6 checklist formalities completed. Shipment marked as CLEARED.');
+          pushAudit({
+            action: 'clearance-approved',
+            containerNo: mkItem.containerNo,
+            changes: [
+              { field: 'Clearance Status', from: 'In Progress', to: 'Cleared' },
+              { field: 'Clearance Date', from: '—', to: mkItem.clearanceDate }
+            ]
+          });
+          var matchInCont = state.containers.filter(function(x){ return x.id === mkId; })[0];
+          if(matchInCont && matchInCont !== mkItem){
+            matchInCont.clearanceStatus = mkItem.clearanceStatus;
+            matchInCont.operationalStage = mkItem.operationalStage;
+            matchInCont.clearanceDate = mkItem.clearanceDate;
+            storageSet(CONTAINERS_KEY, state.containers);
+          }
+          storageSet(CLEARANCE_KEY, state.clearanceShipments || []);
+          showToast('🎉 Order #' + (mkItem.jobNo || mkItem.containerNo) + ' marked as CLEARED!');
+          render();
+        }
+        break;
+      case 'clearance-move-to-yard':
+        var cyId = t.getAttribute('data-id');
+        state.modal = { type: 'advanceStage', id: cyId, targetStage: 'stage2' };
+        render();
+        break;
+      case 'add-clearance-note':
+        var cnId = t.getAttribute('data-id');
+        var noteInp = document.getElementById('newClearanceNoteInput');
+        var noteText = noteInp ? noteInp.value.trim() : '';
+        if(!noteText){
+          showToast('Please type a note first.');
+          break;
+        }
+        var cnItem = (state.clearanceShipments || []).filter(function(x){ return x.id === cnId; })[0] || state.containers.filter(function(x){ return x.id === cnId; })[0];
+        if(cnItem){
+          ensureClearanceProperties(cnItem);
+          addClearanceHistory(cnItem, 'Note Added', noteText);
+          var matchInCont = state.containers.filter(function(x){ return x.id === cnId; })[0];
+          if(matchInCont && matchInCont !== cnItem){
+            addClearanceHistory(matchInCont, 'Note Added', noteText);
+            storageSet(CONTAINERS_KEY, state.containers);
+          }
+          storageSet(CLEARANCE_KEY, state.clearanceShipments || []);
+          showToast('Clearance note saved.');
+          render();
+        }
+        break;
+      case 'clear-clearance-filters':
+        state.clearanceFilters = { q:'', port:'', line:'', status:'', staff:'', overdueOnly:false, dateFrom:'', dateTo:'' };
+        render();
+        break;
+      case 'filter-clearance-status':
+        state.clearanceFilters.status = id || '';
+        state.clearanceFilters.overdueOnly = (id === 'Overdue');
+        render();
+        break;
+      case 'sort-clearance':
+        if(state.clearanceSort.key === id){
+          state.clearanceSort.dir = state.clearanceSort.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          state.clearanceSort.key = id;
+          state.clearanceSort.dir = 'asc';
+        }
+        render();
+        break;
+      case 'export-clearance-xlsx':
+        exportClearanceExcel(filteredClearanceShipments());
+        break;
     }
   });
 
@@ -6007,6 +7430,11 @@ function bootEvents(){
     }
     if(t.matches('[data-filter]')){
       state.filters[t.getAttribute('data-filter')] = t.type==='checkbox'?t.checked:t.value;
+      renderContentOnly();
+    }
+    if(t.matches('[data-clearance-filter]')){
+      var cfProp = t.getAttribute('data-clearance-filter');
+      state.clearanceFilters[cfProp] = t.type==='checkbox'?t.checked:t.value;
       renderContentOnly();
     }
     if(t.matches('[data-report-field]')){
@@ -6022,6 +7450,10 @@ function bootEvents(){
     var t = e.target;
     if(t.matches('[data-filter="q"]')){
       state.filters.q = t.value;
+      renderContentOnly();
+    }
+    if(t.matches('[data-clearance-filter="q"]')){
+      state.clearanceFilters.q = t.value;
       renderContentOnly();
     }
     if(t.matches('[data-audit-filter="q"]')){
@@ -6102,9 +7534,11 @@ function markEmailSent(id){
 function resetDemo(){
   var seed = getInitialSeedData();
   state.containers = seed.containers;
+  state.clearanceShipments = [];
   state.users = seed.users;
   state.audit = seed.audit;
   storageSet(CONTAINERS_KEY, state.containers);
+  storageSet(CLEARANCE_KEY, state.clearanceShipments);
   storageSet(USERS_KEY, state.users);
   storageSet(AUDIT_KEY, state.audit);
   showToast('Reset to demo data complete.');
@@ -6113,8 +7547,10 @@ function resetDemo(){
 
 function clearData(){
   state.containers = [];
+  state.clearanceShipments = [];
   storageSet(CONTAINERS_KEY, state.containers);
-  showToast('All containers cleared.');
+  storageSet(CLEARANCE_KEY, state.clearanceShipments);
+  showToast('All containers and clearance records cleared.');
   render();
 }
 
