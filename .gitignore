@@ -1,1 +1,5 @@
 .vercel
+*.bak
+*.backup.html
+*.zip
+client_reference/

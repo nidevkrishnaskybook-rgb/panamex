@@ -1,5 +1,10 @@
 server.js
+local-server.cjs
 .git
 *.pdf
 pronto_bi_sample.csv
 sample_containers_import.csv
+*.bak
+*.backup.html
+client_reference
+*.zip
