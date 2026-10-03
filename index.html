@@ -798,6 +798,312 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(99, 102, 241, 0.4);
 }
 
+/* Expandable Extra Containers Toggle Button */
+.btn-extra-cntr-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
+  padding: 2.5px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.25;
+  margin-top: 3px;
+  vertical-align: middle;
+}
+.btn-extra-cntr-toggle:hover {
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+  color: #0369A1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15);
+}
+.btn-extra-cntr-toggle.is-expanded {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+  color: #1D4ED8;
+}
+.btn-extra-cntr-toggle .arrow-icon {
+  font-size: 9px;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+.btn-extra-cntr-toggle .cntr-count-pill {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0369A1;
+  border-radius: 10px;
+  padding: 0.5px 5px;
+  font-size: 9.5px;
+  font-weight: 800;
+}
+[data-theme="dark"] .btn-extra-cntr-toggle {
+  background: rgba(2, 132, 199, 0.18);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38BDF8;
+}
+[data-theme="dark"] .btn-extra-cntr-toggle:hover {
+  background: rgba(2, 132, 199, 0.28);
+  color: #7DD3FC;
+}
+[data-theme="dark"] .btn-extra-cntr-toggle.is-expanded {
+  background: rgba(59, 130, 246, 0.22);
+  border-color: rgba(96, 165, 250, 0.4);
+  color: #60A5FA;
+}
+[data-theme="dark"] .btn-extra-cntr-toggle .cntr-count-pill {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7DD3FC;
+}
+
+/* Sub-row styling for extra containers */
+tr.cntr-sub-row {
+  background: rgba(248, 250, 252, 0.75) !important;
+  border-left: 3.5px solid #2563EB !important;
+}
+tr.cntr-sub-row:hover {
+  background: rgba(239, 246, 255, 0.9) !important;
+}
+[data-theme="dark"] tr.cntr-sub-row {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border-left: 3.5px solid #3B82F6 !important;
+}
+[data-theme="dark"] tr.cntr-sub-row:hover {
+  background: rgba(30, 41, 59, 0.8) !important;
+}
+
+/* Column container inline cell input */
+.cntr-inline-inp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  width: 140px;
+  max-width: 155px;
+  border: 1.5px solid #CBD5E1;
+  background: #F8FAFC;
+  color: #1E293B;
+  transition: all 0.15s ease;
+  outline: none;
+}
+.cntr-inline-inp:focus {
+  background: #FFFFFF !important;
+  border-color: #2563EB !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+  color: #1E40AF !important;
+}
+.cntr-inline-inp.is-assigned {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  color: #1E40AF;
+}
+.cntr-inline-inp.is-placeholder {
+  background: #F8FAFC;
+  border: 1.5px dashed #CBD5E1;
+  color: #64748B;
+  font-weight: 600;
+}
+.cntr-inline-inp.just-saved {
+  border-color: #10B981 !important;
+  background: #ECFDF5 !important;
+  color: #065F46 !important;
+}
+
+[data-theme="dark"] .cntr-inline-inp {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #E2E8F0;
+}
+[data-theme="dark"] .cntr-inline-inp:focus {
+  background: #0F172A !important;
+  border-color: #60A5FA !important;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25) !important;
+  color: #93C5FD !important;
+}
+[data-theme="dark"] .cntr-inline-inp.is-assigned {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(96, 165, 250, 0.4);
+  color: #93C5FD;
+}
+[data-theme="dark"] .cntr-inline-inp.is-placeholder {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #94A3B8;
+}
+[data-theme="dark"] .cntr-inline-inp.just-saved {
+  border-color: #34D399 !important;
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #6EE7B7 !important;
+}
+
+/* Modal Column Container Table */
+.column-cntr-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+}
+.column-cntr-table th {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 8px;
+  border-bottom: 1.5px solid var(--border-card);
+}
+.column-cntr-table td {
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+.column-cntr-inp {
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-card);
+  background: var(--bg-input);
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.15s ease;
+}
+.column-cntr-inp:focus {
+  border-color: #2563EB;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+[data-theme="dark"] .column-cntr-inp:focus {
+  border-color: #60A5FA;
+  background: #0F172A;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25);
+}
+.btn-col-cntr-remove {
+  background: #FEE2E2;
+  border: 1px solid #FECACA;
+  color: #DC2626;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+.btn-col-cntr-remove:hover {
+  background: #DC2626;
+  color: #FFFFFF;
+  border-color: #DC2626;
+}
+[data-theme="dark"] .btn-col-cntr-remove {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #F87171;
+}
+[data-theme="dark"] .btn-col-cntr-remove:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+/* Floating Bulk Selection Action Bar */
+.floating-selection-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1.5px solid #3B82F6;
+  border-radius: 40px;
+  padding: 8px 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  animation: floatBarIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+@keyframes floatBarIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.floating-selection-bar .selection-count-badge {
+  background: #2563EB;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 12.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.floating-selection-bar .btn-float-action {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.floating-selection-bar .btn-float-stage2 {
+  background: #F97316;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+}
+.floating-selection-bar .btn-float-stage2:hover {
+  background: #EA580C;
+  transform: translateY(-1px);
+}
+.floating-selection-bar .btn-float-stage3 {
+  background: #059669;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
+}
+.floating-selection-bar .btn-float-stage3:hover {
+  background: #047857;
+  transform: translateY(-1px);
+}
+.floating-selection-bar .btn-float-clear {
+  background: rgba(255, 255, 255, 0.12);
+  color: #CBD5E1;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.floating-selection-bar .btn-float-clear:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+}
+[data-theme="dark"] .floating-selection-bar {
+  background: #0F172A;
+  border-color: #60A5FA;
+}
+
 /* Tables */
 .table-wrap { overflow-x: auto; width: 100%; }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
@@ -2454,6 +2760,7 @@ input:focus, select:focus, textarea:focus {
   border-radius: 12px;
   padding: 10px 16px;
   margin-bottom: 14px;
+  transition: all 0.25s ease;
 }
 .plan-banner-pink .banner-title {
   color: #BE123C;
@@ -2464,6 +2771,42 @@ input:focus, select:focus, textarea:focus {
   gap: 8px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  transition: color 0.25s ease;
+}
+.plan-banner-pink.is-selected {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%) !important;
+  border: 1.5px solid #10B981 !important;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.15);
+}
+.plan-banner-pink.is-selected .banner-title {
+  color: #065F46 !important;
+}
+.plan-banner-pink select {
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.plan-banner-pink.is-selected select {
+  border-color: #10B981 !important;
+  background-color: #F0FDF4 !important;
+  color: #065F46 !important;
+}
+[data-theme="dark"] .plan-banner-pink {
+  background: linear-gradient(135deg, rgba(244,63,94,0.18) 0%, rgba(225,29,72,0.12) 100%);
+  border-color: rgba(244,63,94,0.6);
+}
+[data-theme="dark"] .plan-banner-pink .banner-title {
+  color: #FDA4AF;
+}
+[data-theme="dark"] .plan-banner-pink.is-selected {
+  background: linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.12) 100%) !important;
+  border-color: rgba(16,185,129,0.7) !important;
+}
+[data-theme="dark"] .plan-banner-pink.is-selected .banner-title {
+  color: #6EE7B7 !important;
+}
+[data-theme="dark"] .plan-banner-pink.is-selected select {
+  border-color: #10B981 !important;
+  background-color: #064E3B !important;
+  color: #ECFDF5 !important;
 }
 
 /* Stage 2 Grid: 3 Balanced Columns (Steps 1-5, Steps 6-10, Port Storage) */
@@ -3563,6 +3906,7 @@ var state = {
   sort: { key:'dueDate', dir:'asc' },
   clearanceSort: { key:'clearanceDueDate', dir:'asc' },
   selectedContainerIds: [],
+  expandedContainerGroups: {},
   modal: null,
   toast: null,
   loginError: null,
@@ -3658,7 +4002,9 @@ function loadAll(){
         c.operationalStage = OPERATIONAL_STAGE.TRANSIT;
       }
       if(c.jobNo && !c.invoiceNo) c.invoiceNo = c.jobNo;
-      if(c.invoiceNo && !c.jobNo) c.jobNo = c.invoiceNo;
+      if(c.jobNo && c.invoiceNo && c.jobNo === c.invoiceNo && !c.clearanceDate && !c.stage3Moved){
+        c.jobNo = '';
+      }
     });
     unConsolidateContainerRows();
     unConsolidateClearanceRows();
@@ -3794,10 +4140,25 @@ function computeStatus(c){
 function effectiveStatus(c){
   return c.statusLocked ? c.status : computeStatus(c);
 }
+function isStage3Container(c){
+  if(!c) return false;
+  return !!(
+    c.stage3Moved ||
+    c.operationalStage === STAGE.RETURNED ||
+    computeStage(c) === STAGE.RETURNED ||
+    c.unloadingStartsDate ||
+    c.unloadingCompletedDate ||
+    c.unloadingDate ||
+    c.fullDeliveryToPmxDate ||
+    c.emptyRequestCollectionDate ||
+    c.emptyCollectedDate ||
+    c.emptyReturnDate ||
+    c.continueStatus === 'Unloading in Progress'
+  );
+}
 function locationLabel(c){
-  if(c.emptyReturnDate) return '—';
-  if(!c.clearanceDate) return '—';
-  return c.location || 'Not yet allocated';
+  if(!c || !isStage3Container(c)) return '—';
+  return c.location || '—';
 }
 function daysHeld(c){
   var start = c.clearanceDate || c.eta;
@@ -4085,6 +4446,22 @@ function can(action){
 /* ============================================================
    CONTAINER UN-CONSOLIDATION & ROW FORMATTING HELPERS
    ============================================================ */
+function getConsignmentItems(c){
+  if(!c) return [];
+  var j = (c.jobNo || c.invoiceNo || '').trim().toUpperCase();
+  var ct = (c.containerType || c.notes || '').trim().toUpperCase();
+  var ppl = (c.pplNo || '').trim().toUpperCase();
+  var isClearance = !!(state.clearanceShipments && state.clearanceShipments.some(function(x){ return x.id === c.id; }));
+  var list = isClearance ? (state.clearanceShipments || []) : (state.containers || []);
+  if(!j && !ct) return [c];
+  return list.filter(function(x){
+    var xj = (x.jobNo || x.invoiceNo || '').trim().toUpperCase();
+    var xct = (x.containerType || x.notes || '').trim().toUpperCase();
+    var xppl = (x.pplNo || '').trim().toUpperCase();
+    return xj === j && xct === ct && xppl === ppl;
+  });
+}
+
 function getContainerNumbersList(c){
   if(!c) return [];
   var set = [];
@@ -4095,15 +4472,11 @@ function getContainerNumbersList(c){
       set.push(norm);
     }
   }
-  if(c.jobNo){
-    var list = (state.containers || []).filter(function(x){
-      return x.jobNo && x.jobNo.trim().toUpperCase() === String(c.jobNo).trim().toUpperCase();
-    });
-    list.forEach(function(x){
-      if(Array.isArray(x.containerNumbers)) x.containerNumbers.forEach(add);
-      if(x.containerNo) add(x.containerNo);
-    });
-  }
+  var list = getConsignmentItems(c);
+  list.forEach(function(x){
+    if(Array.isArray(x.containerNumbers)) x.containerNumbers.forEach(add);
+    if(x.containerNo) add(x.containerNo);
+  });
   if(!set.length && c.containerNo){
     add(c.containerNo);
   }
@@ -4187,15 +4560,60 @@ function unConsolidateClearanceRows(){
 function consolidateContainerRows(){}
 function consolidateClearanceRows(){}
 
-function renderContainerCellHtml(c){
+function renderContainerCellHtml(c, isSubRow, hasExtras, isExpanded, groupKey, extraCount){
   var isPlaceholder = !c.containerNo || /^ORD-|^CNTR-|^TEMP-/i.test(c.containerNo);
-  var isImportedAwaitingContainer = isPlaceholder;
-  var showAddBtn = can('edit') && isImportedAwaitingContainer;
+  var stage = computeStage(c);
+  var isStage1 = (stage === STAGE.SHIPPING);
+  var canEdit = can('edit');
+
+  var cellContent = '';
+  if(canEdit && isStage1){
+    var inpVal = isPlaceholder ? '' : escapeHtml(c.containerNo);
+    var phVal = isPlaceholder ? escapeHtml(c.containerNo) : 'Container #';
+    var inpClass = 'cntr-inline-inp ' + (isPlaceholder ? 'is-placeholder' : 'is-assigned');
+
+    var addBtnHtml = (!isSubRow)
+      ? '<button type="button" class="btn-cell-add-cntr" data-act="open-bulk-cntr-modal" data-id="' + c.id + '" title="Open column container manager / Add more containers">+</button>'
+      : '';
+
+    cellContent = '<div style="display:inline-flex;align-items:center;gap:5px;">' +
+      (isSubRow ? '<span style="color:#2563EB;font-weight:800;font-size:13px;line-height:1;" title="Extra Container">↳</span>' : '') +
+      '<div style="position:relative;display:inline-flex;align-items:center;">' +
+        '<input type="text" class="' + inpClass + '" data-id="' + c.id + '" value="' + inpVal + '" placeholder="' + phVal + '" title="Direct column entry: Type container number and press Enter or Tab to save, paste multiple to auto-split" autocomplete="off" spellcheck="false">' +
+        '<span class="cntr-saved-check" style="position:absolute;right:6px;font-size:11px;color:#059669;display:none;pointer-events:none;font-weight:800;">✓</span>' +
+      '</div>' +
+      addBtnHtml +
+    '</div>';
+  } else {
+    var tagHtml = '<span class="mono-tag" style="' + (isPlaceholder ? 'background:#F3F4F6;color:#6B7280;border:1.5px dashed #D1D5DB;' : 'background:#E0E7FF;color:#3730A3;font-weight:700;border:1px solid #C7D2FE;') + 'font-size:12px;padding:3px 9px;border-radius:6px;letter-spacing:0.5px;">' + escapeHtml(c.containerNo || '—') + '</span>';
+    cellContent = '<div style="display:inline-flex;align-items:center;gap:6px;">' +
+      (isSubRow ? '<span style="color:#2563EB;font-weight:800;font-size:13px;line-height:1;" title="Extra Container">↳</span>' : '') +
+      tagHtml +
+    '</div>';
+  }
+
+  if(isSubRow){
+    return '<div class="cntr-cell-box">' + cellContent + '</div>';
+  }
+
+  var toggleBtnHtml = '';
+  if(hasExtras){
+    var cnt = extraCount || 1;
+    var labelText = isExpanded ? 'Hide List' : 'Show List';
+    var arrowChar = isExpanded ? '▼' : '▶';
+
+    toggleBtnHtml = '<div style="margin-top:3px;">' +
+      '<button type="button" class="btn-extra-cntr-toggle' + (isExpanded ? ' is-expanded' : '') + '" data-act="toggle-expand-containers" data-group="' + escapeHtml(groupKey || '') + '" title="' + (isExpanded ? 'Click to hide container list' : 'Click to show container list (' + (cnt + 1) + ' total)') + '">' +
+        '<span class="arrow-icon">' + arrowChar + '</span>' +
+        '<span class="toggle-text">' + labelText + '</span>' +
+        '<span class="cntr-count-pill">' + (cnt + 1) + ' total</span>' +
+      '</button>' +
+    '</div>';
+  }
+
   return '<div class="cntr-cell-box">' +
-    '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
-      '<span class="mono-tag" style="' + (isPlaceholder ? 'background:#F3F4F6;color:#6B7280;border:1.5px dashed #D1D5DB;' : 'background:#E0E7FF;color:#3730A3;font-weight:700;border:1px solid #C7D2FE;') + 'font-size:12px;padding:2px 8px;border-radius:6px;">' + escapeHtml(c.containerNo || '—') + '</span>' +
-      (showAddBtn ? '<button type="button" class="btn-cell-add-cntr" data-act="open-bulk-cntr-modal" data-id="'+c.id+'" title="Add / Assign Container Numbers for Imported Order #'+escapeHtml(c.jobNo||'')+'">+</button>' : '') +
-    '</div>' +
+    cellContent +
+    toggleBtnHtml +
   '</div>';
 }
 
@@ -4854,7 +5272,6 @@ function normalizeImportedRow(rawRow){
   delete item.brand;
 
   if(item.jobNo && !item.invoiceNo) item.invoiceNo = item.jobNo;
-  if(item.invoiceNo && !item.jobNo) item.jobNo = item.invoiceNo;
   if(item.orderDate && !item.jobRegisterDate) item.jobRegisterDate = item.orderDate;
   if(item.jobRegisterDate && !item.orderDate) item.orderDate = item.jobRegisterDate;
   if(item.dischargePort && !item.location) item.location = item.dischargePort;
@@ -4873,7 +5290,9 @@ function normalizeImportedRow(rawRow){
 function handleExcelFileImport(file){
   if(!file) return;
   showToast('Reading Excel file: ' + file.name + '…');
-  ensureXLSX().then(function(){
+  ensureXL
+  
+  SX().then(function(){
     var reader = new FileReader();
     reader.onload = function(e){
       try {
@@ -4972,6 +5391,7 @@ function syncCurrentFormToImportedRow(){
   var target = state.modal.importedRows[idx];
   if(!target) return;
   
+  target.invoiceNo = (fd.get('invoiceNo') || '').trim();
   target.jobNo = (fd.get('jobNo') || '').trim();
   target.billNo = (fd.get('billNo') || '').trim();
   target.containerNo = (fd.get('containerNo') || '').trim();
@@ -5107,7 +5527,8 @@ function handleDirectExcelImport(file){
     var reader = new FileReader();
     reader.onload = function(e){
       try {
-        var data = new Uint8Array(e.target.result);
+        
+         data = new Uint8Array(e.target.result);
         var wb = XLSX.read(data, {type:'array', cellDates:true});
         if(!wb.SheetNames || !wb.SheetNames.length){
           showToast('No sheets found in Excel file.');
@@ -6420,17 +6841,36 @@ function renderContainers(){
   '</div>';
 
   var selectedCount = (state.selectedContainerIds || []).length;
+  var selectedContainersList = selectedCount > 0 ? state.containers.filter(function(x){
+    return (state.selectedContainerIds || []).indexOf(x.id) !== -1;
+  }) : [];
+
+  var selStage1List = selectedContainersList.filter(function(x){ return computeStage(x) === STAGE.SHIPPING; });
+  var selStage2List = selectedContainersList.filter(function(x){ return computeStage(x) === STAGE.CONTROL; });
+  var selStage3List = selectedContainersList.filter(function(x){ return computeStage(x) === STAGE.RETURNED; });
+  var s1Count = selStage1List.length;
+  var s2Count = selStage2List.length;
+  var s3Count = selStage3List.length;
+
   var bulkBarHtml = '';
   if(selectedCount > 0){
-    var selectedContainersList = state.containers.filter(function(x){
-      return (state.selectedContainerIds || []).indexOf(x.id) !== -1;
-    });
     var jobMap = {};
     selectedContainersList.forEach(function(x){
       var v = x.invoiceNo || x.jobNo;
       if(v) jobMap[v] = true;
     });
     var jobCount = Object.keys(jobMap).length;
+
+    var advanceActionsHtml = '';
+    if(can('edit')){
+      if(s1Count > 0){
+        advanceActionsHtml += '<button type="button" class="btn-pill btn-stage-action to-stage-2" data-act="open-bulk-advance-stage" data-stage="stage2" style="margin:0;font-size:12.5px;padding:6px 14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(249,115,22,0.25);">🚚 Move to Stage 2' + (s1Count > 1 ? ' (' + s1Count + ')' : '') + '</button>';
+      } else if(s2Count > 0){
+        advanceActionsHtml += '<button type="button" class="btn-pill btn-stage-action to-stage-3" data-act="open-bulk-advance-stage" data-stage="stage3" style="margin:0;font-size:12.5px;padding:6px 14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(5,150,105,0.25);">📦 Move to Stage 3' + (s2Count > 1 ? ' (' + s2Count + ')' : '') + '</button>';
+      } else if(s3Count > 0){
+        advanceActionsHtml += '<span style="color:#059669;font-weight:700;font-size:12px;padding:5px 10px;background:#ECFDF5;border:1px solid #A7F3D0;border-radius:6px;">✅ All Selected Completed</span>';
+      }
+    }
 
     bulkBarHtml = '<div class="bulk-actions-toolbar" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:var(--bg-card);border:2px solid #2563EB;border-radius:10px;padding:12px 18px;margin-bottom:14px;box-shadow:0 4px 16px rgba(37,99,235,0.12);">' +
       '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">' +
@@ -6440,14 +6880,13 @@ function renderContainers(){
         (jobCount > 0 ? ('<span style="font-size:12.5px;color:var(--text-muted);font-weight:600;">across ' + jobCount + ' Invoice' + (jobCount > 1 ? 's' : '') + '</span>') : '') +
       '</div>' +
       '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
-        (can('edit') ? '<button type="button" class="btn-pill btn-stage-action to-stage-2" data-act="open-bulk-advance-stage" data-stage="stage2" style="margin:0;font-size:12.5px;padding:6px 14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(249,115,22,0.25);">🚚 Move ' + selectedCount + ' to Stage 2</button>' : '') +
-        (can('edit') ? '<button type="button" class="btn-pill btn-stage-action to-stage-3" data-act="open-bulk-advance-stage" data-stage="stage3" style="margin:0;font-size:12.5px;padding:6px 14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(5,150,105,0.25);">📦 Move ' + selectedCount + ' to Stage 3</button>' : '') +
+        advanceActionsHtml +
         '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="clear-selected-containers" style="font-size:12px;padding:5px 12px;">✕ Clear Selection</button>' +
       '</div>' +
     '</div>';
   }
 
-  var rows = list.map(function(c){
+  function renderContainerTableRow(c, isSubRow, grp, hasExtras, isExpanded, subIdx, totalSub){
     var st = effectiveStatus(c);
     var loc = locationLabel(c);
     var stage = computeStage(c);
@@ -6456,24 +6895,33 @@ function renderContainers(){
 
     var isSelected = (state.selectedContainerIds || []).indexOf(c.id) !== -1;
     var invoiceVal = c.invoiceNo || c.jobNo || '';
-    var jobContainers = state.containers.filter(function(x){
-      var xVal = x.invoiceNo || x.jobNo || '';
-      return xVal && invoiceVal && xVal.trim().toUpperCase() === invoiceVal.trim().toUpperCase();
-    });
-    var isJobAllSelected = jobContainers.length > 0 && jobContainers.every(function(x){
-      return (state.selectedContainerIds || []).indexOf(x.id) !== -1;
-    });
+    var grpContainers = grp ? grp.items : [c];
+    var grpIds = grpContainers.map(function(x){ return x.id; });
+    var isGrpAnySelected = grpIds.some(function(id){ return (state.selectedContainerIds || []).indexOf(id) !== -1; });
 
-    var invoiceColHtml = invoiceVal
-      ? '<div style="display:inline-flex;align-items:center;gap:6px;">' +
-          '<input type="checkbox" class="job-group-select-chk" data-job="' + escapeHtml(invoiceVal) + '" title="Select all ' + jobContainers.length + ' container(s) for Invoice #' + escapeHtml(invoiceVal) + '" ' + (isJobAllSelected ? 'checked' : '') + ' style="cursor:pointer;width:14px;height:14px;accent-color:#2563EB;">' +
-          '<span class="mono-tag" style="font-weight:700;background:#F0F9FF;color:#0369A1;border:1px solid #BAE6FD;">' + escapeHtml(invoiceVal) + '</span>' +
-        '</div>'
-      : '<span class="mono-tag">—</span>';
+    var invoiceColHtml = '';
+    if(isSubRow){
+      invoiceColHtml = '<div style="display:inline-flex;align-items:center;gap:6px;padding-left:10px;">' +
+        '<span style="color:#2563EB;font-weight:800;font-size:13px;" title="Extra container of Invoice #' + escapeHtml(invoiceVal) + '">↳</span>' +
+        (invoiceVal ? '<span class="mono-tag" style="font-size:11px;background:#F8FAFC;color:#64748B;border:1px dashed #CBD5E1;">' + escapeHtml(invoiceVal) + '</span>' : '<span class="mono-tag">—</span>') +
+      '</div>';
+    } else {
+      invoiceColHtml = invoiceVal
+        ? '<span class="mono-tag" style="font-weight:700;background:#F0F9FF;color:#0369A1;border:1px solid #BAE6FD;" title="Invoice #' + escapeHtml(invoiceVal) + '">' + escapeHtml(invoiceVal) + '</span>'
+        : '<span class="mono-tag">—</span>';
+    }
 
-    var rowSelectHtml = '<td style="width:38px;text-align:center;padding:8px 4px;">' +
-      '<input type="checkbox" class="cntr-row-chk" data-id="' + c.id + '" ' + (isSelected ? 'checked' : '') + ' style="cursor:pointer;width:15px;height:15px;accent-color:var(--forest-dark,#047857);">' +
-    '</td>';
+    var rowSelectHtml = '';
+    if(isSubRow){
+      rowSelectHtml = '<td style="width:38px;text-align:center;padding:8px 4px;">' +
+        '<input type="checkbox" class="cntr-row-chk cntr-sub-chk" data-id="' + c.id + '" ' + (isSelected ? 'checked' : '') + ' style="cursor:pointer;width:15px;height:15px;accent-color:var(--forest-dark,#047857);" title="Select container ' + escapeHtml(c.containerNo || c.id) + '">' +
+      '</td>';
+    } else {
+      var chkTitle = grpContainers.length > 1 ? ('Select all ' + grpContainers.length + ' container(s) for Invoice #' + escapeHtml(invoiceVal)) : ('Select container ' + escapeHtml(c.containerNo || c.id));
+      rowSelectHtml = '<td style="width:38px;text-align:center;padding:8px 4px;">' +
+        '<input type="checkbox" class="cntr-row-chk" data-id="' + c.id + '" data-group-key="' + escapeHtml(grp ? grp.key : '') + '" ' + (isGrpAnySelected ? 'checked' : '') + ' style="cursor:pointer;width:15px;height:15px;accent-color:var(--forest-dark,#047857);" title="' + chkTitle + '">' +
+      '</td>';
+    }
 
     var stageBadge = '';
     var advanceBtn = '';
@@ -6481,7 +6929,11 @@ function renderContainers(){
     if(stage === STAGE.SHIPPING){
       stageBadge = '<span class="stage-badge stage-badge-1" title="Stage 1: Uploading Data from Excel file"><span class="stage-dot stage-dot-1"></span>Stage 1: Uploading Data</span>';
       if(can('edit')){
-        advanceBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Advance to Stage 2: Customs Clearance &amp; Move to Yard">🚚 Move to Stage 2</button>';
+        if(isSelected && s1Count > 1){
+          advanceBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-bulk-advance-stage" data-stage="stage2" title="Move all ' + s1Count + ' selected Stage 1 containers to Stage 2" style="font-weight:800;box-shadow:0 2px 8px rgba(249,115,22,0.35);">🚚 Move to Stage 2 (' + s1Count + ')</button>';
+        } else {
+          advanceBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Move to Stage 2: Customs Clearance &amp; Move to Yard">🚚 Move to Stage 2</button>';
+        }
       }
     } else if(stage === STAGE.CONTROL){
       var isUnloading = (c.continueStatus === 'Unloading in Progress');
@@ -6489,7 +6941,11 @@ function renderContainers(){
         ? '<span class="stage-badge stage-badge-2" style="background:#ECFDF5;color:#065F46;border-color:#6EE7B7;" title="Cargo Unloading in Progress"><span class="stage-dot" style="background:#10B981;"></span>Unloading Progress</span>'
         : '<span class="stage-badge stage-badge-2" title="Stage 2: Yard Control &amp; Demurrage Active"><span class="stage-dot stage-dot-2"></span>Stage 2: Yard Control</span>';
       if(can('edit')){
-        advanceBtn = '<button type="button" class="btn-stage-action to-stage-3" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage3" title="' + (isUnloading ? 'Update Unloading Progress & Stage 3' : 'Advance to Stage 3: Return Empty & Close Demurrage') + '">' + (isUnloading ? '🔄 Update Stage 3' : '📦 Move to Stage 3') + '</button>';
+        if(isSelected && s2Count > 1){
+          advanceBtn = '<button type="button" class="btn-stage-action to-stage-3" data-act="open-bulk-advance-stage" data-stage="stage3" title="Move all ' + s2Count + ' selected Stage 2 containers to Stage 3" style="font-weight:800;box-shadow:0 2px 8px rgba(5,150,105,0.35);">📦 Move to Stage 3 (' + s2Count + ')</button>';
+        } else {
+          advanceBtn = '<button type="button" class="btn-stage-action to-stage-3" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage3" title="' + (isUnloading ? 'Update Unloading Progress & Stage 3' : 'Move to Stage 3: Return Empty & Close Demurrage') + '">' + (isUnloading ? '🔄 Update Stage 3' : '📦 Move to Stage 3') + '</button>';
+        }
       }
     } else {
       stageBadge = '<span class="stage-badge stage-badge-3" title="Stage 3: Empty Container Returned"><span class="stage-dot stage-dot-3"></span>Stage 3: Returned</span>';
@@ -6500,10 +6956,13 @@ function renderContainers(){
       ? '<span class="mono-tag" style="background:#EEF2FF;color:#3730A3;font-weight:700;font-size:11px;border:1px solid #C7D2FE;padding:2px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;" title="Container Details / Notes"><span style="font-size:10px;">📦</span>' + escapeHtml(c.containerType || c.notes) + '</span>'
       : '<span style="color:var(--text-subtle);">—</span>';
 
-    return '<tr class="' + (isSelected ? 'row-selected' : '') + '">'+
+    var cellHtml = renderContainerCellHtml(c, isSubRow, hasExtras, isExpanded, grp ? grp.key : '', grp && grp.extras ? grp.extras.length : 0);
+    var rowClass = (isSelected ? 'row-selected' : '') + (isSubRow ? ' cntr-sub-row' : ' cntr-primary-row');
+
+    return '<tr class="' + rowClass.trim() + '"' + (isSubRow ? (' data-parent-group="' + escapeHtml(grp ? grp.key : '') + '"') : '') + '>'+
       rowSelectHtml+
       '<td>' + invoiceColHtml + '</td>'+
-      '<td>' + renderContainerCellHtml(c) + '</td>'+
+      '<td>' + cellHtml + '</td>'+
       '<td>'+escapeHtml(c.pplNo||'—')+'</td>'+
       '<td>'+escapeHtml(c.vesselName||'—')+'</td>'+
       '<td>'+escapeHtml(c.voyageNo||'—')+'</td>'+
@@ -6528,10 +6987,64 @@ function renderContainers(){
       '<td class="rowactions">'+
         advanceBtn+
         '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="notify-team-container" data-id="'+c.id+'" title="Notify Team via Email" style="padding:2px 7px;font-size:11px;gap:3px;display:inline-flex;align-items:center;">✉️ Notify</button>'+
-        (invoiceVal ? '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-fcl-matrix" data-job="'+escapeHtml(invoiceVal)+'" title="Open All FCLs Matrix Spreadsheet for Invoice #'+escapeHtml(invoiceVal)+'" style="padding:2px 7px;font-size:11px;display:inline-flex;align-items:center;">▦ Matrix</button>' : '')+
+        (invoiceVal && !isSubRow && isStage3Container(c) ? '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-fcl-matrix" data-job="'+escapeHtml(invoiceVal)+'" title="Open All FCLs Matrix Spreadsheet for Invoice #'+escapeHtml(invoiceVal)+'" style="padding:2px 7px;font-size:11px;display:inline-flex;align-items:center;">▦ Matrix</button>' : '')+
         '<button class="iconbtn" data-act="edit-container" data-id="'+c.id+'" title="Edit Full Details">✏️</button>'+
         (can('delete') ? '<button class="iconbtn" data-act="delete-container-confirm" data-id="'+c.id+'" title="Delete">🗑️</button>' : '')+
       '</td></tr>';
+  }
+
+  // Group visible containers by exact consignment: Job/Invoice + Container Type + PPL
+  var groups = [];
+  var groupMap = {};
+
+  list.forEach(function(c){
+    var j = (c.jobNo || c.invoiceNo || '').trim().toUpperCase();
+    var ct = (c.containerType || c.notes || '').trim().toUpperCase();
+    var ppl = (c.pplNo || '').trim().toUpperCase();
+    var gKey = (j && ct) ? (j + ':::' + ct + ':::' + ppl) : c.id;
+
+    if(!groupMap[gKey]){
+      var grp = { key: gKey, items: [c] };
+      groupMap[gKey] = grp;
+      groups.push(grp);
+    } else {
+      groupMap[gKey].items.push(c);
+    }
+  });
+
+  // Resolve primary and extra containers - keep original order so main row stays first!
+  groups.forEach(function(grp){
+    if(grp.items){
+      grp.primary = grp.items[0];
+      grp.extras = grp.items.slice(1);
+    }
+  });
+
+  var rows = groups.map(function(grp){
+    var primary = grp.primary;
+    var extras = grp.extras || [];
+    var hasExtras = extras.length > 0;
+    var isExpanded = !!state.expandedContainerGroups[grp.key];
+
+    if(f.q && hasExtras){
+      var qLower = f.q.trim().toLowerCase();
+      var extraMatches = extras.some(function(xc){
+        var cNums = getContainerNumbersList(xc);
+        var hay = [xc.invoiceNo,xc.jobNo,xc.billNo,xc.containerNo,cNums.join(' '),xc.containerType,xc.notes,xc.shippingLine,xc.productDescription,xc.brand,xc.pplNo,xc.vesselName,xc.voyageNo,xc.loadPort,xc.dischargePort].join(' ').toLowerCase();
+        return hay.indexOf(qLower) !== -1;
+      });
+      if(extraMatches) isExpanded = true;
+    }
+
+    var html = renderContainerTableRow(primary, false, grp, hasExtras, isExpanded);
+
+    if(hasExtras && isExpanded){
+      extras.forEach(function(extra, idx){
+        html += renderContainerTableRow(extra, true, grp, false, false, idx + 1, extras.length);
+      });
+    }
+
+    return html;
   }).join('');
 
   if(!rows){
@@ -6570,8 +7083,8 @@ function renderContainers(){
       '<div class="panel-title">Container Management — Stock In Transit <span class="badge-counter">'+list.length+'</span></div>'+
       '<div class="page-actions-group">'+
         '<button type="button" class="btn-pill btn-pill-clearance-view btn-pill-sm" data-act="switch-container-subview" data-subview="clearance" title="Open Pending Clearance workflow and checklist"><span style="font-size:13px;">📑</span> Pending Clearance View <span class="badge-counter" style="background:#fff;color:#1D4ED8;font-weight:800;margin-left:4px;font-size:11px;padding:1px 6px;">'+clearanceCount+'</span></button>'+
-        (can('edit') ? '<button class="btn-pill btn-pill-primary btn-pill-sm" data-act="open-add-container">+ Add Container</button>' : '')+
-        (can('edit') ? '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel</button>' : '')+
+        (can('edit') && currentStage !== STAGE.CONTROL && currentStage !== STAGE.RETURNED ? '<button class="btn-pill btn-pill-primary btn-pill-sm" data-act="open-add-container">+ Add Container</button>' : '')+
+        (can('edit') && currentStage !== STAGE.CONTROL && currentStage !== STAGE.RETURNED ? '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="open-import-excel" style="display:inline-flex;align-items:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Import Excel</button>' : '')+
         '<button class="btn-pill btn-pill-secondary btn-pill-sm" data-act="export-containers-xlsx">Export Excel</button>'+
       '</div>'+
     '</div>'+
@@ -6588,6 +7101,25 @@ function renderContainers(){
     '</div>'+
     '<div class="table-wrap"><table><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>'+
   '</div>';
+
+  if(selectedCount > 0){
+    var floatBtnsHtml = '';
+    if(can('edit')){
+      if(s1Count > 0){
+        floatBtnsHtml += '<button type="button" class="btn-float-action btn-float-stage2" data-act="open-bulk-advance-stage" data-stage="stage2" title="Move Stage 1 container(s) to Stage 2: Customs Clearance">🚚 Move ' + (s1Count > 1 ? s1Count + ' ' : '') + 'to Stage 2</button>';
+      } else if(s2Count > 0){
+        floatBtnsHtml += '<button type="button" class="btn-float-action btn-float-stage3" data-act="open-bulk-advance-stage" data-stage="stage3" title="Move Stage 2 container(s) to Stage 3: Container Control">📦 Move ' + (s2Count > 1 ? s2Count + ' ' : '') + 'to Stage 3</button>';
+      } else if(s3Count > 0){
+        floatBtnsHtml += '<span style="background:rgba(5,150,105,0.15);color:#059669;font-weight:700;font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid rgba(5,150,105,0.3);display:inline-flex;align-items:center;gap:4px;"><span>✅</span> All Completed (Stage 3)</span>';
+      }
+    }
+
+    html += '<div class="floating-selection-bar">' +
+      '<span class="selection-count-badge"><span>✓</span> ' + selectedCount + ' Selected</span>' +
+      floatBtnsHtml +
+      '<button type="button" class="btn-float-clear" data-act="clear-selected-containers" title="Clear selection">✕ Clear</button>' +
+    '</div>';
+  }
 
   return html;
 }
@@ -6667,7 +7199,7 @@ function renderPendingClearance(){
 
     var moveBtn = '';
     if(c.clearanceStatus === CLEARANCE_STATUS.CLEARED && can('edit')){
-      moveBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Advance Cleared Shipment to Yard Control">🚚 Move to Yard</button>';
+      moveBtn = '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="' + c.id + '" data-stage="stage2" title="Move Cleared Shipment to Yard Control">🚚 Move to Stage 2</button>';
     }
 
     return '<tr>'+
@@ -6875,7 +7407,7 @@ function renderClearanceDetailModal(id){
         '<div style="font-weight:800;color:#065F46;font-size:14px;display:flex;align-items:center;gap:6px;"><span>🎉</span> Customs Formalities Cleared</div>'+
         '<div style="font-size:12px;color:#047857;margin-top:2px;">Cleared on '+fmtDate(c.clearanceDate)+' • Container is ready for Yard Control and terminal gate-out.</div>'+
       '</div>'+
-      '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="'+c.id+'" data-stage="stage2" style="font-size:12px;">🚚 Advance to Stage 2: Yard Control</button>'+
+      '<button type="button" class="btn-stage-action to-stage-2" data-act="open-advance-stage" data-id="'+c.id+'" data-stage="stage2" style="font-size:12px;">🚚 Move to Stage 2: Yard Control</button>'+
     '</div>';
   } else if(allComplete){
     completionBanner = '<div style="background:#ECFDF5;border:1px solid #6EE7B7;border-radius:8px;padding:16px;margin:16px 0;text-align:center;">'+
@@ -7346,80 +7878,50 @@ function renderModal(){
   return '';
 }
 
-function updateBulkPreview(text){
-  var previewBox = document.getElementById('bulkContainerPreview');
-  var countLbl = document.getElementById('bulkContainerCountLabel');
-  if(!previewBox) return;
-
-  var tokens = String(text || '').split(/[\r\n,;\t ]+/).map(function(s){ return s.trim().toUpperCase(); }).filter(Boolean);
-  var uniqueTokens = [];
-  tokens.forEach(function(tok){
-    if(uniqueTokens.indexOf(tok) === -1) uniqueTokens.push(tok);
+window.updateColumnModalCount = function(){
+  var inputs = document.querySelectorAll('#columnCntrTableBody input.column-cntr-inp');
+  var count = 0;
+  inputs.forEach(function(inp){
+    if(inp.value && inp.value.trim()) count++;
   });
-
-  if(!uniqueTokens.length){
-    previewBox.style.display = 'none';
-    previewBox.innerHTML = '';
-    if(countLbl) countLbl.textContent = '';
-    return;
+  var lbl = document.getElementById('colCntrTotalCount');
+  if(lbl){
+    lbl.textContent = count + ' Container' + (count === 1 ? '' : 's');
   }
+};
 
-  var chips = uniqueTokens.slice(0, 40).map(function(tok){
-    return '<span class="mono-tag" style="background:#E0E7FF;color:#3730A3;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;border:1px solid #C7D2FE;">' + escapeHtml(tok) + '</span>';
-  }).join(' ');
-
-  if(uniqueTokens.length > 40){
-    chips += ' <span style="font-size:11px;color:var(--text-muted);font-weight:700;">+ ' + (uniqueTokens.length - 40) + ' more containers</span>';
-  }
-
-  previewBox.style.display = 'block';
-  previewBox.innerHTML = '<div style="font-size:11.5px;font-weight:700;color:var(--text-muted);margin-bottom:6px;">Detected ' + uniqueTokens.length + ' Container Number(s):</div>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:5px;max-height:120px;overflow-y:auto;padding:8px;background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:6px;">' + chips + '</div>';
-
-  if(countLbl){
-    countLbl.textContent = uniqueTokens.length + ' container(s) detected';
-  }
-}
-
-function saveBulkContainersFromModal(id){
+function saveInlineContainerCell(inp){
+  if(!inp) return;
+  var id = inp.getAttribute('data-id');
+  if(!id) return;
   var targetItem = state.containers.find(function(x){ return x.id === id; });
   var isClearance = false;
   if(!targetItem){
     targetItem = (state.clearanceShipments || []).find(function(x){ return x.id === id; });
     isClearance = true;
   }
-  if(!targetItem){
-    showToast('Shipment record not found.');
-    return;
-  }
+  if(!targetItem) return;
 
-  var inp = document.getElementById('bulkContainerInput');
-  var rawText = inp ? inp.value : '';
-  var tokens = String(rawText || '')
-    .split(/[\r\n,;\t ]+/)
-    .map(function(s){ return s.trim().toUpperCase(); })
-    .filter(Boolean);
+  var raw = (inp.value || '').trim().toUpperCase();
+  var tokens = raw.split(/[\r\n,;\t ]+/).map(function(s){ return s.trim().toUpperCase(); }).filter(Boolean);
 
-  if(!tokens.length){
-    showToast('⚠️ Please enter at least one container number.');
-    return;
-  }
+  // If multiple tokens pasted into inline cell
+  if(tokens.length > 1){
+    if(computeStage(targetItem) !== STAGE.SHIPPING){
+      showToast('⚠️ Adding extra containers is only allowed in Stage 1: Shipping (pre-clearance).');
+      renderContentOnly();
+      return;
+    }
+    targetItem.containerNo = tokens[0];
+    targetItem.updatedAt = new Date().toISOString();
 
-  var origNo = targetItem.containerNo;
-  var isOrigPlaceholder = !origNo || /^ORD-|^CNTR-|^TEMP-/i.test(origNo);
-
-  var createdCount = 0;
-  tokens.forEach(function(num, idx){
-    if(idx === 0 && isOrigPlaceholder){
-      targetItem.containerNo = num;
-      targetItem.updatedAt = new Date().toISOString();
-      createdCount++;
-    } else {
-      var exists = state.containers.some(function(x){
-        return (x.jobNo || '').trim().toUpperCase() === (targetItem.jobNo || '').trim().toUpperCase() &&
-               (x.containerNo || '').trim().toUpperCase() === num;
-      });
-      if(!exists){
+    var consignmentItems = getConsignmentItems(targetItem);
+    tokens.slice(1).forEach(function(num, idx){
+      var nextIdx = idx + 1;
+      if(nextIdx < consignmentItems.length){
+        consignmentItems[nextIdx].containerNo = num;
+        consignmentItems[nextIdx].updatedAt = new Date().toISOString();
+      } else {
         var clone = JSON.parse(JSON.stringify(targetItem));
         delete clone.containerNumbers;
         clone.id = uid(isClearance ? 'clr' : 'cnt');
@@ -7431,19 +7933,125 @@ function saveBulkContainersFromModal(id){
         } else {
           state.containers.push(clone);
         }
-        createdCount++;
       }
+    });
+
+    if(isClearance){
+      storageSet(CLEARANCE_KEY, state.clearanceShipments);
+    } else {
+      storageSet(CONTAINERS_KEY, state.containers);
+    }
+
+    var j = (targetItem.jobNo || targetItem.invoiceNo || '').trim().toUpperCase();
+    var ct = (targetItem.containerType || targetItem.notes || '').trim().toUpperCase();
+    var ppl = (targetItem.pplNo || '').trim().toUpperCase();
+    var gKey = (j && ct) ? (j + ':::' + ct + ':::' + ppl) : targetItem.id;
+    state.expandedContainerGroups = state.expandedContainerGroups || {};
+    state.expandedContainerGroups[gKey] = true;
+
+    showToast('🎉 Split into ' + tokens.length + ' containers under Invoice #' + (targetItem.invoiceNo || targetItem.jobNo));
+    renderContentOnly();
+    return;
+  }
+
+  // Single token or reverted to empty
+  var newNo = tokens[0] || '';
+  if(!newNo){
+    newNo = 'ORD-' + (targetItem.jobNo || targetItem.invoiceNo || '1');
+  }
+
+  if(targetItem.containerNo !== newNo){
+    targetItem.containerNo = newNo;
+    targetItem.updatedAt = new Date().toISOString();
+    if(isClearance){
+      storageSet(CLEARANCE_KEY, state.clearanceShipments);
+    } else {
+      storageSet(CONTAINERS_KEY, state.containers);
+    }
+  }
+
+  inp.classList.add('just-saved');
+  var check = inp.parentNode ? inp.parentNode.querySelector('.cntr-saved-check') : null;
+  if(check) check.style.display = 'inline';
+  setTimeout(function(){
+    inp.classList.remove('just-saved');
+    if(check) check.style.display = 'none';
+  }, 1200);
+}
+
+function saveColumnContainersFromModal(id){
+  var targetItem = state.containers.find(function(x){ return x.id === id; });
+  var isClearance = false;
+  if(!targetItem){
+    targetItem = (state.clearanceShipments || []).find(function(x){ return x.id === id; });
+    isClearance = true;
+  }
+  if(!targetItem){
+    showToast('Record not found.');
+    return;
+  }
+  if(computeStage(targetItem) !== STAGE.SHIPPING){
+    showToast('⚠️ Adding containers is only allowed in Stage 1: Shipping (pre-clearance).');
+    return;
+  }
+
+  var inputs = document.querySelectorAll('#columnCntrTableBody input.column-cntr-inp');
+  var tokens = [];
+  inputs.forEach(function(inp){
+    var v = (inp.value || '').trim().toUpperCase();
+    if(v && tokens.indexOf(v) === -1){
+      tokens.push(v);
     }
   });
 
-  pushAudit({
-    action: 'bulk-container-save',
-    containerNo: targetItem.containerNo,
-    changes: [
-      { field: 'Containers Added', from: origNo || '—', to: tokens.join(', ') },
-      { field: 'Total Created', from: '—', to: String(createdCount) }
-    ]
-  });
+  var list = isClearance ? state.clearanceShipments : state.containers;
+  var consignmentItems = getConsignmentItems(targetItem);
+
+  var j = (targetItem.jobNo || targetItem.invoiceNo || '').trim().toUpperCase();
+  var ct = (targetItem.containerType || targetItem.notes || '').trim().toUpperCase();
+  var ppl = (targetItem.pplNo || '').trim().toUpperCase();
+  var gKey = (j && ct) ? (j + ':::' + ct + ':::' + ppl) : targetItem.id;
+
+  if(!tokens.length){
+    // Reset to placeholder
+    targetItem.containerNo = 'ORD-' + (targetItem.jobNo || targetItem.invoiceNo || '1');
+    if(consignmentItems.length > 1){
+      var toRemove = consignmentItems.slice(1).map(function(x){ return x.id; });
+      if(isClearance){
+        state.clearanceShipments = state.clearanceShipments.filter(function(x){ return toRemove.indexOf(x.id) === -1; });
+      } else {
+        state.containers = state.containers.filter(function(x){ return toRemove.indexOf(x.id) === -1; });
+      }
+    }
+  } else {
+    tokens.forEach(function(num, idx){
+      if(idx < consignmentItems.length){
+        consignmentItems[idx].containerNo = num;
+        consignmentItems[idx].updatedAt = new Date().toISOString();
+      } else {
+        var clone = JSON.parse(JSON.stringify(targetItem));
+        delete clone.containerNumbers;
+        clone.id = uid(isClearance ? 'clr' : 'cnt');
+        clone.containerNo = num;
+        clone.createdAt = new Date().toISOString();
+        clone.updatedAt = new Date().toISOString();
+        if(isClearance){
+          state.clearanceShipments.push(clone);
+        } else {
+          state.containers.push(clone);
+        }
+      }
+    });
+
+    if(consignmentItems.length > tokens.length){
+      var removeItems = consignmentItems.slice(tokens.length).map(function(x){ return x.id; });
+      if(isClearance){
+        state.clearanceShipments = state.clearanceShipments.filter(function(x){ return removeItems.indexOf(x.id) === -1; });
+      } else {
+        state.containers = state.containers.filter(function(x){ return removeItems.indexOf(x.id) === -1; });
+      }
+    }
+  }
 
   if(isClearance){
     storageSet(CLEARANCE_KEY, state.clearanceShipments);
@@ -7451,9 +8059,22 @@ function saveBulkContainersFromModal(id){
     storageSet(CONTAINERS_KEY, state.containers);
   }
 
-  showToast('🎉 Created ' + createdCount + ' container row(s) for Job #' + (targetItem.jobNo || targetItem.containerNo) + '!');
+  state.expandedContainerGroups = state.expandedContainerGroups || {};
+  if(tokens.length > 1 && gKey){
+    state.expandedContainerGroups[gKey] = true;
+  }
+
+  showToast('🎉 Saved ' + (tokens.length || 1) + ' container(s) for Invoice #' + (targetItem.invoiceNo || targetItem.jobNo || ''));
   state.modal = null;
   render();
+}
+
+function saveBulkContainersFromModal(id){
+  saveColumnContainersFromModal(id);
+}
+
+function updateBulkPreview(text){
+  // Backward compatibility stub
 }
 
 function renderBulkContainerAddModal(id){
@@ -7464,67 +8085,91 @@ function renderBulkContainerAddModal(id){
     isClearance = true;
   }
   if(!c) return '';
+  if(computeStage(c) !== STAGE.SHIPPING){
+    showToast('⚠️ Adding containers is only allowed in Stage 1: Shipping (pre-clearance).');
+    state.modal = null;
+    return '';
+  }
 
-  var cNumbers = getContainerNumbersList(c);
+  var consignmentItems = getConsignmentItems(c);
+  var containerNumbers = [];
+  consignmentItems.forEach(function(item){
+    var no = (item.containerNo || '').trim().toUpperCase();
+    if(no && !/^ORD-|^CNTR-|^TEMP-/i.test(no) && containerNumbers.indexOf(no) === -1){
+      containerNumbers.push(no);
+    }
+  });
 
-  var chips = cNumbers.map(function(num){
-    return '<span class="mono-tag" style="background:#E0E7FF;color:#3730A3;border:1px solid #C7D2FE;font-weight:700;padding:3px 9px;border-radius:6px;font-size:12px;display:inline-flex;align-items:center;gap:6px;">' +
-      escapeHtml(num) +
-      '<button type="button" class="btn-cell-add-cntr" data-act="remove-modal-single-cntr" data-id="' + c.id + '" data-cntr="' + escapeHtml(num) + '" title="Remove container ' + escapeHtml(num) + '" style="width:16px;height:16px;min-width:16px;font-size:10px;line-height:1;background:#FEE2E2;color:#DC2626;border-color:#FCA5A5;padding:0;cursor:pointer;">✕</button>' +
-    '</span>';
-  }).join(' ');
+  if(!containerNumbers.length){
+    containerNumbers.push('');
+  }
 
-  return '<div class="overlay"><div class="modal" style="max-width:580px;max-height:90vh;overflow-y:auto;">' +
-    '<div class="modal-head">' +
+  var invTitle = c.invoiceNo || c.jobNo || c.containerNo || 'Consignment';
+  var typeDesc = c.containerType || c.notes || 'FCL Shipment';
+
+  var rowsHtml = containerNumbers.map(function(num, idx){
+    return '<tr class="col-cntr-tr" data-row-idx="' + idx + '">' +
+      '<td style="font-weight:800;font-size:12px;color:var(--text-muted);text-align:center;width:32px;">' + (idx + 1) + '</td>' +
+      '<td>' +
+        '<input type="text" class="column-cntr-inp" value="' + escapeHtml(num) + '" placeholder="e.g. MSKU' + (1000000 + idx*111111) + '" oninput="updateColumnModalCount()">' +
+      '</td>' +
+      '<td style="text-align:center;width:44px;">' +
+        '<button type="button" class="btn-col-cntr-remove" data-act="remove-column-cntr-row" title="Delete container">✕</button>' +
+      '</td>' +
+    '</tr>';
+  }).join('');
+
+  return '<div class="overlay"><div class="modal" style="max-width:480px;padding:0;overflow:hidden;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,0.2);">' +
+    '<div class="modal-head" style="padding:14px 18px;border-bottom:1.5px solid var(--border-subtle);">' +
       '<div style="display:flex;align-items:center;gap:10px;">' +
-        '<span style="font-size:22px;">📦</span>' +
+        '<span style="font-size:20px;">📦</span>' +
         '<div>' +
-          '<h3 style="margin:0;font-size:17px;">Add / Assign Container Numbers</h3>' +
-          '<div style="font-size:12px;color:var(--text-muted);margin-top:2px;">Job / Order <strong>#' + escapeHtml(c.jobNo || c.containerNo) + '</strong> &bull; ' + escapeHtml(c.shippingLine || 'Carrier') + '</div>' +
+          '<h3 style="margin:0;font-size:16px;color:var(--text-main);">Container Numbers</h3>' +
+          '<div style="font-size:12px;color:var(--text-muted);margin-top:2px;">' +
+            'Invoice <strong>#' + escapeHtml(invTitle) + '</strong> &bull; ' + escapeHtml(typeDesc) +
+          '</div>' +
         '</div>' +
       '</div>' +
       '<button class="circle-btn" data-act="close-modal">✕</button>' +
     '</div>' +
 
-    '<div class="modal-body" style="padding:18px 24px;">' +
-      '<!-- Order Summary Strip -->' +
-      '<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:10px;background:var(--bg-hover);border:1px solid var(--border-card);border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:14px;">' +
-        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Package / Quantity</span><strong>' + escapeHtml(c.containerType || c.notes || '—') + '</strong></div>' +
-        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">Vessel &amp; Voyage</span>' + escapeHtml(c.vesselName || '—') + (c.voyageNo ? ' v.' + escapeHtml(c.voyageNo) : '') + '</div>' +
-        '<div><span style="color:var(--text-muted);display:block;font-size:11px;">ETA &amp; Port</span>' + fmtDate(c.eta) + ' (' + escapeHtml(c.dischargePort || c.location || '—') + ')</div>' +
+    '<div class="modal-body" style="padding:16px 18px;max-height:60vh;overflow-y:auto;">' +
+      '<table class="column-cntr-table">' +
+        '<thead>' +
+          '<tr>' +
+            '<th style="width:36px;text-align:center;">#</th>' +
+            '<th>Container Number</th>' +
+            '<th style="width:44px;text-align:center;">Delete</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody id="columnCntrTableBody">' +
+          rowsHtml +
+        '</tbody>' +
+      '</table>' +
+
+      '<div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">' +
+        '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="add-column-cntr-row" style="font-weight:700;display:inline-flex;align-items:center;gap:4px;">' +
+          '<span>+</span> Add Container Row' +
+        '</button>' +
+        '<button type="button" class="btn-link-sm" data-act="toggle-bulk-paste-section" style="font-size:11.5px;color:#2563EB;background:none;border:none;cursor:pointer;text-decoration:underline;">' +
+          '📋 Paste multiple numbers' +
+        '</button>' +
       '</div>' +
 
-      '<div style="margin-bottom:14px;background:var(--bg-card);border:1.5px solid var(--border-subtle);border-radius:8px;padding:12px 14px;">' +
-        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">' +
-          '<div style="font-size:12px;font-weight:700;color:var(--text-main);">Current Assigned Containers (' + cNumbers.length + '):</div>' +
-          (cNumbers.length > 0 ? '<button type="button" class="btn-pill btn-pill-danger btn-pill-sm" data-act="clear-all-modal-cntrs" data-id="' + c.id + '" style="font-size:10.5px;padding:2px 8px;cursor:pointer;">Clear All</button>' : '') +
+      '<div id="bulkPasteSection" style="display:none;margin-top:12px;background:var(--bg-hover);padding:10px 12px;border-radius:8px;border:1px dashed var(--border-card);">' +
+        '<label style="font-size:11px;font-weight:700;color:var(--text-muted);display:block;margin-bottom:4px;">Paste list from Excel or clipboard (new line, comma or space):</label>' +
+        '<textarea id="quickPasteInput" rows="3" style="width:100%;font-family:JetBrains Mono, monospace;font-size:12px;padding:6px 8px;border-radius:6px;border:1px solid var(--border-card);background:var(--bg-input);color:var(--text-main);resize:vertical;" placeholder="MSKU1234567&#10;MSKU2345678&#10;MSKU3456789"></textarea>' +
+        '<div style="text-align:right;margin-top:6px;">' +
+          '<button type="button" class="btn-pill btn-pill-primary btn-pill-sm" data-act="apply-bulk-paste" style="font-size:11px;padding:3px 10px;">Apply to Column List</button>' +
         '</div>' +
-        (cNumbers.length > 0 ?
-          '<div style="display:flex;flex-wrap:wrap;gap:6px;max-height:130px;overflow-y:auto;padding:2px 0;">' + chips + '</div>' :
-          '<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No container numbers assigned yet (placeholder: ' + escapeHtml(c.containerNo || '—') + ')</div>'
-        ) +
       '</div>' +
-
-      '<div class="stage-callout-card" style="margin-bottom:14px;background:#F0FDF4;border:1px solid #BBF7D0;padding:10px 12px;border-radius:8px;display:flex;gap:10px;align-items:flex-start;">' +
-        '<div style="font-size:18px;">💡</div>' +
-        '<div style="font-size:12px;color:#166534;line-height:1.45;">' +
-          '<strong>Bulk Container Entry:</strong> Paste or type multiple container numbers below. All numbers will be assigned to this Job and shown directly in its <strong>CONTAINER NO.</strong> field without duplicating table rows.' +
-        '</div>' +
-      '</div>' +
-
-      '<div class="field">' +
-        '<label style="font-weight:700;font-size:12.5px;margin-bottom:6px;display:block;">Add Container Number(s) <span style="font-weight:normal;color:var(--text-muted);font-size:11px;">(Separate by new line, comma, or space)</span></label>' +
-        '<textarea id="bulkContainerInput" rows="4" placeholder="Paste or type container numbers here...&#10;e.g.&#10;MSKU1234567&#10;MSKU2345678&#10;MSKU3456789" style="width:100%;font-family:JetBrains Mono, monospace;font-size:13px;padding:10px 12px;border:1.5px solid var(--border-card);border-radius:8px;background:var(--bg-input);color:var(--text-main);resize:vertical;" oninput="updateBulkPreview(this.value)"></textarea>' +
-      '</div>' +
-
-      '<div id="bulkContainerPreview" style="margin-top:10px;display:none;"></div>' +
     '</div>' +
 
-    '<div class="modal-foot" style="padding:14px 24px;border-top:1px solid var(--border-card);display:flex;justify-content:space-between;align-items:center;">' +
-      '<span id="bulkContainerCountLabel" style="font-size:12px;font-weight:700;color:var(--forest-dark);"></span>' +
-      '<div style="display:flex;gap:10px;">' +
-        '<button type="button" class="btn-pill btn-pill-secondary" data-act="close-modal">Close</button>' +
-        '<button type="button" class="btn-pill btn-pill-primary" data-act="save-bulk-containers" data-id="' + c.id + '">💾 Save Container Numbers</button>' +
+    '<div class="modal-foot" style="padding:12px 18px;border-top:1px solid var(--border-card);display:flex;justify-content:space-between;align-items:center;">' +
+      '<span id="colCntrTotalCount" style="font-size:12px;font-weight:700;color:var(--text-muted);">' + containerNumbers.filter(Boolean).length + ' Container(s)</span>' +
+      '<div style="display:flex;gap:8px;">' +
+        '<button type="button" class="btn-pill btn-pill-secondary btn-pill-sm" data-act="close-modal">Cancel</button>' +
+        '<button type="button" class="btn-pill btn-pill-primary btn-pill-sm" data-act="save-column-containers" data-id="' + c.id + '" style="font-weight:700;">💾 Save Containers</button>' +
       '</div>' +
     '</div>' +
   '</div></div>';
@@ -7560,6 +8205,23 @@ window.updateStage3ButtonState = function(){
     btn.className = 'btn-stage-confirm';
     btn.style.background = '#2563EB';
     btn.style.borderColor = '#2563EB';
+  }
+};
+
+window.handleStage3LocationChange = function(selectEl){
+  if(!selectEl) return;
+  var banner = selectEl.closest('.plan-banner-pink');
+  if(!banner) return;
+  var val = (selectEl.value || '').trim();
+  var icon = banner.querySelector('.banner-title span');
+  if(val){
+    banner.classList.add('is-selected');
+    selectEl.style.borderColor = '#10B981';
+    if(icon) icon.textContent = '✅';
+  } else {
+    banner.classList.remove('is-selected');
+    selectEl.style.borderColor = '#F43F5E';
+    if(icon) icon.textContent = '📍';
   }
 };
 
@@ -7669,6 +8331,9 @@ document.addEventListener('change', function(e){
   if(e.target && e.target.type === 'date'){
     window.syncMilestoneCardState(e.target);
   }
+  if(e.target && e.target.name === 'location'){
+    window.handleStage3LocationChange(e.target);
+  }
 });
 
 window.updateAllMilestoneCardStates = function(root){
@@ -7749,6 +8414,15 @@ window.updateStage3DemurrageCalc = function(){
     if(remSubEl) remSubEl.textContent = 'Demurrage penalty active!';
     if(pillEl){ pillEl.textContent = 'Demurrage Penalty'; pillEl.className = 'pill pill-over'; }
   }
+};
+
+window.autoFillStage2MilestonesToday = function(){
+  var fields = ['efmJobRegDate', 'draftApprovalDate', 'gstExceptApplDate', 'ircApprovalDate', 'customsApprovalDate', 'assessmentDate', 'whChargesPaidDate', 'ptlDate', 'deliveryOrder', 'gatePass', 'fullDischargeDate'];
+  fields.forEach(function(f){
+    window.setTodayForField(f);
+  });
+  if(window.updateStage2PortStorageCalc) window.updateStage2PortStorageCalc();
+  showToast('⚡ Auto-filled all Stage 2 milestones with today\'s date!');
 };
 
 function renderContainerModal(id){
@@ -7864,24 +8538,19 @@ function renderContainerModal(id){
         '</div>'+
       '</div>'+
       (mode==='bulk'
-        ? '<div class="grid3" style="margin-top:10px;">'+
-            field('Job No. *','text','jobNo',c.jobNo,true)+
-            field('Bill of Lading #','text','billNo',c.billNo)+
-            field('PPL #','text','pplNo',c.pplNo)+
+        ? '<div class="grid2" style="margin-top:10px;">'+
+            field('Invoice # *','text','invoiceNo',c.invoiceNo||'',true)+
+            field('PPL #','text','pplNo',c.pplNo||'')+
           '</div>'+
           '<div class="field" style="margin-top:10px;"><label>Container Numbers * (Separate by new line or comma)</label>'+
             '<textarea name="containerNumbers" rows="4" placeholder="SWIU1234567\nMSKU7654321" required>'+escapeHtml(bulkNumbers)+'</textarea>'+
           '</div>'
         : '<div class="grid3" style="margin-top:10px;">'+
-            field('Job No. *','text','jobNo',c.jobNo,true)+
-            field('Bill of Lading #','text','billNo',c.billNo)+
+            field('Invoice # *','text','invoiceNo',c.invoiceNo||'',true)+
             field('Container No. *','text','containerNo',c.containerNo,true)+
+            field('PPL #','text','pplNo',c.pplNo||'')+
           '</div>'
       )+
-      '<div class="grid2" style="margin-top:10px;">'+
-        field('Invoice #','text','invoiceNo',c.invoiceNo||'')+
-        field('PPL #','text','pplNo',c.pplNo||'')+
-      '</div>'+
       '<div class="grid2" style="margin-top:10px;">'+
         field('Vessel','text','vesselName',c.vesselName)+
         field('Voyage','text','voyageNo',c.voyageNo)+
@@ -7905,6 +8574,10 @@ function renderContainerModal(id){
       '<!-- STAGE 2: CUSTOMS CLEARANCE -->'+
       '<div class="formsection" style="border-left:4px solid #EA580C;padding-left:10px;background:#FFF7ED;padding:8px 12px;border-radius:6px;color:#C2410C;font-weight:800;margin-top:20px;">'+
         'Stage 2: Customs Clearance Milestones &amp; Port Storage'+
+      '</div>'+
+      '<div class="grid2" style="margin-top:10px;background:#FFEDD5;padding:10px 12px;border-radius:8px;border:1px solid #FDBA74;">'+
+        field('Job No. (Assigned in Stage 2)','text','jobNo',c.jobNo||'')+
+        field('Bill of Lading # (B/L)','text','billNo',c.billNo||'')+
       '</div>'+
       '<div class="grid2" style="margin-top:10px;">'+
         field('1. EFM JOB REG','date','efmJobRegDate',c.efmJobRegDate||c.jobRegisterDate)+
@@ -8239,23 +8912,30 @@ function renderAdvanceStageModal(id, targetStage){
 
     var currentContStatus = c.continueStatus || ((c.emptyReturnDate || c.emptyCollectedDate) ? 'Completed' : 'Unloading in Progress');
 
-    var locationOpts = [
-      { val: LOCATIONS.PANAMEX, label: '1B - Panamex Yard (1B)' },
-      { val: LOCATIONS.AGENT, label: '6A - Agent Yard (6A)' }
-    ].map(function(l){
-      var isSel = (c.location === l.val || (!c.location && l.val === LOCATIONS.PANAMEX) || (c.location === '1B' && l.val === LOCATIONS.PANAMEX) || (c.location === '6A' && l.val === LOCATIONS.AGENT));
-      return '<option value="' + escapeHtml(l.val) + '"' + (isSel ? ' selected' : '') + '>' + escapeHtml(l.label) + '</option>';
-    }).join('');
+    var hasAlreadyMoved = !!(c.stage3Moved || c.unloadingStartsDate || c.unloadingCompletedDate || c.fullDeliveryToPmxDate || c.emptyCollectedDate || c.emptyReturnDate || c.continueStatus === 'Unloading in Progress');
+    var currentLoc = (hasAlreadyMoved && c.location) ? c.location : '';
+    if(currentLoc === '1B') currentLoc = LOCATIONS.PANAMEX;
+    if(currentLoc === '6A') currentLoc = LOCATIONS.AGENT;
+    var hasLoc = !!(currentLoc && (currentLoc === LOCATIONS.PANAMEX || currentLoc === LOCATIONS.AGENT));
+
+    var locationOpts = '<option value=""' + (!hasLoc ? ' selected' : '') + ' style="color:#6B7280;">Select Location</option>' +
+      [
+        { val: LOCATIONS.PANAMEX, label: '1B - Panamex Yard (1B)' },
+        { val: LOCATIONS.AGENT, label: '6A - Agent Yard (6A)' }
+      ].map(function(l){
+        var isSel = (currentLoc === l.val);
+        return '<option value="' + escapeHtml(l.val) + '"' + (isSel ? ' selected' : '') + '>' + escapeHtml(l.label) + '</option>';
+      }).join('');
 
     bodyContentHtml = stepHtml +
       infoStripHtml +
       '<input type="hidden" id="stage3HiddenDischargeDate" value="' + escapeHtml(dischargeBase) + '">' +
 
-      '<!-- TOP PINK BANNER: CONTAINER LOCATION (COMPACT HORIZONTAL BAR) -->' +
-      '<div class="plan-banner-pink" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 18px;">' +
-        '<div class="banner-title" style="margin:0;"><span>📍</span> Container Location (Dropdown 6A / 1B)</div>' +
+      '<!-- TOP CONTAINER LOCATION BANNER (RED WHEN UNSELECTED, GREEN WHEN SELECTED) -->' +
+      '<div class="plan-banner-pink' + (hasLoc ? ' is-selected' : '') + '" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 18px;margin-bottom:14px;">' +
+        '<div class="banner-title" style="margin:0;"><span>' + (hasLoc ? '✅' : '📍') + '</span> Target Container Location (Dropdown 1B / 6A)</div>' +
         '<div style="flex:1;max-width:380px;">' +
-          '<select name="location" required style="border:1.5px solid #F43F5E;height:34px;padding:0 10px;border-radius:6px;width:100%;font-weight:700;font-size:12.5px;box-sizing:border-box;">' +
+          '<select name="location" required onchange="window.handleStage3LocationChange(this)" style="border:1.5px solid ' + (hasLoc ? '#10B981' : '#F43F5E') + ';height:34px;padding:0 10px;border-radius:6px;width:100%;font-weight:700;font-size:12.5px;box-sizing:border-box;">' +
             locationOpts +
           '</select>' +
         '</div>' +
@@ -8538,6 +9218,7 @@ function submitAdvanceStageForm(form){
       }
     }
 
+    targetItem.stage3Moved = true;
     targetItem.location = location;
     targetItem.yardLocation = location;
     targetItem.fullDeliveryToPmxDate = fullDeliveryToPmxDate;
@@ -8612,25 +9293,33 @@ function renderBulkAdvanceStageModal(targetStage){
   if(!selectedItems.length) return '';
 
   var isToStage2 = (targetStage === 'stage2');
+  var targetContainers = selectedItems.filter(function(x){
+    return isToStage2 ? (computeStage(x) === STAGE.SHIPPING) : (computeStage(x) === STAGE.CONTROL);
+  });
+  if(!targetContainers.length){
+    targetContainers = selectedItems;
+  }
   var today = todayStr();
 
-  // Unique job numbers
+  // Unique invoice & job numbers
+  var invoiceNos = [];
   var jobNos = [];
-  selectedItems.forEach(function(c){
+  targetContainers.forEach(function(c){
+    if(c.invoiceNo && invoiceNos.indexOf(c.invoiceNo) === -1) invoiceNos.push(c.invoiceNo);
     if(c.jobNo && jobNos.indexOf(c.jobNo) === -1) jobNos.push(c.jobNo);
   });
 
   // Unique carriers
   var carriers = [];
-  selectedItems.forEach(function(c){
+  targetContainers.forEach(function(c){
     if(c.shippingLine && carriers.indexOf(c.shippingLine) === -1) carriers.push(c.shippingLine);
   });
 
-  var first = selectedItems[0];
+  var first = targetContainers[0] || selectedItems[0];
   var defaultJobNo = jobNos.length === 1 ? jobNos[0] : '';
   var defaultBillNo = (function(){
     var bills = [];
-    selectedItems.forEach(function(c){ if(c.billNo && bills.indexOf(c.billNo) === -1) bills.push(c.billNo); });
+    targetContainers.forEach(function(c){ if(c.billNo && bills.indexOf(c.billNo) === -1) bills.push(c.billNo); });
     return bills.length === 1 ? bills[0] : '';
   })();
 
@@ -8691,18 +9380,21 @@ function renderBulkAdvanceStageModal(targetStage){
   }
 
   // Selected Containers Banner
-  var containerChipsHtml = selectedItems.map(function(c){
-    return '<span class="mono-tag" style="background:#E0E7FF;color:#3730A3;font-size:12px;font-weight:700;padding:3px 8px;border-radius:6px;border:1px solid #C7D2FE;display:inline-flex;align-items:center;gap:4px;">' +
-      '📦 ' + escapeHtml(c.containerNo || c.id) +
-      (c.jobNo ? ' <span style="font-size:10px;color:#4F46E5;">(#' + escapeHtml(c.jobNo) + ')</span>' : '') +
+  var containerChipsHtml = targetContainers.map(function(c){
+    var tagText = c.jobNo ? ('#' + c.jobNo) : (c.invoiceNo ? ('Inv #' + c.invoiceNo) : '');
+    return '<span class="mono-tag bulk-cntr-chip" data-id="' + c.id + '" style="background:#E0E7FF;color:#3730A3;font-size:12px;font-weight:700;padding:3px 6px 3px 8px;border-radius:6px;border:1px solid #C7D2FE;display:inline-flex;align-items:center;gap:6px;">' +
+      '<span>📦 ' + escapeHtml(c.containerNo || c.id) +
+      (tagText ? ' <span style="font-size:10px;color:#4F46E5;">(' + escapeHtml(tagText) + ')</span>' : '') + '</span>' +
+      '<button type="button" class="btn-bulk-chip-remove" data-act="remove-bulk-selected-container" data-id="' + c.id + '" title="Remove ' + escapeHtml(c.containerNo || c.id) + ' from selection" style="border:none;background:#C7D2FE;color:#312E81;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:900;cursor:pointer;padding:0;line-height:1;margin-left:2px;transition:all 0.15s ease;" onmouseover="this.style.background=\'#EF4444\';this.style.color=\'#fff\';" onmouseout="this.style.background=\'#C7D2FE\';this.style.color=\'#312E81\';">✕</button>' +
     '</span>';
   }).join(' ');
 
   var infoStripHtml = '<div style="background:var(--bg-card);border:1.5px solid var(--border-card);border-radius:10px;padding:12px 16px;margin-bottom:14px;">' +
     '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">' +
       '<div style="font-size:13px;font-weight:800;color:var(--text-main);display:flex;align-items:center;gap:8px;">' +
-        '<span style="background:#2563EB;color:#fff;padding:2px 8px;border-radius:12px;font-size:11.5px;">✓ ' + selectedItems.length + ' Containers Selected</span>' +
-        (jobNos.length > 0 ? ('<span style="color:var(--text-muted);font-size:12px;">Job #' + escapeHtml(jobNos.join(', ')) + '</span>') : '') +
+        '<span id="bulkSelectedCountBadge" style="background:#2563EB;color:#fff;padding:2px 8px;border-radius:12px;font-size:11.5px;">✓ ' + targetContainers.length + ' Container' + (targetContainers.length > 1 ? 's' : '') + ' Selected</span>' +
+        (jobNos.length > 0 ? ('<span style="color:var(--text-muted);font-size:12px;">Job #' + escapeHtml(jobNos.join(', ')) + '</span>') :
+         (invoiceNos.length > 0 ? ('<span style="color:var(--text-muted);font-size:12px;">Invoice #' + escapeHtml(invoiceNos.join(', ')) + '</span>') : '')) +
       '</div>' +
       (carriers.length > 0 ? ('<div style="font-size:12px;color:var(--text-muted);">Carrier: <strong>' + escapeHtml(carriers.join(', ')) + '</strong></div>') : '') +
     '</div>' +
@@ -8721,7 +9413,10 @@ function renderBulkAdvanceStageModal(targetStage){
 
       '<!-- TOP ORANGE BANNER: BULK JOB & BILL -->' +
       '<div class="plan-banner-orange" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 18px;margin-bottom:14px;">' +
-        '<div class="banner-title" style="margin:0;"><span>📝</span> Bulk Stage 2: Customs Clearance Formalities</div>' +
+        '<div class="banner-title" style="margin:0;display:flex;align-items:center;gap:10px;">' +
+          '<span>📝</span> Bulk Stage 2: Customs Clearance Formalities' +
+          '<button type="button" class="btn-pill btn-pill-sm" onclick="window.autoFillStage2MilestonesToday()" style="background:#059669;color:#fff;border:none;font-size:11px;font-weight:700;padding:3px 10px;cursor:pointer;border-radius:20px;box-shadow:0 2px 6px rgba(5,150,105,0.3);">⚡ Auto-Fill All Today</button>' +
+        '</div>' +
         '<div style="display:flex;align-items:center;gap:16px;flex:1;max-width:580px;justify-content:flex-end;">' +
           '<div style="display:flex;align-items:center;gap:8px;flex:1;">' +
             '<label style="font-size:11px;font-weight:800;color:#C2410C;white-space:nowrap;">JOB # <span style="color:#EF4444;">*</span></label>' +
@@ -8790,7 +9485,7 @@ function renderBulkAdvanceStageModal(targetStage){
           '</div>' +
 
           '<div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px;font-size:11.5px;color:#92400E;line-height:1.4;">' +
-            '<strong>Bulk Stage 2 Advance:</strong> All ' + selectedItems.length + ' selected containers will advance simultaneously to Stage 2: Yard Control. Demurrage free days will activate from Full Discharge Date.' +
+            '<strong>Bulk Stage 2 Advance:</strong> All ' + targetContainers.length + ' selected containers will advance simultaneously to Stage 2: Yard Control. Demurrage free days will activate from Full Discharge Date.' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -8798,21 +9493,22 @@ function renderBulkAdvanceStageModal(targetStage){
     // STAGE 3: CONTAINER CONTROL & EMPTY RETURN
     var currentContStatus = 'Unloading in Progress';
 
-    var locationOpts = [
-      { val: LOCATIONS.PANAMEX, label: '1B - Panamex Yard (1B)' },
-      { val: LOCATIONS.AGENT, label: '6A - Agent Yard (6A)' }
-    ].map(function(l){
-      return '<option value="' + escapeHtml(l.val) + '">' + escapeHtml(l.label) + '</option>';
-    }).join('');
+    var locationOpts = '<option value="" selected style="color:#6B7280;">Select Location</option>' +
+      [
+        { val: LOCATIONS.PANAMEX, label: '1B - Panamex Yard (1B)' },
+        { val: LOCATIONS.AGENT, label: '6A - Agent Yard (6A)' }
+      ].map(function(l){
+        return '<option value="' + escapeHtml(l.val) + '">' + escapeHtml(l.label) + '</option>';
+      }).join('');
 
     bodyContentHtml = stepHtml +
       infoStripHtml +
 
-      '<!-- TOP PINK BANNER: CONTAINER LOCATION -->' +
+      '<!-- TOP CONTAINER LOCATION BANNER (RED WHEN UNSELECTED, GREEN WHEN SELECTED) -->' +
       '<div class="plan-banner-pink" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:10px 18px;margin-bottom:14px;">' +
         '<div class="banner-title" style="margin:0;"><span>📍</span> Target Container Location (Dropdown 1B / 6A)</div>' +
         '<div style="flex:1;max-width:380px;">' +
-          '<select name="location" required style="border:1.5px solid #F43F5E;height:34px;padding:0 10px;border-radius:6px;width:100%;font-weight:700;font-size:12.5px;box-sizing:border-box;">' +
+          '<select name="location" required onchange="window.handleStage3LocationChange(this)" style="border:1.5px solid #F43F5E;height:34px;padding:0 10px;border-radius:6px;width:100%;font-weight:700;font-size:12.5px;box-sizing:border-box;">' +
             locationOpts +
           '</select>' +
         '</div>' +
@@ -8878,8 +9574,8 @@ function renderBulkAdvanceStageModal(targetStage){
   }
 
   var submitBtnText = isToStage2 
-    ? ('🚚 Confirm &amp; Move all ' + selectedItems.length + ' to Stage 2') 
-    : ('💾 Update all ' + selectedItems.length + ' Containers for Stage 3');
+    ? ('🚚 Confirm &amp; Move all ' + targetContainers.length + ' to Stage 2') 
+    : ('💾 Update all ' + targetContainers.length + ' Containers for Stage 3');
 
   return '<div class="overlay"><div class="modal modal-stage-procedure">' +
     '<div class="modal-stage-header">' +
@@ -8887,7 +9583,7 @@ function renderBulkAdvanceStageModal(targetStage){
         '<h3>' +
           (isToStage2 ? '🚚 Bulk Stage 2: Customs Clearance Formalities' : '📦 Bulk Stage 3: Container Control &amp; Empty Return') +
         '</h3>' +
-        '<div class="modal-stage-subtitle">PANAMAX Multi-Container Batch Operation &bull; ' + selectedItems.length + ' Containers Selected</div>' +
+        '<div class="modal-stage-subtitle" id="bulkModalSubtitle">PANAMAX Multi-Container Batch Operation &bull; ' + targetContainers.length + ' Containers Selected</div>' +
       '</div>' +
       '<button class="circle-btn" data-act="close-modal">✕</button>' +
     '</div>' +
@@ -8897,7 +9593,7 @@ function renderBulkAdvanceStageModal(targetStage){
       '</div>' +
       '<div class="modal-stage-footer">' +
         '<button type="button" class="btn-stage-cancel" data-act="close-modal">Cancel</button>' +
-        '<button type="submit" class="btn-stage-confirm">' +
+        '<button type="submit" class="btn-stage-confirm" id="bulkStageSubmitBtn">' +
           submitBtnText +
         '</button>' +
       '</div>' +
@@ -8944,7 +9640,7 @@ function submitBulkAdvanceStageForm(form){
     }
 
     state.containers.forEach(function(c){
-      if(selectedIds.indexOf(c.id) !== -1){
+      if(selectedIds.indexOf(c.id) !== -1 && computeStage(c) === STAGE.SHIPPING){
         if(jobNo) c.jobNo = jobNo;
         if(billNo) c.billNo = billNo;
         if(efmJobRegDate){ c.efmJobRegDate = efmJobRegDate; c.jobRegisterDate = efmJobRegDate; }
@@ -9015,7 +9711,8 @@ function submitBulkAdvanceStageForm(form){
     }
 
     state.containers.forEach(function(c){
-      if(selectedIds.indexOf(c.id) !== -1){
+      if(selectedIds.indexOf(c.id) !== -1 && computeStage(c) === STAGE.CONTROL){
+        c.stage3Moved = true;
         c.location = location;
         c.yardLocation = location;
         if(fullDeliveryToPmxDate) c.fullDeliveryToPmxDate = fullDeliveryToPmxDate;
@@ -10063,11 +10760,96 @@ function bootEvents(){
         saveAllImportedContainers();
         break;
       case 'open-bulk-cntr-modal':
+        var targetCnt = state.containers.find(function(x){ return x.id === id; }) || (state.clearanceShipments || []).find(function(x){ return x.id === id; });
+        if(targetCnt && computeStage(targetCnt) !== STAGE.SHIPPING){
+          showToast('⚠️ Adding containers is only allowed in Stage 1: Shipping (pre-clearance).');
+          break;
+        }
         state.modal = { type: 'bulkContainerAdd', id: id };
         render();
         break;
       case 'save-bulk-containers':
-        saveBulkContainersFromModal(t.getAttribute('data-id'));
+      case 'save-column-containers':
+        saveColumnContainersFromModal(t.getAttribute('data-id'));
+        break;
+      case 'add-column-cntr-row':
+        var tbody = document.getElementById('columnCntrTableBody');
+        if(tbody){
+          var count = tbody.querySelectorAll('tr').length + 1;
+          var tr = document.createElement('tr');
+          tr.className = 'col-cntr-tr';
+          tr.innerHTML = '<td style="font-weight:800;font-size:12px;color:var(--text-muted);text-align:center;width:32px;">' + count + '</td>' +
+            '<td><input type="text" class="column-cntr-inp" value="" placeholder="e.g. MSKU' + (1000000 + count*111111) + '" oninput="updateColumnModalCount()"></td>' +
+            '<td style="text-align:center;width:44px;"><button type="button" class="btn-col-cntr-remove" data-act="remove-column-cntr-row" title="Delete container">✕</button></td>';
+          tbody.appendChild(tr);
+          var newInp = tr.querySelector('input');
+          if(newInp) newInp.focus();
+          updateColumnModalCount();
+        }
+        break;
+      case 'remove-column-cntr-row':
+        var tr = t.closest('tr');
+        if(tr){
+          var pBody = tr.parentNode;
+          tr.remove();
+          if(pBody){
+            pBody.querySelectorAll('tr').forEach(function(r, i){
+              var tdNum = r.querySelector('td:first-child');
+              if(tdNum) tdNum.textContent = String(i + 1);
+            });
+          }
+          updateColumnModalCount();
+        }
+        break;
+      case 'toggle-bulk-paste-section':
+        var sec = document.getElementById('bulkPasteSection');
+        if(sec){
+          var isHidden = (sec.style.display === 'none' || !sec.style.display);
+          sec.style.display = isHidden ? 'block' : 'none';
+          if(isHidden){
+            var qInp = document.getElementById('quickPasteInput');
+            if(qInp) qInp.focus();
+          }
+        }
+        break;
+      case 'apply-bulk-paste':
+        var pInp = document.getElementById('quickPasteInput');
+        var rawText = pInp ? pInp.value : '';
+        var toks = String(rawText || '').split(/[\r\n,;\t ]+/).map(function(s){ return s.trim().toUpperCase(); }).filter(Boolean);
+        if(toks.length){
+          var colBody = document.getElementById('columnCntrTableBody');
+          if(colBody){
+            var existingInps = Array.from(colBody.querySelectorAll('input.column-cntr-inp'));
+            var tokIdx = 0;
+            existingInps.forEach(function(inp){
+              if(!inp.value.trim() && tokIdx < toks.length){
+                inp.value = toks[tokIdx++];
+              }
+            });
+            for(; tokIdx < toks.length; tokIdx++){
+              var cIdx = colBody.querySelectorAll('tr').length + 1;
+              var newTr = document.createElement('tr');
+              newTr.className = 'col-cntr-tr';
+              newTr.innerHTML = '<td style="font-weight:800;font-size:12px;color:var(--text-muted);text-align:center;width:32px;">' + cIdx + '</td>' +
+                '<td><input type="text" class="column-cntr-inp" value="' + escapeHtml(toks[tokIdx]) + '" oninput="updateColumnModalCount()"></td>' +
+                '<td style="text-align:center;width:44px;"><button type="button" class="btn-col-cntr-remove" data-act="remove-column-cntr-row" title="Delete container">✕</button></td>';
+              colBody.appendChild(newTr);
+            }
+            pInp.value = '';
+            var pasteSec = document.getElementById('bulkPasteSection');
+            if(pasteSec) pasteSec.style.display = 'none';
+            updateColumnModalCount();
+            showToast('✓ Added ' + toks.length + ' container(s) to column list');
+          }
+        }
+        break;
+      case 'toggle-expand-containers':
+        state.expandedContainerGroups = state.expandedContainerGroups || {};
+        var grpKey = t.getAttribute('data-group') || id;
+        if(grpKey){
+          state.expandedContainerGroups[grpKey] = !state.expandedContainerGroups[grpKey];
+          renderContentOnly();
+        }
         break;
       case 'remove-modal-single-cntr':
         var rmId = t.getAttribute('data-id');
@@ -10119,13 +10901,67 @@ function bootEvents(){
         break;
       case 'open-advance-stage':
         var targetStage = t.getAttribute('data-stage') || 'stage2';
-        state.modal = { type: 'advanceStage', id: id, targetStage: targetStage };
+        if(state.selectedContainerIds && state.selectedContainerIds.length > 1 && state.selectedContainerIds.indexOf(id) !== -1){
+          state.modal = { type: 'bulkAdvanceStage', targetStage: targetStage };
+        } else {
+          state.modal = { type: 'advanceStage', id: id, targetStage: targetStage };
+        }
         render();
         break;
       case 'open-bulk-advance-stage':
         var bTargetStage = t.getAttribute('data-stage') || 'stage2';
         state.modal = { type: 'bulkAdvanceStage', targetStage: bTargetStage };
         render();
+        break;
+      case 'remove-bulk-selected-container':
+        var remId = t.getAttribute('data-id');
+        if(remId){
+          state.selectedContainerIds = (state.selectedContainerIds || []).filter(function(x){ return x !== remId; });
+          var chip = t.closest('.bulk-cntr-chip') || t.parentElement;
+          if(chip) chip.remove();
+
+          var remCount = (state.selectedContainerIds || []).length;
+
+          // Uncheck corresponding checkbox in main table & remove row highlight
+          var tblChk = document.querySelector('.cntr-row-chk[data-id="' + remId + '"]');
+          if(tblChk){
+            tblChk.checked = false;
+            var tr = tblChk.closest('tr');
+            if(tr) tr.classList.remove('row-selected');
+          }
+
+          if(remCount === 0){
+            state.modal = null;
+            render();
+            showToast('All containers removed from batch selection.');
+            break;
+          }
+
+          // Update count badge in modal
+          var cntBadge = document.getElementById('bulkSelectedCountBadge');
+          if(cntBadge){
+            cntBadge.textContent = '✓ ' + remCount + ' Container' + (remCount > 1 ? 's' : '') + ' Selected';
+          }
+
+          // Update modal header subtitle
+          var subTitleEl = document.getElementById('bulkModalSubtitle') || document.querySelector('.modal-stage-subtitle');
+          if(subTitleEl){
+            subTitleEl.innerHTML = 'PANAMAX Multi-Container Batch Operation &bull; ' + remCount + ' Container' + (remCount > 1 ? 's' : '') + ' Selected';
+          }
+
+          // Update submit button text
+          var submitBtn = document.getElementById('bulkStageSubmitBtn') || document.querySelector('#bulkAdvanceStageForm button[type="submit"]');
+          if(submitBtn){
+            var isStage2Form = (document.getElementById('bulkAdvanceStageForm') && document.getElementById('bulkAdvanceStageForm').getAttribute('data-target') === 'stage2');
+            if(isStage2Form){
+              submitBtn.innerHTML = '🚚 Confirm &amp; Move all ' + remCount + ' to Stage 2';
+            } else {
+              submitBtn.innerHTML = '💾 Update all ' + remCount + ' Containers for Stage 3';
+            }
+          }
+
+          showToast('✓ Container removed (' + remCount + ' remaining in batch)');
+        }
         break;
       case 'clear-selected-containers':
         state.selectedContainerIds = [];
@@ -10315,6 +11151,57 @@ function bootEvents(){
     if((t.id === 'modalExcelFileInput' || t.matches('#modalExcelFileInput')) && t.files && t.files[0]){
       handleExcelFileImport(t.files[0]);
     }
+    if(t.id === 'selectAllContainersChk' || t.matches('#selectAllContainersChk')){
+      var visibleContainers = filteredContainers();
+      if(t.checked){
+        state.selectedContainerIds = visibleContainers.map(function(c){ return c.id; });
+      } else {
+        state.selectedContainerIds = [];
+      }
+      renderContentOnly();
+    }
+    if(t.matches('.cntr-row-chk')){
+      var rId = t.getAttribute('data-id');
+      var gKey = t.getAttribute('data-group-key');
+      state.selectedContainerIds = state.selectedContainerIds || [];
+
+      if(gKey){
+        var grpItems = [];
+        var matchedCnt = state.containers.find(function(x){ return x.id === rId; });
+        if(matchedCnt){
+          var jVal = (matchedCnt.jobNo || matchedCnt.invoiceNo || '').trim().toUpperCase();
+          var ctVal = (matchedCnt.containerType || matchedCnt.notes || '').trim().toUpperCase();
+          var pplVal = (matchedCnt.pplNo || '').trim().toUpperCase();
+
+          grpItems = state.containers.filter(function(x){
+            var xj = (x.jobNo || x.invoiceNo || '').trim().toUpperCase();
+            var xct = (x.containerType || x.notes || '').trim().toUpperCase();
+            var xppl = (x.pplNo || '').trim().toUpperCase();
+            if(jVal && ctVal){
+              return (xj === jVal && xct === ctVal && xppl === pplVal);
+            }
+            return (xj && jVal && xj === jVal);
+          });
+        }
+        if(!grpItems.length && matchedCnt) grpItems = [matchedCnt];
+        var gIds = grpItems.map(function(x){ return x.id; });
+
+        if(t.checked){
+          gIds.forEach(function(gid){
+            if(state.selectedContainerIds.indexOf(gid) === -1) state.selectedContainerIds.push(gid);
+          });
+        } else {
+          state.selectedContainerIds = state.selectedContainerIds.filter(function(x){ return gIds.indexOf(x) === -1; });
+        }
+      } else {
+        if(t.checked){
+          if(state.selectedContainerIds.indexOf(rId) === -1) state.selectedContainerIds.push(rId);
+        } else {
+          state.selectedContainerIds = state.selectedContainerIds.filter(function(x){ return x !== rId; });
+        }
+      }
+      renderContentOnly();
+    }
     if(t.matches('[data-filter]')){
       state.filters[t.getAttribute('data-filter')] = t.type==='checkbox'?t.checked:t.value;
       renderContentOnly();
@@ -10323,6 +11210,9 @@ function bootEvents(){
       var cfProp = t.getAttribute('data-clearance-filter');
       state.clearanceFilters[cfProp] = t.type==='checkbox'?t.checked:t.value;
       renderContentOnly();
+    }
+    if(t.matches('.cntr-inline-inp')){
+      saveInlineContainerCell(t);
     }
     if(t.matches('[data-report-field]')){
       state.reportState[t.getAttribute('data-report-field')] = t.value;
@@ -10355,6 +11245,7 @@ function bootEvents(){
     if(e.target.matches('#loginForm')){ e.preventDefault(); submitLoginForm(e.target); }
     if(e.target.matches('#loginNewForm')){ e.preventDefault(); submitNewUser(e.target); }
     if(e.target.matches('#advanceStageForm')){ e.preventDefault(); submitAdvanceStageForm(e.target); }
+    if(e.target.matches('#bulkAdvanceStageForm')){ e.preventDefault(); submitBulkAdvanceStageForm(e.target); }
   });
 
   app.addEventListener('dragover', function(e){
@@ -10380,6 +11271,21 @@ function bootEvents(){
   });
 
   window.addEventListener('keydown', function(e){
+    var t = e.target;
+    if(t && t.matches('.cntr-inline-inp')){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        saveInlineContainerCell(t);
+        var allInps = Array.from(document.querySelectorAll('.cntr-inline-inp'));
+        var idx = allInps.indexOf(t);
+        if(idx !== -1 && idx < allInps.length - 1){
+          allInps[idx + 1].focus();
+          allInps[idx + 1].select();
+        } else {
+          t.blur();
+        }
+      }
+    }
     if((e.ctrlKey && e.shiftKey && (e.key === 'D' || e.key === 'd')) || (e.altKey && (e.key === 't' || e.key === 'T'))){
       e.preventDefault();
       toggleTheme();
