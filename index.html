@@ -5749,50 +5749,66 @@ window.syncBulkContainerNosToStage2 = function(val){
 /* ============================================================
    CONTAINER UN-CONSOLIDATION & ROW FORMATTING HELPERS
    ============================================================ */
+function getRawStage(c){
+  if(!c) return STAGE.STAGE1;
+  if(c.operationalStage === STAGE.STAGE4 || c.operationalStage === 'Completed' || c.operationalStage === 'Returned' || c.status === STATUS.RETURNED) return STAGE.STAGE4;
+  if(c.operationalStage === STAGE.STAGE3 || c.stage3Moved) return STAGE.STAGE3;
+  if(c.operationalStage === STAGE.STAGE2 || c.stage2Moved || c.stage2InProgress) return STAGE.STAGE2;
+  return STAGE.STAGE1;
+}
+
+var _inGetAllContainers = false;
 function getAllContainersForConsignment(c){
   if(!c) return [];
-  var inv = (c.invoiceNo || '').trim().toUpperCase();
-  var j = (c.customsJobNo || c.jobNo || c.invoiceNo || '').trim().toUpperCase();
-  var ct = (c.containerType || c.notes || '').trim().toUpperCase();
-  var ppl = (c.pplNo || '').trim().toUpperCase();
-  var isPallet = isPalletOrNonContainerType(ct);
+  if(_inGetAllContainers) return [c];
+  _inGetAllContainers = true;
+  try {
+    var inv = (c.invoiceNo || '').trim().toUpperCase();
+    var j = (c.customsJobNo || c.jobNo || c.invoiceNo || '').trim().toUpperCase();
+    var ct = (c.containerType || c.notes || '').trim().toUpperCase();
+    var ppl = (c.pplNo || '').trim().toUpperCase();
+    var isPallet = isPalletOrNonContainerType(ct);
 
-  var isClearance = !!(state.clearanceShipments && state.clearanceShipments.some(function(x){ return x.id === c.id; }));
-  var list = isClearance ? (state.clearanceShipments || []) : (state.containers || []);
+    var isClearance = !!(state.clearanceShipments && state.clearanceShipments.some(function(x){ return x.id === c.id; }));
+    var list = isClearance ? (state.clearanceShipments || []) : (state.containers || []);
 
-  if(!inv && !j && !ppl && !ct) return [c];
+    if(!inv && !j && !ppl && !ct) return [c];
+    var cStage = getRawStage(c);
 
-  return list.filter(function(x){
-    if(x.id === c.id) return true;
-    var xInv = (x.invoiceNo || '').trim().toUpperCase();
-    var xj = (x.customsJobNo || x.jobNo || x.invoiceNo || '').trim().toUpperCase();
-    var xCt = (x.containerType || x.notes || '').trim().toUpperCase();
-    var xPpl = (x.pplNo || '').trim().toUpperCase();
-    var xIsPallet = isPalletOrNonContainerType(xCt);
+    return list.filter(function(x){
+      if(x.id === c.id) return true;
+      var xInv = (x.invoiceNo || '').trim().toUpperCase();
+      var xj = (x.customsJobNo || x.jobNo || x.invoiceNo || '').trim().toUpperCase();
+      var xCt = (x.containerType || x.notes || '').trim().toUpperCase();
+      var xPpl = (x.pplNo || '').trim().toUpperCase();
+      var xIsPallet = isPalletOrNonContainerType(xCt);
 
-    // Must belong to the same operational stage!
-    if(computeStage(x) !== computeStage(c)) return false;
+      // Must belong to the same operational stage!
+      if(getRawStage(x) !== cStage) return false;
 
-    // Pallet shipments and FCL container shipments must NEVER be mixed together!
-    if(isPallet !== xIsPallet) return false;
+      // Pallet shipments and FCL container shipments must NEVER be mixed together!
+      if(isPallet !== xIsPallet) return false;
 
-    // Must match either Invoice # or Job #
-    var invMatches = (inv && xInv && inv === xInv);
-    var jobMatches = (j && xj && j === xj);
-    if(!invMatches && !jobMatches) return false;
+      // Must match either Invoice # or Job #
+      var invMatches = (inv && xInv && inv === xInv);
+      var jobMatches = (j && xj && j === xj);
+      if(!invMatches && !jobMatches) return false;
 
-    // If PPL is present on both, must match
-    if(ppl && xPpl && ppl !== xPpl) return false;
+      // If PPL is present on both, must match
+      if(ppl && xPpl && ppl !== xPpl) return false;
 
-    // If both have explicit different container types (e.g. 2 Pallets vs 20'FCL), do not mix
-    if(ct && xCt && ct !== xCt){
-      var ctClean = ct.replace(/^\d+\s*[xX]\s*/, '').trim();
-      var xCtClean = xCt.replace(/^\d+\s*[xX]\s*/, '').trim();
-      if(ctClean && xCtClean && ctClean !== xCtClean) return false;
-    }
+      // If both have explicit different container types (e.g. 2 Pallets vs 20'FCL), do not mix
+      if(ct && xCt && ct !== xCt){
+        var ctClean = ct.replace(/^\d+\s*[xX]\s*/, '').trim();
+        var xCtClean = xCt.replace(/^\d+\s*[xX]\s*/, '').trim();
+        if(ctClean && xCtClean && ctClean !== xCtClean) return false;
+      }
 
-    return true;
-  });
+      return true;
+    });
+  } finally {
+    _inGetAllContainers = false;
+  }
 }
 
 function getConsignmentItems(c){
